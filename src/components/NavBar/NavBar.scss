@@ -61,11 +61,13 @@ nav{
     position: absolute;
     top: 20px;
     left: -20px;
-    width: 200px;
-    padding: 1rem 2rem;
+    width: 250px;
+    height: inherit;
+    padding: 1rem 1rem;
 
     opacity: 0;
     background: $dark;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     
     border-radius: 0 0 5px 5px;
     transition: opacity .20s ease .1s;
@@ -74,25 +76,25 @@ nav{
 .nav-links li:hover > ul {opacity: 1;}
 
 .nav-links ul li {
-  height: 0;
-  overflow: hidden;
-  padding: 0;
-  
-  transition: height .25s ease .1s;
+    height: 0;
+    overflow: hidden;
+    padding: 1rem 0;
+    margin: 2rem 0;
+    transition: height .25s ease .1s;
+    border-bottom: 1px solid #353539;
 }
 
 .nav-links li:hover > ul li {
-  height: 36px;
-  overflow: visible;
-  padding: 0;
+    height: 16px;
+    margin: 2rem 0;
+
+    overflow: visible;
+
 }
 
 .nav-links ul li a {
-  width: 130px;
-  padding: 4px 10px;
-  margin: 0;
-  border: none;
-  border-bottom: 1px solid #353539;
+    margin: 0 0 0 10%;
+    
 }
 .nav-links ul li:last-child a { border: none; }
 
@@ -107,7 +109,11 @@ nav{
     top: 50%;
     transform: translateY(-50%);
     right: 0;
+    &:hover {
+        border-top: 5px solid $secondary;
+    }
 }
+
 
 /*Styling Buttons*/
 .login-button{
@@ -144,7 +150,7 @@ nav{
 .hamburger div{
     width: 30px;
     height:3px;
-    background: #000000;
+    background: $primary;
     margin: 5px;
     transition: all 0.3s ease;
 }
@@ -156,24 +162,29 @@ nav{
 @media screen and (max-width: 800px){
     nav{
         position: fixed;
-        z-index: 3;
+        padding: 0;
+        align-items: stretch;
+        
     }
     .hamburger{
+        z-index: 5;
         display:block;
         position: absolute;
         cursor: pointer;
         right: 5rem;
         top: 50%;
         transform: translate(-5%, -50%);
-        z-index: 2;
         transition: all 0.7s ease;
     }
     .nav-links{
+        z-index: 4;
         position: fixed;
-        background: #131418;
+        background: $dark;
         height: 100vh;
         width: 100%;
         flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
         clip-path: circle(50px at 90% -20%);
         -webkit-clip-path: circle(50px at 90% -10%);
         transition: all 1s ease-out;
@@ -213,6 +224,10 @@ nav{
     li.fade{
         opacity: 1;
     }
+    .login-button {
+    color: $primary;
+    transition: all ease-in-out 350ms;
+}
 }
 /*Animating Hamburger Icon on Click*/
 .toggle .line1{

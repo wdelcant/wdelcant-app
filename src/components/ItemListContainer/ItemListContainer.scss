@@ -1,1 +1,51 @@
 @import '../../styles/variables';
+
+.item-list-container {
+    display: flex;
+    flex-direction: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: $max-width;
+    width: 100%;
+    height: 100%;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 224px;
+        height: 330px;
+        margin-bottom: $spacing-sm;
+        padding: $spacing-sm;
+        border-radius: $spacing-sm;
+        background-color: $white;
+        box-shadow: $box-shadow-small;
+        transition: $transition-default;	
+        cursor: pointer;
+        &:hover {
+            box-shadow: $box-shadow-medium;
+        }
+        &__image {
+            width: 224px;
+            height: 224px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        &__title {
+            font-size: $font-size-lg;
+            font-weight: $spacing-md;
+            color: $dark;
+            margin-bottom: $spacing-sm;
+        }
+        &__description {
+            font-size: $font-size-lg;
+            font-weight: $font-weight-regular;
+            color: $dark;
+        }
+    }
+
+}
+

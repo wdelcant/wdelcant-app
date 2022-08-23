@@ -1,10 +1,15 @@
 import './ItemListContainer.scss';
 
-const ItemListContainer = ({title}) => {
+const ItemListContainer = ({img, title, price, description}) => {
     return (
-        <h1>
-        {title}
-        </h1>
+        <div className="item-list-container">
+            <div className="item-list-container__item">
+                <img src={img} alt="Product images" />
+                <h2>{title}</h2>
+                <p>${price}</p>
+                <p>{description}</p>
+            </div>            
+        </div>
     )
 }
 

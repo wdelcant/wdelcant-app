@@ -2,6 +2,7 @@
 
 
 .cart {
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,6 +13,7 @@
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    
 &__icon {
     position: relative;
     width: 90%;

@@ -5,10 +5,27 @@ import './NavBar.scss'
 import { IoIosArrowDown } from 'react-icons/io';
 
 const NavBar = () => {
+
+
+
+    function hamburgerMenu() {
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        const links = document.querySelectorAll(".nav-links li");
+        //Animate Links
+            navLinks.classList.toggle("open");
+            links.forEach(link => {
+                link.classList.toggle("fade");
+            });
+            //Hamburger Animation
+            hamburger.classList.toggle("toggle");
+    }
+
+
     return (
         <nav>
                 <Logo/>
-                <div className="hamburger">
+                <div className="hamburger" onClick={hamburgerMenu}>
                     <div className="line1" />
                     <div className="line2" />
                     <div className="line3" />
@@ -17,12 +34,14 @@ const NavBar = () => {
                     <li><a href="#categories">Categorías</a>
                         <IoIosArrowDown className="arrow-down" />
                     
-                        <ul>
-                            <li><a href="#web">Diseño Web</a></li>
-                            <li><a href="#design">Logotipos</a></li>
-                            <li><a href="#design">Logotipos</a></li>
-                            <li><a href="#design">Logotipos</a></li>
-                            <li><a href="#design">Logotipos</a></li>
+                        <ul className="menu-desplegable">
+                            <li><a href="#web">Procesadores</a></li>
+                            <li><a href="#motherboard">Placas Madres</a></li>
+                            <li><a href="#memory">Memorias</a></li>
+                            <li><a href="graphics">Tarjetas Gráficas</a></li>
+                            <li><a href="#storage">Almacenamiento</a></li>
+                            <li><a href="#case">Gabinetes</a></li>
+                            <li><a href="#powersupply">Fuentes de poder</a></li>
                         </ul>
                     </li>
                     <li><a href="#offers">Ofertas</a></li>
