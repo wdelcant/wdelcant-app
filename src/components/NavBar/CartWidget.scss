@@ -1,43 +1,32 @@
 @import '../../styles/variables';
 
-
 .cart {
-    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    color: #000;
+    color: $primary;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    
-&__icon {
-    position: relative;
-    width: 90%;
-    height: 90%;
-    }
-span {
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    color: #000;
-    font-size: 22px;
-    right: 15px;
-    top: 24px;
-    color: $primary;
-    background-color: $bg;
-    
+    position: relative;    
+        &__icon {
+            width: 90%;
+            height: 90%;
+            }
 
-}
-        
-
-
-
-
+        &__count {
+            position: absolute;
+            text-align: center;
+            width: 50%;
+            height: 50%;
+            border-radius: 50%;
+            font-size: 18px;
+            right: 0;
+            top: 0;
+            color: #00498A;
+            background-color: $bg;   
+        }
 }

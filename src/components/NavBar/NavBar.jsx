@@ -2,56 +2,69 @@
 import Logo from './Logo';
 import CartWidget from './CartWidget'
 import './NavBar.scss'
-import { IoIosArrowDown } from 'react-icons/io';
 
 const NavBar = () => {
 
 
 
-    function hamburgerMenu() {
-        const hamburger = document.querySelector(".hamburger");
-        const navLinks = document.querySelector(".nav-links");
-        const links = document.querySelectorAll(".nav-links li");
-        //Animate Links
-            navLinks.classList.toggle("open");
-            links.forEach(link => {
-                link.classList.toggle("fade");
-            });
-            //Hamburger Animation
-            hamburger.classList.toggle("toggle");
-    }
-
 
     return (
-        <nav>
-                <Logo/>
-                <div className="hamburger" onClick={hamburgerMenu}>
-                    <div className="line1" />
-                    <div className="line2" />
-                    <div className="line3" />
-                </div>
-                <ul className="nav-links">
-                    <li><a href="#categories">Categorías</a>
-                        <IoIosArrowDown className="arrow-down" />
-                    
-                        <ul className="menu-desplegable">
-                            <li><a href="#web">Procesadores</a></li>
-                            <li><a href="#motherboard">Placas Madres</a></li>
-                            <li><a href="#memory">Memorias</a></li>
-                            <li><a href="graphics">Tarjetas Gráficas</a></li>
-                            <li><a href="#storage">Almacenamiento</a></li>
-                            <li><a href="#case">Gabinetes</a></li>
-                            <li><a href="#powersupply">Fuentes de poder</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#offers">Ofertas</a></li>
-                    <li><a href="#services">Servicios</a></li>
-                    <li><a href="#contactus">Contacto</a></li>
-                    <li><button className="login-button" href="#">Ingresa</button></li>
-                    <li><button className="join-button" href="#">Regístrate</button></li>
-                </ul>
-                <CartWidget />
-        </nav>
+        <nav className="menu">
+        <section className="menu__container">
+        <Logo />
+        <ul className="menu__links">
+
+            <li className="menu__item menu__item--show">
+            <a href="#category" className="menu__link">Categorías <img src="assets/images/arrow.svg" className="menu__arrow" aria-label="imagen flecha" /></a>
+            <ul className="menu__nesting">
+                <li className="menu__inside">
+                <a href="#processor" className="menu__link menu__link--inside">Procesadores</a>
+                </li>
+                <li className="menu__inside">
+                <a href="#motherboard" className="menu__link menu__link--inside">Placas Madres</a>
+                </li>
+                <li className="menu__inside">
+                <a href="#memory" className="menu__link menu__link--inside">Memorias</a>
+                </li>
+                <li className="menu__inside">
+                <a href="#graphics" className="menu__link menu__link--inside">Tarjetas Gráficas</a>
+                </li>
+                <li className="menu__inside">
+                <a href="#storage" className="menu__link menu__link--inside">Almacenamiento</a>
+                </li>
+                <li className="menu__inside">
+                <a href="#cases" className="menu__link menu__link--inside">Gabinetes</a>
+                </li>
+                <li className="menu__inside">
+                <a href="#powersupply" className="menu__link menu__link--inside">Fuentes de poder</a>
+                </li>
+                
+            </ul>
+            </li>
+            <li className="menu__item">
+            <a href="#offers" className="menu__link">Ofertas</a>
+            </li>
+            <li className="menu__item">
+            <a href="#services" className="menu__link">Servicios</a>
+            </li>
+            <li className="menu__item">
+            <a href="#contact" className="menu__link">Contacto</a>
+            </li>
+        </ul>
+        <div className="menu__users">
+            <li><button class="menu__users--login" href="#">Iniciar</button></li>
+            <li><button class="menu__users--register" href="#">Registrar</button></li>
+        </div>
+        <div className="menu__hamburguer">
+            <img src="assets/images/menu.svg" className="menu__img" aria-label='imagen de menu'/>
+        </div>
+        <div>
+        
+        <CartWidget />
+        </div>
+</section>
+</nav>
+
     )
 }
 
