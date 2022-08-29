@@ -52,8 +52,8 @@ const NavBar = () => {
             </li>
         </ul>
         <div className="menu__users">
-            <li><button class="menu__users--login" href="#">Iniciar</button></li>
-            <li><button class="menu__users--register" href="#">Registrar</button></li>
+            <li><button className="menu__users--login" href="#">Iniciar</button></li>
+            <li><button className="menu__users--register" href="#">Registrar</button></li>
         </div>
         <div className="menu__hamburguer">
             <img src="assets/images/menu.svg" className="menu__img" aria-label='imagen de menu'/>

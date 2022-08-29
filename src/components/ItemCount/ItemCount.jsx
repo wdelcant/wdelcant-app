@@ -22,7 +22,7 @@ const ItemCount = ({stock, initial}) => {
 
                     <div>
                         <button className="item__button no-active" onClick={Sub} disabled={count <= initial}>-</button>
-                        <input type="text" readonly class="item__total" value={count} aria-label="Producto en carro"/>
+                        <input type="text" readonly className="item__total" value={count} aria-label="Producto en carro"/>
                         <button className="item__button" onClick={Add} disabled={count >= stock}>+</button>
                     </div>
                     <button className="item__button--add" onClick={AddToCard}>Añadir al carro</button>

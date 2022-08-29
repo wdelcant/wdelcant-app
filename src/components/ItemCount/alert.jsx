@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2';
 
 
+
 const AddToCard = () => {
     const Toast = Swal.mixin({
         toast: true,
@@ -16,7 +17,8 @@ const AddToCard = () => {
         })
         Toast.fire({
         icon: 'success',
-        title: 'El artículo ha sido agregado al carrito'
+        title: `El artículo ha sido agregado al carrito de compras correctamente`,
+
         })
 }
 export default AddToCard;
