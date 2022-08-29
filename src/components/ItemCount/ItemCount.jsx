@@ -13,7 +13,6 @@ const ItemCount = ({stock, initial}) => {
         setCount(count - 1);
     }
 
-
     return (
             <div className="item__count">
                 <div className="item__product">
@@ -22,7 +21,7 @@ const ItemCount = ({stock, initial}) => {
 
                     <div>
                         <button className="item__button no-active" onClick={Sub} disabled={count <= initial}>-</button>
-                        <input type="text" readonly className="item__total" value={count} aria-label="Producto en carro"/>
+                        <span className="item__total">{count}</span>
                         <button className="item__button" onClick={Add} disabled={count >= stock}>+</button>
                     </div>
                     <button className="item__button--add" onClick={AddToCard}>Añadir al carro</button>
