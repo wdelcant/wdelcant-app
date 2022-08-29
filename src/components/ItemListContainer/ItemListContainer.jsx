@@ -1,17 +1,50 @@
+import React, {useEffect, useState} from 'react';
 import './ItemListContainer.scss';
-import ItemCount from '../ItemCount/ItemCount';
+import ItemList from './ItemList';
+import Loader from '../Loader/Loader';
+import Data from '../../data/data';
 
-const ItemListContainer = ({img, title, price, description, stock}) => {
+
+
+
+const ItemListContainer = () => {
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+
+        const getProducts = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Data);
+            }, 2000);
+        })
+
+        getProducts
+        .then((response) => {
+            setProducts(response);
+        }
+        )
+        .catch((error) => {
+            console.log(error);
+        }
+        )
+        .finally(() => {
+            setIsLoading(false);
+        }
+        )
+        
+
+    } , [])
+
     return (
         <div className="item-list-container">
-            <span className="item-list-container__item">
-                <img className="item-list-container__item__image" src={img} alt={title}/>
-                <h2 className="item-list-container__item__title">{title}</h2>
-                <p className="item-list-container__item__price">${price}</p>
-                <p className="item-list-container__item__description">{description}</p>
-                <span className="item-list-container__item__icon"><img src="assets/images/heart.svg" alt="" /></span>
-                <ItemCount stock={stock}/>
-            </span>            
+        {
+        isLoading ?
+                <Loader />
+        :
+        
+                <ItemList items={products}/>
+        }
         </div>
         
     )

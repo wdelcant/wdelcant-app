@@ -1,7 +1,8 @@
 @import '../../styles/variables';
 
 .menu{
-    z-index: 5;
+    position: relative;
+    z-index: 1000;
     background-color: $dark;
     color: $primary;
     height: 70px;

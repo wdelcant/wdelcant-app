@@ -1,39 +1,33 @@
 import './ItemCount.scss';
 import { React, useState } from 'react';
+import AddToCard from './alert';
 
-const ItemCount = ({stock}) => {
-    const [count, setCount] = useState(1);
-    // const [stock] = useState(10);
 
-    function counter(operacion) {
-        if (operacion === '+') {
-            if (count < stock) {
-                setCount(count + 1);
-            }
-        } else {
-            if (count > 1) {
-                setCount(count - 1);
-            }
-        }
-    }
+const ItemCount = ({stock, initial}) => {
+    const [count, setCount] = useState(initial=1);
     
+    const Add = () => {
+        setCount(count + 1);
+    }
+    const Sub = () => {
+        setCount(count - 1);
+    }
+
 
     return (
-        <>
             <div className="item__count">
                 <div className="item__product">
-                    <p>
-                        <span className="item__stock">Stock disponible: {stock}</span>
-                    </p>
+
+                        <p className="item__stock">Stock disponible: {stock}</p>
+
                     <div>
-                        <button className="item__button no-active" onClick={ ( )=> counter("-") }>-</button>
+                        <button className="item__button no-active" onClick={Sub} disabled={count <= initial}>-</button>
                         <input type="text" readonly class="item__total" value={count} aria-label="Producto en carro"/>
-                        <button className="item__button" onClick={ ( )=> counter("+") } >+</button>
+                        <button className="item__button" onClick={Add} disabled={count >= stock}>+</button>
                     </div>
-                    <button className="item__button--add">Añadir al carro</button>
+                    <button className="item__button--add" onClick={AddToCard}>Añadir al carro</button>
                 </div>
             </div>
-        </>
     )
 }
 

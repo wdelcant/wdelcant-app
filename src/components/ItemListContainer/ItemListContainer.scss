@@ -1,14 +1,15 @@
 @import '../../styles/variables';
 
 .item-list-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: stretch;
-    align-content: stretch;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 4fr));
+    grid-gap: $spacing-md;
+    margin-bottom: $spacing-lg;
     max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+    padding-top: $spacing-lg;
+
     &__item {
         cursor: pointer;
         position: relative;
@@ -65,4 +66,6 @@
                 cursor: pointer;
             }
     }
+    
 }
+
