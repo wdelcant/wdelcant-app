@@ -53,3 +53,8 @@
   cursor: pointer;
 
 }
+
+.item__button[disabled] {
+    background-color: grey;
+    border: 1px solid #d1d1d1;
+  }

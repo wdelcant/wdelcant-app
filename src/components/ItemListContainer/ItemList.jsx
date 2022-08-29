@@ -1,6 +1,5 @@
 import React from 'react';
 import Item from './Item';
-import './ItemListContainer.scss';
 
 
 const ItemList = ({ items }) => {

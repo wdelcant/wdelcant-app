@@ -1,6 +1,6 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount';
-import './ItemListContainer.scss';
+
 
 const Item = ({id, img, title, price, description, stock}) => {
     return (
