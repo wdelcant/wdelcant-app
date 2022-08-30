@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './ItemListContainer.scss';
 import ItemList from './ItemList';
 import Loader from '../Loader/Loader';
-import Data from '../../data/data';
+import Products from '../../data/data';
 
 
 
@@ -15,7 +15,7 @@ const ItemListContainer = () => {
 
         const getProducts = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(Data);
+                resolve(Products);
             }, 2000);
         })
 

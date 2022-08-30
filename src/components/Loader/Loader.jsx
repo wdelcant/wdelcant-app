@@ -2,7 +2,7 @@ import { DotWave } from '@uiball/loaders'
 import './Loader.scss';
 
 
-function Loader() {
+const Loader = () => {
   return (
     <div className="loader">
    <DotWave size={80} color="#018aff"/>
