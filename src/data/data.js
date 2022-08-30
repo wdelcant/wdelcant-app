@@ -73,11 +73,37 @@ const products = [{
     {
         id: 10,
         img: 'assets/images/products/fan.png',
-        title: 'Fan',
+        title: 'Cooler Fan',
         price: '4.990',
         description: '',
         stock: 50
+    },
+    {
+        id: 11,
+        img: 'assets/images/products/mouse.png',
+        title: 'Mouse Gamer',
+        price: '4.990',
+        description: '',
+        stock: 50
+    },
+    {
+        id: 12,
+        img: 'assets/images/products/teclado.png',
+        title: 'Teclado Gamer',
+        price: '19.990',
+        description: '',
+        stock: 50
+    },
+    {
+        id: 13,
+        img: 'assets/images/products/padrazer.png',
+        title: 'Pad Razer',
+        price: '29.990',
+        description: '',
+        stock: 30
     }
+
+
 ];
 
 export default products;
