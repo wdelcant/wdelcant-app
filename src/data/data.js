@@ -101,6 +101,38 @@ const products = [{
         price: '29.990',
         description: '',
         stock: 30
+    },
+    {
+        id: 14,
+        img: 'assets/images/products/motherboard.png',
+        title: 'Placa Madre',
+        price: '99.990',
+        description: '',
+        stock: 30
+    },
+    {
+        id: 15,
+        img: 'assets/images/products/tarjetagrafica.png',
+        title: 'Tarjeta Grafica',
+        price: '599.990',
+        description: '',
+        stock: 10
+    },
+    {
+        id: 16,
+        img: 'assets/images/products/aircooling.png',
+        title: 'Disipador de aire',
+        price: '30.990',
+        description: '',
+        stock: 20
+    },
+    {
+        id: 17,
+        img: 'assets/images/products/watercooling.png',
+        title: 'Disipador de agua',
+        price: '60.990',
+        description: '',
+        stock: 10
     }
 
 
