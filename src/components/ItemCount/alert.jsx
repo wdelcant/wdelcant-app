@@ -17,7 +17,7 @@ const AddToCard = () => {
         })
         Toast.fire({
         icon: 'success',
-        title: `El artículo ha sido agregado al carrito de compras correctamente`,
+        title: `El artículo ha sido agregado correctamente`,
 
         })
 }

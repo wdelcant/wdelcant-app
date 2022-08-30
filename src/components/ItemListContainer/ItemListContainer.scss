@@ -4,11 +4,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 4fr));
     grid-gap: $spacing-md;
-    margin-bottom: $spacing-lg;
     max-width: $max-width;
     margin: 0 auto;
-    padding: 0 $spacing-md;
-    padding-top: $spacing-lg;
+    padding: 0 $spacing-lg;
+    min-height: 100vh;
+    padding: $spacing-lg 0;
+
 
     &__item {
         cursor: pointer;
@@ -69,3 +70,18 @@
     
 }
 
+@media screen and (max-width: 768px) {
+    .item-list-container {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    }
+}
+    
+@media screen and (max-width: 576px) {
+    .item-list-container {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    }
+}

@@ -69,6 +69,14 @@ const products = [{
         price: '4.990',
         description: '',
         stock: 50
+    },
+    {
+        id: 10,
+        img: 'assets/images/products/fan.png',
+        title: 'Fan',
+        price: '4.990',
+        description: '',
+        stock: 50
     }
 ];
 

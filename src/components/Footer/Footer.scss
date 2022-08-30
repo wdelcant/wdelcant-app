@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.footer {
+  background: $dark;
+  height: 100px;
+  text-align: center;
+  padding-top: 20px;
+  h4 {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    
+  }
+  a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 0px 5px 0px 5px;
+
+  }
+  &__social {
+    font-size: 20px;
+    text-align: center;
+      img{
+        width: 28px;
+        height: 28px;
+        padding: auto;
+      }
+  }
+  &__copy {
+    padding-top: 20px;
+    color: #D6D6D6;
+    font-size: 14px;
+    text-align: center;
+    a {
+      text-shadow: 0px 0px 5px, 1px 1px 7px black;
+    }
+    a:hover {
+      color: $primary;
+    }
+  }
+}
