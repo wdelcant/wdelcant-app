@@ -60,20 +60,22 @@
             &__icon {
                 position: absolute;
                 text-align: center;
+                width: 10%;
+                height: 10%;  
                 font-size: 1rem;
-                top: 15px;
-                right: 15px;
+                top: 5%;
+                right: 5%;
                 cursor: pointer;	
                 box-shadow: none;
                 transition: all .2s ease;
                 color: #CBCDCE;
                 margin: 0;
-                
                 &.active {
                     color: $primary;
                                     }
                 &:hover {
-                    animation: icon-hover .3s infinite alternate;
+                    animation: icon-hover .5s infinite alternate;
+                    text-shadow: 0px 0px 5px, 1px 1px 7px black;
                 }
                 @keyframes icon-hover {
                     from {

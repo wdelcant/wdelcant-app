@@ -2,12 +2,6 @@ import React from 'react'
 import ItemCount from '../ItemCount/ItemCount';
 import { BsHeartFill } from 'react-icons/bs';
 
-
-
-
-
-
-
 const Item = ({id, img, title, price, description, stock}) => {
 
     const handleClick = event => {

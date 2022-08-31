@@ -1,6 +1,13 @@
-#Proyecto realizado con Sass
+# Proyecto realizado con Sass
 
-Librerías usadas
+# Librerías usadas
+
+Sass React
+https://sass-lang.com/
+
+npm install --save-dev node-sass
+
+---
 
 Loaders
 https://uiball.com/loaders/
@@ -13,3 +20,10 @@ SweetAlert2
 https://github.com/sweetalert2/sweetalert2-react-content
 
 npm install --save sweetalert2 sweetalert2-react-content
+
+---
+
+React icons
+https://react-icons.github.io/react-icons
+
+npm install react-icons --save
