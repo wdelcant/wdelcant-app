@@ -19,7 +19,7 @@ const Item = ({id, img, title, price, description, stock}) => {
             })
             Toast.fire({
             icon: 'success',
-            title: `Has agregado ${count} ${title} correctamente`,
+            title: `Has agregado un total de ${count} productos correctamente`,
 
             })
     }
