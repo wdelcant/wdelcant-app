@@ -2,7 +2,6 @@ import './ItemCount.scss';
 import { React, useState } from 'react';
 import AddToCard from './alert';
 
-
 const ItemCount = ({stock, initial}) => {
     const [count, setCount] = useState(initial=1);
     
@@ -29,7 +28,6 @@ const ItemCount = ({stock, initial}) => {
             </div>
     )
 }
-
 export default ItemCount
 
 

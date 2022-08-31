@@ -39,5 +39,4 @@ const ItemDetailContainer = () => {
             </div>
     )
 }
-
 export default ItemDetailContainer

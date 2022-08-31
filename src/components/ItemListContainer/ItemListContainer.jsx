@@ -4,15 +4,11 @@ import ItemList from './ItemList';
 import Loader from '../Loader/Loader';
 import Products from '../../data/data';
 
-
-
-
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-
         const getProducts = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(Products);
@@ -33,7 +29,6 @@ const ItemListContainer = () => {
         }
         )
         
-
     } , [])
 
     return (
