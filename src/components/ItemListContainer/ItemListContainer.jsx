@@ -32,14 +32,20 @@ const ItemListContainer = () => {
     } , [])
 
     return (
+        <div>
+        <h3 className="item-list-titles"> <span>|</span>  Productos destacados</h3>
+        
+
         <div className="item-list-container">
+            
+            
         {
         isLoading ?
                 <Loader />
         :
-        
-                <ItemList items={products}/>
+        <ItemList items={products}/>
         }
+        </div>
         </div>
         
     )
