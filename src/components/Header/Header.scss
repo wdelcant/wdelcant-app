@@ -29,6 +29,9 @@
         font-family: var(--font-headings);
         font-size: 4rem;
         text-shadow: 0px 0px 5px, 1px 1px 7px black;
+        span {
+            color: $primary;
+        }
     }  
 
     &__subtitle {

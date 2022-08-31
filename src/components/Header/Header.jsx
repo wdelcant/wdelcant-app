@@ -7,7 +7,7 @@ const Header = () => {
         <section className="hero__container">
             <div className="hero__text">
                 <h1 className="hero__title">
-                    WStore
+                    <span>W</span>Store
                 </h1>
                 <p className="hero__subtitle">
                   Tu tienda de compras online
