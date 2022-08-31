@@ -1,9 +1,8 @@
 import './ItemCount.scss';
-import { React, useState } from 'react';
-import AddToCard from './alert';
+import React , { useState } from 'react';
 
-const ItemCount = ({stock, initial}) => {
-    const [count, setCount] = useState(initial=1);
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [count, setCount] = useState(initial);
     
     const Add = () => {
         setCount(count + 1);
@@ -23,7 +22,7 @@ const ItemCount = ({stock, initial}) => {
                         <span className="item__total">{count}</span>
                         <button className="item__button" onClick={Add} disabled={count >= stock}>+</button>
                     </div>
-                    <button className="item__button--add" onClick={AddToCard}>Añadir al carro</button>
+                    <button className="item__button--add" onClick={()=>onAdd(count)}>Añadir al carro</button>
                 </div>
             </div>
     )

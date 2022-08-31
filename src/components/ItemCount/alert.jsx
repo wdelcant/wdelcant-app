@@ -1,6 +1,10 @@
+
 import Swal from 'sweetalert2';
 
-const AddToCard = () => {
+
+
+
+const AddToCard = (count) => {
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
