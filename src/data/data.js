@@ -133,6 +133,30 @@ const products = [{
         price: '60.990',
         description: '',
         stock: 10
+    },
+    {
+        id: 18,
+        img: 'assets/images/products/cases.png',
+        title: 'Gabinete',
+        price: '49.990',
+        description: '',
+        stock: 10
+    },
+    {
+        id: 19,
+        img: 'assets/images/products/audifonosgamer.png',
+        title: 'Audifonos Gamer',
+        price: '19.990',
+        description: '',
+        stock: 30
+    },
+    {
+        id: 20,
+        img: 'assets/images/products/cablehdmi.png',
+        title: 'Cable HDMI',
+        price: '4.990',
+        description: '',
+        stock: 10
     }
 
 
