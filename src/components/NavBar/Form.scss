@@ -1,0 +1,63 @@
+
+@import '../../styles/variables';
+
+
+.form__control {
+  position: relative;
+  border-radius: $borderRadius;
+  padding: 0.5rem;
+  width: 100%;
+
+  &--icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 30px;
+    margin-left: 20px;
+    padding: 0 5px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      color: $primary;
+  }
+  }
+
+  &--input {
+    width: 100%;
+    padding: 0.5rem;
+    padding-right: 2rem;
+    border-radius: $borderRadius;
+    border: $dark;
+    transition: all 0.3s ease-in-out;
+    box-shadow: $shadow-small;
+
+    &::placeholder {
+      color: #ccc;
+    }
+
+    &:focus {
+      outline: 3px solid $primary;
+      
+    }
+    &::-moz-focus-outer {
+      border: 0;
+    }
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
