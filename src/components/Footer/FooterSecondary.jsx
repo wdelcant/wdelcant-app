@@ -15,11 +15,11 @@ const FooterSecunday = () => {
           <BsPatchCheck className="footer__secondary--icon"/>
           <p>Garantía</p>
         </div>
-
+        
         <div className="footer__secondary--shipments">
           <BsTruck className="footer__secondary--icon"/>
           <img className="footer__secondary--img" src="assets/images/logo.svg" alt="" />
-          <p>Envíos</p>
+          <p>Envíos a todo Chile</p>
         </div>
     </div>
   </section>
