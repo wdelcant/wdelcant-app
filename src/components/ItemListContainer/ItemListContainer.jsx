@@ -28,7 +28,7 @@ const ItemListContainer = () => {
             setIsLoading(false);
         }
         )
-        
+
     } , [])
 
     return (

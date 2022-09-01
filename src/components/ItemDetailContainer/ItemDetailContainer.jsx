@@ -5,27 +5,32 @@ import Loader from '../Loader/Loader';
 import './ItemDetailContainer.scss';
 
 const ItemDetailContainer = () => {
-    const [products, setProducts] = useState([]);
+    const [product, setProduct] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const {itemId} = useParams();
 
     useEffect(() => {
-        const getProducts = new Promise((resolve, reject) => {
+        const getProduct = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(Products);
-            } , 2000);
-        } )
-        getProducts
+            }, 2000);
+        })
+
+        getProduct
         .then((response) => {
-            const item = response.find((item)=> item.id === Number(itemId))
-            setProducts(response);
-        } )
+            const item = response.find((item) => item.id === itemId);
+            setProduct(item);
+        }
+        )
         .catch((error) => {
             console.log(error);
-        } )
+        }
+        )
         .finally(() => {
             setIsLoading(false);
-        } )
+        }
+        )
+        
     } , [])
 
     return (
@@ -34,7 +39,7 @@ const ItemDetailContainer = () => {
             isLoading ?
                     <Loader />
             :
-                    <ItemDetail {...products}/>
+                    <ItemDetail {...product}/>
             }
             </div>
     )

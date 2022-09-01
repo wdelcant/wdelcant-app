@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { BsHeartFill } from 'react-icons/bs';
 
 const Item = ({id, img, title, price, description, stock}) => {
+
     const onAdd = (count) => {
         const Toast = Swal.mixin({
             toast: true,
@@ -27,6 +28,7 @@ const Item = ({id, img, title, price, description, stock}) => {
     const handleClick = event => {
         event.currentTarget.classList.toggle('active');
     };
+
 
     return (
             <div className="item-list-container__item" id="item">
