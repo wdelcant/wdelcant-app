@@ -122,7 +122,22 @@
         }
 }
 
-@media (max-width:800px){
+
+@media (max-width:659){
+    .menu__item{
+        --clip:0;
+        overflow:hidden ;
+    }
+
+
+}
+
+
+
+
+
+
+@media (max-width:979px){
     .menu__hamburguer{
         display: flex;
     }

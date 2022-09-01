@@ -1,14 +1,22 @@
 @import '../../styles/variables';
 
+
+.section-footer {
+  background-color: $bg;
+  margin-top: $spacing-lg;
+}
+
+
 .footer {
   background: $dark;
-  height: 100px;
+  height: 140px;
   text-align: center;
   padding-top: 20px;
   h4 {
     color: white;
     font-weight: bold;
     font-size: 20px;
+    margin-bottom: 1rem;
     
   }
   a {
@@ -36,6 +44,58 @@
     }
     a:hover {
       color: $primary;
+    }
+  }
+}
+
+.footer__secondary {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: $max-width;
+  background: $bg;
+  margin: 0 auto;
+  height: 180px;
+  text-align: center;
+  padding-top: 20px;
+  div {
+    width: 100%;
+  }
+
+  p{
+    color: #464646;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+
+  &--icon {
+    font-size: 5rem;
+    color: $primary;
+    
+  }
+  &--contact {
+    cursor: pointer;
+  }
+
+  &--warranty {
+    border-left: 3px solid $primary;
+    border-right: 3px solid $primary;
+    cursor: pointer;
+  }
+
+  &--shipments {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    img{
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      padding: auto;
+      left: 44%;
+      top: 20%;
     }
   }
 }
