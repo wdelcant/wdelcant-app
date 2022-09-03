@@ -140,7 +140,7 @@ const products = [{
         title: 'Gabinete',
         price: '49.990',
         description: '',
-        stock: 10
+        stock: 16
     },
     {
         id: 19,

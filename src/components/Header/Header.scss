@@ -1,66 +1,73 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $dark;
+  background-image: url("../../bg-hero.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 40vh;
+  border-bottom: 1px solid $dark;
+  padding: 1rem;
+
+  &__container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: $dark;
-    background-image: url('../../bg-hero.svg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    min-height: 40vh;
-    border-bottom: 1px solid $dark;
-    padding: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  &__text {
+    color: white;
+  }
+
+  &__title {
+    font-family: var(--font-headings);
+    font-size: 4rem;
+    text-shadow: 0px 0px 5px, 1px 1px 7px black;
+    span {
+      color: $primary;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin: 1.5rem 0;
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: 0.15em solid rgb(255, 255, 255);
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+    animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
         width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    &__text {
-        color: white ;
+      }
     }
 
-    &__title {
-        font-family: var(--font-headings);
-        font-size: 4rem;
-        text-shadow: 0px 0px 5px, 1px 1px 7px black;
-        span {
-            color: $primary;
-        }
-    }  
+    @keyframes blink-caret {
+      from,
+      to {
+        border-color: transparent;
+      }
+      50% {
+        border-color: rgb(255, 255, 255);
+      }
+    }
 
-    &__subtitle {
-        font-size: 1.5rem;
-        line-height: 1.5;
-        margin: 1.5rem 0;
-        color: #fff;
-        font-family: monospace;
-        overflow: hidden; 
-        border-right: .15em solid rgb(255, 255, 255); 
-        white-space: nowrap; 
-        letter-spacing: .15em; 
-        animation: 
-            typing 3.5s steps(30, end),
-            blink-caret .5s step-end infinite;
-        
-        @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: rgb(255, 255, 255) }
-        }
-
-        @media screen and (max-width: 500px) {
-            display: block;
-            font-size: 1rem;
-        }
-        }
+    @media screen and (max-width: 500px) {
+      display: block;
+      font-size: 1rem;
+    }
+  }
 }

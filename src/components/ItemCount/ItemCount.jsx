@@ -1,33 +1,43 @@
-import './ItemCount.scss';
-import React , { useState } from 'react';
+import "./ItemCount.scss";
+import React, { useState } from "react";
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [count, setCount] = useState(initial);
-    
-    const Add = () => {
-        setCount(count + 1);
-    }
-    const Sub = () => {
-        setCount(count - 1);
-    }
+const ItemCount = ({ stock, initial, onAdd }) => {
+  const [count, setCount] = useState(initial);
 
-    return (
-            <div className="item__count">
-                <div className="item__product">
+  const Add = () => {
+    setCount(count + 1);
+  };
+  const Sub = () => {
+    setCount(count - 1);
+  };
 
-                        <p className="item__stock">Stock disponible: {stock}</p>
+  return (
+    <div className="item__count">
+      <div className="item__product">
+        <p className="item__stock">Stock disponible: {stock}</p>
 
-                    <div>
-                        <button className="item__button no-active" onClick={Sub} disabled={count <= initial}>-</button>
-                        <span className="item__total">{count}</span>
-                        <button className="item__button" onClick={Add} disabled={count >= stock}>+</button>
-                    </div>
-                    <button className="item__button--add" onClick={()=>onAdd(count)}>Añadir al carro</button>
-                </div>
-            </div>
-    )
-}
-export default ItemCount
-
-
-
+        <div>
+          <button
+            className="item__button no-active"
+            onClick={Sub}
+            disabled={count <= initial}
+          >
+            -
+          </button>
+          <span className="item__total">{count}</span>
+          <button
+            className="item__button"
+            onClick={Add}
+            disabled={count >= stock}
+          >
+            +
+          </button>
+        </div>
+        <button className="item__button--add" onClick={() => onAdd(count)}>
+          Añadir al carro
+        </button>
+      </div>
+    </div>
+  );
+};
+export default ItemCount;

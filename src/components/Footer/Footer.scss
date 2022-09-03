@@ -1,11 +1,9 @@
-@import '../../styles/variables';
-
+@import "../../styles/variables";
 
 .section-footer {
   background-color: $bg;
   margin-top: $spacing-lg;
 }
-
 
 .footer {
   background: $dark;
@@ -17,26 +15,24 @@
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 1rem;
-    
   }
   a {
     color: rgb(255, 255, 255);
     text-decoration: none;
     padding: 0px 5px 0px 5px;
-
   }
   &__social {
     font-size: 20px;
     text-align: center;
-      img{
-        width: 28px;
-        height: 28px;
-        padding: auto;
-      }
+    img {
+      width: 28px;
+      height: 28px;
+      padding: auto;
+    }
   }
   &__copy {
     padding-top: 20px;
-    color: #D6D6D6;
+    color: #d6d6d6;
     font-size: 14px;
     text-align: center;
     a {
@@ -62,7 +58,7 @@
     width: 100%;
   }
 
-  p{
+  p {
     color: #464646;
     font-size: 1rem;
     text-align: center;
@@ -73,7 +69,6 @@
   &--icon {
     font-size: 5rem;
     color: $primary;
-    
   }
   &--contact {
     cursor: pointer;
@@ -89,7 +84,7 @@
     position: relative;
     text-align: center;
     cursor: pointer;
-    img{
+    img {
       position: absolute;
       width: 28px;
       height: 25px;
@@ -98,7 +93,4 @@
       top: 20%;
     }
   }
-
-  
 }
-

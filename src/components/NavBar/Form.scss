@@ -1,6 +1,4 @@
-
-@import '../../styles/variables';
-
+@import "../../styles/variables";
 
 .form__control {
   position: relative;
@@ -21,7 +19,7 @@
     cursor: pointer;
     &:hover {
       color: $primary;
-  }
+    }
   }
 
   &--input {
@@ -39,22 +37,9 @@
 
     &:focus {
       outline: 3px solid $primary;
-      
     }
     &::-moz-focus-outer {
       border: 0;
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-

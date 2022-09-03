@@ -1,5 +1,4 @@
-@import '../../styles/variables';
-
+@import "../../styles/variables";
 
 .item__count {
   display: flex;
@@ -8,7 +7,6 @@
   text-align: center;
   padding-top: 10px;
 }
-
 
 .item__stock {
   color: $gray;
@@ -20,14 +18,14 @@
 .item__button {
   width: 30px;
   height: 30px;
-  background-color: #2196F3;
+  background-color: #2196f3;
   color: white;
   font-size: 24px;
   border: none;
   cursor: pointer;
 }
 .item__button:active {
-  background-color: #1565C0;
+  background-color: #1565c0;
 }
 
 .item__total {
@@ -51,10 +49,9 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
-
 }
 
 .item__button[disabled] {
-    background-color: grey;
-    border: 1px solid #d1d1d1;
-  }
+  background-color: grey;
+  border: 1px solid #d1d1d1;
+}
