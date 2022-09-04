@@ -8,7 +8,7 @@ import "./ItemListContainer.scss";
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { categoryId } = useParams();
+  const { categoryId, offerId } = useParams();
 
   useEffect(() => {
     const getProducts = new Promise((resolve, reject) => {
@@ -31,7 +31,7 @@ const ItemListContainer = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [categoryId]);
+  }, [categoryId, offerId]);
 
   return (
     <div>
