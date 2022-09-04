@@ -29,6 +29,7 @@
     max-width: 30rem;
     min-width: 12rem;
     margin: 0 auto;
+    border-right: 1px solid #ccc;
     img {
       width: 100%;
       height: auto;
@@ -96,6 +97,7 @@
   .item-detail {
     flex-direction: column;
     &__image {
+      border-right: none;
       border-bottom: 1px solid rgba(128, 128, 128, 0.173);
       width: 100%;
       max-width: 300px;
