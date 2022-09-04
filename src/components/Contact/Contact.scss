@@ -1,0 +1,92 @@
+@import "../../styles/variables";
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing-lg;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    background-color: $light;
+    width: 100%;
+    color: $primary;
+    text-align: center;
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    p {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    a {
+        color: $primary;
+        text-decoration: none;
+        font-size: 1.5rem;
+        &:hover {
+        text-decoration: underline;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: $spacing-sm;
+        background-color: $white;
+        border: 1px solid $primary;
+        border-radius: 5px;
+        box-shadow: 0 0 10px 0 $primary;
+        input {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: $spacing-sm;
+            border: 1px solid $primary;
+            border-radius: 5px;
+            background-color: $light;
+            color: $primary;
+            font-size: 1.5rem;
+            &:focus {
+                outline: none;
+            }
+        }
+        textarea {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: $spacing-sm;
+            border: 1px solid $primary;
+            border-radius: 5px;
+            background-color: $light;
+            color: $primary;
+            font-size: 1.5rem;
+            &:focus {
+                outline: none;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        button {
+            width: 100%;
+            padding: $spacing-sm;
+            border: 1px solid $primary;
+            border-radius: 5px;
+            background-color: $light;
+            color: $primary;
+            font-size: 1.5rem;
+            &:focus {
+                outline: none;
+            }
+            &:hover {
+                background-color: $primary;
+                color: $dark;
+            }
+            cursor: pointer;
+        }
+    }
+}

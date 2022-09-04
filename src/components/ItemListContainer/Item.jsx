@@ -2,7 +2,7 @@ import React from "react";
 import { BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const Item = ({ id, img, title, price, description }) => {
+const Item = ({ id, img, title, price, description, priceDiscount }) => {
   const handleClick = (event) => {
     event.currentTarget.classList.toggle("active");
   };
@@ -14,6 +14,7 @@ const Item = ({ id, img, title, price, description }) => {
       </div>
       <h2 className="item-list-container__item__title">{title}</h2>
       <p className="item-list-container__item__price">${price}</p>
+      <p className="item-list-container__item__priceDiscount">${priceDiscount}</p>
       <p className="item-list-container__item__description">{description}</p>
       <span className=" item-list-container__item__icon" onClick={handleClick}>
         <BsHeartFill />

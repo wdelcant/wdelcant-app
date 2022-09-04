@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import Logo from "./Logo";
 import CartWidget from "./CartWidget";
 import Form from "./Form";
@@ -82,15 +81,21 @@ const NavBar = () => {
           </li>
 
           <li className="menu__item">
-            <Link to="" className="menu__link">Ofertas</Link>
+            <Link to="" className="menu__link">
+              Ofertas
+            </Link>
           </li>
 
           <li className="menu__item">
-            <Link to="" className="menu__link">Servicios</Link>
+            <Link to="" className="menu__link">
+              Servicios
+            </Link>
           </li>
 
           <li className="menu__item">
-            <Link to="" className="menu__link">Contacto</Link>
+            <Link to={"/contact"} className="menu__link">
+              Contacto
+            </Link>
           </li>
         </ul>
 

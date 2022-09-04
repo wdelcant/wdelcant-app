@@ -1,0 +1,54 @@
+@import "../../styles/variables";
+
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: $dark;
+  color: $primary;
+  text-align: center;
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: $primary;
+    text-decoration: none;
+    font-size: 1.5rem;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.container-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 100%;
+  padding: $spacing-sm;
+  margin: 0 auto;
+  background-color: $dark;
+  font-weight: bold;
+  font-stretch: expanded;
+
+
+  &__close {
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+}
+
+.error-text {
+  font-size: 1.5rem;
+  color: $dark;
+}

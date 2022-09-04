@@ -1,7 +1,8 @@
 import ItemCount from "../ItemCount/ItemCount";
 import Swal from "sweetalert2";
+import "./ItemDetailContainer.scss";
 
-const ItemDetail = ({ title, description, image, price, stock }) => {
+const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
   const onAdd = (count) => {
     const Toast = Swal.mixin({
       toast: true,
@@ -22,12 +23,23 @@ const ItemDetail = ({ title, description, image, price, stock }) => {
   };
 
   return (
-    <div id="item-detail">
-      <h1>{title}</h1>
-      <p>{description}</p>
-      <img src={image} alt={title} />
-      <p>{price}</p>
-      <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+    <div id="item-detail" className="item-detail">
+      <div className="item-detail__image">
+        <img className="item-detail__image" src={`../${img}`} alt={title} />
+      </div>
+      <div className="item-detail__info">
+        <h1 className="item-detail__title">{title}</h1>
+        <p className="item-detail__description">{resumen}</p>
+        <p className="item-detail__price">${price}</p>
+        <p className="item-detail__priceDiscount">${priceDiscount}</p>
+
+        <ItemCount
+          className="item-detail__button"
+          stock={stock}
+          initial={1}
+          onAdd={onAdd}
+        />
+      </div>
     </div>
   );
 };
