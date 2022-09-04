@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./ItemListContainer.scss";
 import ItemList from "./ItemList";
 import Loader from "../Loader/Loader";
@@ -7,6 +8,7 @@ import Products from "../../data/data";
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { categoryId } = useParams();
 
   useEffect(() => {
     const getProducts = new Promise((resolve, reject) => {
@@ -17,7 +19,11 @@ const ItemListContainer = () => {
 
     getProducts
       .then((response) => {
-        setProducts(response);
+        categoryId
+          ? setProducts(
+              response.filter((product) => product.category === categoryId)
+            )
+          : setProducts(response);
       })
       .catch((error) => {
         console.log(error);
@@ -25,7 +31,7 @@ const ItemListContainer = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [categoryId]);
 
   return (
     <div>

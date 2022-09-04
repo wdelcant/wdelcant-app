@@ -25,7 +25,6 @@
 .item-list-container {
   display: grid;
   justify-content: center;
-  align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(220px, 4fr));
   grid-gap: $spacing-md;
   max-width: $max-width;
@@ -41,7 +40,7 @@
     align-items: center;
     width: 240px;
     height: 400px;
-    margin-bottom: $spacing-sm;
+    margin: 1rem auto;
     padding: $spacing-sm;
     border-radius: $spacing-sm;
     background-color: $white;
@@ -61,6 +60,7 @@
       max-height: 190px;
       object-fit: cover;
       padding: $spacing-sm;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.173);
     }
     &__title {
       margin-top: 1rem;
@@ -70,14 +70,41 @@
       margin-bottom: $spacing-sm;
     }
     &__description {
+      margin: 1rem;
       font-size: $font-size-lg;
+      font-weight: $spacing-md;
+      color: grey;
+      margin-bottom: $spacing-sm;
+      padding-bottom: $spacing-sm;
       font-weight: $font-weight-regular;
-      color: $dark;
+      text-align: center;
     }
     &__price {
       font-size: 1.5rem;
       font-weight: $font-weight-regular;
       color: green;
+    }
+    &__button {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-color: $primary;
+      color: $white;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
+      border: none;
+      border-radius: 0 0 $borderRadius $borderRadius;
+      cursor: pointer;
+      &:hover {
+        background-color: $dark;
+      }
+    }
+
+    &__button--disabled {
+      background-color: $dark;
+      cursor: not-allowed;
     }
     &__icon {
       position: absolute;

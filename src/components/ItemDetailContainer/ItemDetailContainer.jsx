@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useParams } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import Products from "../../data/data";
 import Loader from "../Loader/Loader";
@@ -18,7 +19,7 @@ const ItemDetailContainer = () => {
 
     getProduct
       .then((response) => {
-        const item = response.find((item) => item.id === itemId);
+        const item = response.find((item) => item.id === Number(itemId));
         setProduct(item);
       })
       .catch((error) => {
@@ -27,7 +28,7 @@ const ItemDetailContainer = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [itemId]);
 
   return (
     <div className="">

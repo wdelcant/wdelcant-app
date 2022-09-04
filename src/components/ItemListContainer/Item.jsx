@@ -1,28 +1,8 @@
 import React from "react";
-import ItemCount from "../ItemCount/ItemCount";
-import Swal from "sweetalert2";
 import { BsHeartFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
-const Item = ({ id, img, title, price, description, stock }) => {
-  const onAdd = (count) => {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 2000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener("click", () => {
-          Swal.close();
-        });
-      },
-    });
-    Toast.fire({
-      icon: "success",
-      title: `Has agregado un total de ${count} productos correctamente`,
-    });
-  };
-
+const Item = ({ id, img, title, price, description }) => {
   const handleClick = (event) => {
     event.currentTarget.classList.toggle("active");
   };
@@ -38,7 +18,11 @@ const Item = ({ id, img, title, price, description, stock }) => {
       <span className=" item-list-container__item__icon" onClick={handleClick}>
         <BsHeartFill />
       </span>
-      <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+      <Link to={`/item/${id}`}>
+      <button className="item-list-container__item__button">
+        Ver mas detalles
+      </button>
+        </Link>
     </div>
   );
 };

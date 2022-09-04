@@ -3,8 +3,8 @@
   padding: 1vh 1vw;
   text-align: center;
   align-items: center;
-}
-.logo img {
-  height: 3rem;
-  width: 5rem;
+  img {
+    max-width: 3rem;
+    object-fit: contain;
+  }
 }

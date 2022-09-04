@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 import "./Logo.scss";
 
 const Logo = () => {
   return (
     <div className="logo">
-      <a href="index.html">
+      <Link to="/">
         <img src="assets/images/logo.svg" alt="Logotipo" />
-      </a>
+      </Link>
     </div>
   );
 };

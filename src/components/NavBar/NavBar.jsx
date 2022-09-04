@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import Logo from "./Logo";
 import CartWidget from "./CartWidget";
 import Form from "./Form";
@@ -10,76 +12,85 @@ const NavBar = () => {
         <Logo />
         <ul className="menu__links">
           <li className="menu__item menu__item--show">
-            <a href="#category" className="menu__link">
+            <Link to="" className="menu__link">
               Categorías{" "}
               <img
                 src="assets/images/arrow.svg"
                 className="menu__arrow"
                 aria-label="imagen flecha"
               />
-            </a>
+            </Link>
 
             <ul className="menu__nesting">
               <li className="menu__inside">
-                <a href="#processor" className="menu__link menu__link--inside">
+                <Link
+                  to={"/category/procesadores"}
+                  className="menu__link menu__link--inside"
+                >
                   Procesadores
-                </a>
+                </Link>
               </li>
               <li className="menu__inside">
-                <a
-                  href="#motherboard"
+                <Link
+                  to={"/category/placasmadres"}
                   className="menu__link menu__link--inside"
                 >
                   Placas Madres
-                </a>
+                </Link>
               </li>
               <li className="menu__inside">
-                <a href="#memory" className="menu__link menu__link--inside">
+                <Link
+                  to={"/category/memorias"}
+                  className="menu__link menu__link--inside"
+                >
                   Memorias
-                </a>
+                </Link>
               </li>
               <li className="menu__inside">
-                <a href="#graphics" className="menu__link menu__link--inside">
+                <Link
+                  to={"/category/graficas"}
+                  className="menu__link menu__link--inside"
+                >
                   Tarjetas Gráficas
-                </a>
+                </Link>
               </li>
               <li className="menu__inside">
-                <a href="#storage" className="menu__link menu__link--inside">
+                <Link
+                  to={"/category/almacenamiento"}
+                  className="menu__link menu__link--inside"
+                >
                   Almacenamiento
-                </a>
+                </Link>
               </li>
               <li className="menu__inside">
-                <a href="#cases" className="menu__link menu__link--inside">
+                <Link
+                  to={"/category/gabinetes"}
+                  className="menu__link menu__link--inside"
+                >
                   Gabinetes
-                </a>
+                </Link>
               </li>
               <li className="menu__inside">
-                <a
-                  href="#powersupply"
+                <Link
+                  to={"/category/energia"}
                   className="menu__link menu__link--inside"
                 >
                   Fuentes de poder
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
 
           <li className="menu__item">
-            <a href="#offers" className="menu__link">
-              Ofertas
-            </a>
+            <Link to="" className="menu__link">Ofertas</Link>
           </li>
 
           <li className="menu__item">
-            <a href="#services" className="menu__link">
-              Servicios
-            </a>
+            <Link to="" className="menu__link">Servicios</Link>
           </li>
 
           <li className="menu__item">
-            <a href="#contact" className="menu__link">
-              Contacto
-            </a>
+            <Link to="" className="menu__link">Contacto</Link>
           </li>
         </ul>
 
