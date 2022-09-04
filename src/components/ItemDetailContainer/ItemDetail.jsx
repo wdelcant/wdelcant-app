@@ -1,5 +1,3 @@
-import React from "react";
-
 const ItemDetail = ({ title, description, image, price }) => {
   return (
     <div id="item-detail">

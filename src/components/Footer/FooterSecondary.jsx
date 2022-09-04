@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.scss";
 import { BsHeadset, BsTruck, BsPatchCheck } from "react-icons/bs";
 
-const FooterSecunday = () => {
+const FooterSecondary = () => {
   return (
     <section className="section-footer">
       <div className="footer__secondary">
@@ -30,4 +30,4 @@ const FooterSecunday = () => {
   );
 };
 
-export default FooterSecunday;
+export default FooterSecondary;
