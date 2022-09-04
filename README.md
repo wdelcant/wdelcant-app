@@ -1,10 +1,9 @@
-# Desarrollador: Wilson Del Canto Cepeda
+## Desarrollador: Wilson Del Canto Cepeda
 
-# Proyecto de tienda online de computation.
+### Proyecto de tienda online de computation.
 
-# Gif de Navegacion 
-![image](https://i.ibb.co/Y8Z2dG7/web.gif)
-
+### Gif de Navegación  
+[![Video](https://i.ibb.co/Y8Z2dG7/web.gif)](https://youtu.be/qYFeQLMmglg)
 
 # Proyecto realizado con React y Sass
 
@@ -13,25 +12,25 @@
 Sass React
 https://sass-lang.com/
 
-### npm install --save-dev sass
+## npm install --save-dev sass
 
 ---
 
 Loaders
 https://uiball.com/loaders/
 
-### npm i @uiball/loaders
+## npm i @uiball/loaders
 
 ---
 
 SweetAlert2
 https://github.com/sweetalert2/sweetalert2-react-content
 
-### npm install --save sweetalert2 sweetalert2-react-content
+## npm install --save sweetalert2 sweetalert2-react-content
 
 ---
 
 React icons
 https://react-icons.github.io/react-icons
 
-### npm install react-icons --save
+## npm install react-icons --save
