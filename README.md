@@ -2,8 +2,8 @@
 
 ### Proyecto de tienda online de computation.
 
-### Gif de Navegación  
-[![Video](https://i.ibb.co/Y8Z2dG7/web.gif)](https://youtu.be/qYFeQLMmglg)
+### Gif de Navegación (Click en la imagen)
+[![Click Me](https://i.ibb.co/5kW0KJK/WStore.png)](https://youtu.be/qYFeQLMmglg)
 
 # Proyecto realizado con React y Sass
 
