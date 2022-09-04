@@ -1,5 +1,6 @@
 import React from "react";
 import FooterSecondary from "./FooterSecondary";
+import { BsFacebook, BsWhatsapp, BsTelegram, BsEnvelope } from "react-icons/bs";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -17,23 +18,17 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img
-                src="assets/images/facebook.svg"
-                alt="imagen representativa de facebook"
-              ></img>{" "}
+              <BsFacebook className="footer__social--fb" />
             </a>
           </span>
           <span>
             <a
               href="https://chat.whatsapp.com/"
-              aria-label="whatsapp oficial"
+              aria-label="WhatsApp oficial"
               target="_blank"
               rel="noreferrer"
             >
-              <img
-                src="assets/images/whatsapp.svg"
-                alt="Logotipo de whatsapp"
-              ></img>
+              <BsWhatsapp className="footer__social--wsp" />
             </a>
           </span>
           <span>
@@ -43,10 +38,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img
-                src="assets/images/telegram.svg"
-                alt="Icono de telegram"
-              ></img>
+              <BsTelegram className="footer__social--tg" />
             </a>
           </span>
           <span>
@@ -56,10 +48,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img
-                src="assets/images/email.svg"
-                alt="Imagen de correo electrónico"
-              ></img>
+              <BsEnvelope className="footer__social--mail" />
             </a>
           </span>
         </div>

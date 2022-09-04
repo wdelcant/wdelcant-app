@@ -5,7 +5,7 @@
 Sass React
 https://sass-lang.com/
 
-npm install --save-dev node-sass
+npm install --save-dev sass
 
 ---
 

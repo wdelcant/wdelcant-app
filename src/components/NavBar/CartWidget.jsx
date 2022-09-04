@@ -1,5 +1,4 @@
 import "./CartWidget.scss";
-
 import { BiCart } from "react-icons/bi";
 
 const CartWidget = () => {

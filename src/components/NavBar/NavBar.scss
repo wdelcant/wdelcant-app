@@ -35,19 +35,19 @@
     }
   }
   &__link {
-    color: #8fcbff;
+    color: $links;
     text-decoration: none;
     padding: 0 30px;
     display: flex;
     height: 100%;
     align-items: center;
     &:hover {
-      background-color: #5a6272;
+      background-color: $navlinksbg;
     }
     &--inside {
       padding: 30px 100px 30px 20px;
       &:hover {
-        background-color: #5a6272;
+        background-color: $navlinksbg;
       }
     }
   }
@@ -89,9 +89,9 @@
     cursor: pointer;
 
     &--register {
-      color: #131418;
-      background-color: #65abe9;
-      border: 1.5px solid #61dafb;
+      color: $dark;
+      background-color: $tertiary;
+      border: 1.5px solid $white;
       border-radius: 2em;
       margin-left: 1rem;
       padding: 0.6rem 0.8rem;
@@ -106,16 +106,16 @@
     }
     &--login {
       background-color: transparent;
-      border: 1.5px solid #f2f5f7;
+      border: 1.5px solid $light;
       border-radius: 2em;
       padding: 0.6rem 0.8rem;
       font-size: 1rem;
-      color: white;
+      color: $white;
       cursor: pointer;
       &:hover {
         color: $light;
-        background-color: #65abe9;
-        border: 1.5px solid #f2f5f7;
+        background-color: $tertiary;
+        border: 1.5px solid $light;
         transition: all ease-in-out 350ms;
       }
     }
