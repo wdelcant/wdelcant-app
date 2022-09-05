@@ -1,4 +1,5 @@
 import ItemCount from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./ItemDetailContainer.scss";
 
@@ -24,6 +25,7 @@ const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
 
   return (
     <div id="item-detail" className="item-detail">
+      <div></div>
       <div className="item-detail__image">
         <img className="item-detail__image" src={`../${img}`} alt={title} />
       </div>
@@ -39,6 +41,10 @@ const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
           initial={1}
           onAdd={onAdd}
         />
+        <Link to={"/"}>
+          {" "}
+          <button className="item-detail__button">Seguir comprando</button>{" "}
+        </Link>
       </div>
     </div>
   );
