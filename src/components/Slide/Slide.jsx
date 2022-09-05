@@ -90,13 +90,6 @@ const Hero = () => {
             className="slider__img"
           />
         </div>
-        <div className="slider__section">
-          <img
-            src="assets/images/banner/image4.png"
-            alt=""
-            className="slider__img"
-          />
-        </div>
       </div>
       <div
         className="slider__btn slider__btn--right"
