@@ -3,7 +3,6 @@
   max-width: 1600px;
   margin: 0 auto;
   overflow: hidden;
-  // box-shadow: 0 0 0 10px #fff, 0 15px 50px;
   position: relative;
 }
 
@@ -11,7 +10,7 @@
   display: flex;
   width: 400%;
   height: 400px;
-  // margin-left: -100%;
+  cursor: pointer;
 
   &__section {
     width: 100%;

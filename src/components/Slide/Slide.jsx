@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from "react";
-import "./Hero.scss";
+import "./Slide.scss";
 
 const Hero = () => {
   const slide = useRef(null);
+  const intervalSlide = useRef(null);
 
   const Next = () => {
     if (slide.current.children.length > 0) {
@@ -10,7 +11,7 @@ const Hero = () => {
       const firstElement = slide.current.children[0];
 
       // Establecemos la animación
-      slide.current.style.transition = `600ms ease-out all`;
+      slide.current.style.transition = `800ms ease-out all`;
 
       // Obtenemos el tamaño del primer elemento
       const size = slide.current.children[0].offsetWidth;
@@ -43,18 +44,26 @@ const Hero = () => {
       slide.current.style.transform = `translateX(-${size}px)`;
 
       setTimeout(() => {
-        slide.current.style.transition = `600ms ease-out all`;
+        slide.current.style.transition = `800ms ease-out all`;
         slide.current.style.transform = `translateX(0)`;
       }, 30);
     }
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    intervalSlide.current = setInterval(() => {
       Next();
-    }, 5000);
+    }, 8000);
 
-    return () => clearInterval(interval);
+    slide.current.addEventListener("mouseenter", () => {
+      clearInterval(intervalSlide.current);
+    });
+
+    slide.current.addEventListener("mouseleave", () => {
+      intervalSlide.current = setInterval(() => {
+        Next();
+      }, 8000);
+    });
   }, []);
 
   return (

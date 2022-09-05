@@ -2,7 +2,7 @@ import React from "react";
 import Announcement from "./Announcement/Announcement";
 import NavBar from "./NavBar/NavBar";
 import Header from "./Header/Header";
-import Hero from "./Hero/Hero";
+import Slide from "./Slide/Slide";
 import ItemListContainer from "./ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer";
 import Contact from "./Contact/Contact";
@@ -19,7 +19,7 @@ function App() {
         <NavBar />
         <Header />
         <Routes>
-          <Route path="/" element={<Hero />} />
+          <Route path="/" element={<Slide />} />
         </Routes>
         <Routes>
           <Route path="/" element={<ItemListContainer />} />       
