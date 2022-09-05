@@ -1,3 +1,6 @@
+@import "../../styles/variables";
+
+
 .container-slider {
   width: 90%;
   max-width: 1600px;
@@ -24,6 +27,7 @@
   }
 
   &__btn {
+    color: $primary;
     position: absolute;
     width: 40px;
     height: 40px;
@@ -37,7 +41,7 @@
     border-radius: 50%;
     cursor: pointer;
     :hover {
-      background: rgb(255, 255, 255);
+      background: rgb(102, 102, 102);
     }
 
     &--left {
