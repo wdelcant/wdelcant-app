@@ -40,7 +40,9 @@ const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
         <p className="item-detail__priceDiscount">${priceDiscount}</p>
 
         {goToCard ? (
-          <Link to="/cart"><button className="item__button--add">Ir al Carrito</button></Link>
+          <Link to="/cart">
+            <button className="item__button--add">Ir al Carrito</button>
+          </Link>
         ) : (
           <ItemCount
             className="item-detail__button"
