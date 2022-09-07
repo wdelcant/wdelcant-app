@@ -1,4 +1,3 @@
-import "./ItemCount.scss";
 import React, { useState } from "react";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
@@ -8,7 +7,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   const Add = () => {
     setCount(count + 1);
   };
-  
+
   const Sub = () => {
     setCount(count - 1);
   };

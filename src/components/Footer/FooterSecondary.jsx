@@ -20,7 +20,7 @@ const FooterSecondary = () => {
           <BsTruck className="footer__secondary--icon" />
           <img
             className="footer__secondary--img"
-            src="assets/images/logo.svg"
+            src="/assets/images/logo.svg"
             alt=""
           />
           <p>Envíos a todo Chile</p>

@@ -1,11 +1,15 @@
 import ItemCount from "./ItemCount";
-import react, { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./ItemDetailContainer.scss";
 
 const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
+  const [goToCard, setGoToCard] = useState(false);
+
   const onAdd = (count) => {
+    setGoToCard(true);
+
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -26,7 +30,6 @@ const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
 
   return (
     <div id="item-detail" className="item-detail">
-      <div></div>
       <div className="item-detail__image">
         <img className="item-detail__image" src={img} alt={title} />
       </div>
@@ -36,14 +39,18 @@ const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
         <p className="item-detail__price">${price}</p>
         <p className="item-detail__priceDiscount">${priceDiscount}</p>
 
-        <ItemCount
-          className="item-detail__button"
-          stock={stock}
-          initial={1}
-          onAdd={onAdd}
-        />
+        {goToCard ? (
+          <Link to="/cart"><button className="item__button--add">Ir al Carrito</button></Link>
+        ) : (
+          <ItemCount
+            className="item-detail__button"
+            stock={stock}
+            initial={1}
+            onAdd={onAdd}
+          />
+        )}
+
         <Link to={"/"}>
-          {" "}
           <button className="item-detail__button">Seguir comprando</button>{" "}
         </Link>
       </div>
