@@ -2,7 +2,7 @@ const products = [
   {
     id: 1,
     category: "latops",
-    img: "assets/images/products/laptop.png",
+    img: "/assets/images/products/laptop.png",
     title: "Laptop",
     price: "899.900",
     priceDiscount: "799.900",
@@ -19,7 +19,7 @@ const products = [
   {
     id: 2,
     category: "almacenamiento",
-    img: "assets/images/products/m2.png",
+    img: "/assets/images/products/m2.png",
     title: "M2",
     price: "49.990",
     priceDiscount: "39.990",
@@ -35,7 +35,7 @@ const products = [
   {
     id: 3,
     category: "procesadores",
-    img: "assets/images/products/procesadores/amd/ryzen5/5600g-1.jpg",
+    img: "/assets/images/products/procesadores/amd/ryzen5/5600g-1.jpg",
     title: "Ryzen 5 5600G",
     price: "299.990",
     priceDiscount: "249.990",
@@ -48,14 +48,14 @@ const products = [
     destacado: true,
     stock: 15,
     images: [
-      "assets/images/products/procesadores/amd/ryzen5/5600g-2.png",
-      "assets/images/products/procesadores/amd/ryzen5/5600g-3.png",
+      "/assets/images/products/procesadores/amd/ryzen5/5600g-2.png",
+      "/assets/images/products/procesadores/amd/ryzen5/5600g-3.png",
     ],
   },
   {
     id: 4,
     category: "almacenamiento",
-    img: "assets/images/products/ssd.png",
+    img: "/assets/images/products/ssd.png",
     title: "SSD",
     price: "39.990",
     priceDiscount: "29.990",
@@ -71,7 +71,7 @@ const products = [
   {
     id: 5,
     category: "energia",
-    img: "assets/images/products/fuentedepoder.png",
+    img: "/assets/images/products/fuentedepoder.png",
     title: "Fuente de Poder",
     price: "99.990",
     priceDiscount: "79.990",
@@ -87,7 +87,7 @@ const products = [
   {
     id: 6,
     category: "memorias",
-    img: "assets/images/products/memoria.png",
+    img: "/assets/images/products/memoria.png",
     title: "Ram",
     price: "49.990",
     priceDiscount: "39.990",
@@ -103,7 +103,7 @@ const products = [
   {
     id: 7,
     category: "almacenamiento",
-    img: "assets/images/products/pendrive.png",
+    img: "/assets/images/products/pendrive.png",
     title: "Pendrive",
     price: "9.990",
     priceDiscount: "7.990",
@@ -115,7 +115,7 @@ const products = [
   {
     id: 8,
     category: "almacenamiento",
-    img: "assets/images/products/hdd.png",
+    img: "/assets/images/products/hdd.png",
     title: "Disco Duro",
     price: "19.990",
     priceDiscount: "14.990",
@@ -131,7 +131,7 @@ const products = [
   {
     id: 9,
     category: "cableria",
-    img: "assets/images/products/cablesata.png",
+    img: "/assets/images/products/cablesata.png",
     title: "Cable Sata",
     price: "4.990",
     priceDiscount: "3.990",
@@ -147,7 +147,7 @@ const products = [
   {
     id: 10,
     category: "aceesorios",
-    img: "assets/images/products/fan.png",
+    img: "/assets/images/products/fan.png",
     title: "Cooler Fan",
     price: "4.990",
     priceDiscount: "3.990",
@@ -163,7 +163,7 @@ const products = [
   {
     id: 11,
     category: "perifericos",
-    img: "assets/images/products/mouse.png",
+    img: "/assets/images/products/mouse.png",
     title: "Mouse Gamer",
     price: "4.990",
     priceDiscount: "3.990",
@@ -179,7 +179,7 @@ const products = [
   {
     id: 12,
     category: "perifericos",
-    img: "assets/images/products/teclado.png",
+    img: "/assets/images/products/teclado.png",
     title: "Teclado Gamer",
     price: "19.990",
     priceDiscount: "14.990",
@@ -195,7 +195,7 @@ const products = [
   {
     id: 13,
     category: "perifericos",
-    img: "assets/images/products/padrazer.png",
+    img: "/assets/images/products/padrazer.png",
     title: "Pad Razer",
     price: "29.990",
     priceDiscount: "24.990",
@@ -211,7 +211,7 @@ const products = [
   {
     id: 14,
     category: "placasmadres",
-    img: "assets/images/products/motherboard.png",
+    img: "/assets/images/products/motherboard.png",
     title: "Placa Madre",
     price: "99.990",
     priceDiscount: "79.990",
@@ -227,7 +227,7 @@ const products = [
   {
     id: 15,
     category: "graficas",
-    img: "assets/images/products/tarjetagrafica.png",
+    img: "/assets/images/products/tarjetagrafica.png",
     title: "Tarjeta Grafica",
     price: "599.990",
     priceDiscount: "499.990",
@@ -243,7 +243,7 @@ const products = [
   {
     id: 16,
     category: "accesorios",
-    img: "assets/images/products/aircooling.png",
+    img: "/assets/images/products/aircooling.png",
     title: "Disipador de aire",
     price: "30.990",
     priceDiscount: "25.990",
@@ -259,7 +259,7 @@ const products = [
   {
     id: 17,
     category: "accesorios",
-    img: "assets/images/products/watercooling.png",
+    img: "/assets/images/products/watercooling.png",
     title: "Disipador de agua",
     price: "60.990",
     priceDiscount: "55.990",
@@ -275,7 +275,7 @@ const products = [
   {
     id: 18,
     category: "gabinetes",
-    img: "assets/images/products/cases.png",
+    img: "/assets/images/products/cases.png",
     title: "Gabinete",
     price: "49.990",
     priceDiscount: "39.990",
@@ -291,7 +291,7 @@ const products = [
   {
     id: 19,
     category: "perifericos",
-    img: "assets/images/products/audifonosgamer.png",
+    img: "/assets/images/products/audifonosgamer.png",
     title: "Audifonos Gamer",
     price: "19.990",
     priceDiscount: "14.990",
@@ -307,7 +307,7 @@ const products = [
   {
     id: 20,
     category: "cableria",
-    img: "assets/images/products/cablehdmi.png",
+    img: "/assets/images/products/cablehdmi.png",
     title: "Cable HDMI",
     price: "4.990",
     priceDiscount: "3.990",

@@ -1,12 +1,14 @@
 import "./ItemCount.scss";
 import React, { useState } from "react";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ initial, stock, onAdd }) => {
+
   const [count, setCount] = useState(initial);
 
   const Add = () => {
     setCount(count + 1);
   };
+  
   const Sub = () => {
     setCount(count - 1);
   };

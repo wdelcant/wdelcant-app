@@ -14,7 +14,7 @@ const NavBar = () => {
             <Link to="" className="menu__link">
               Categorías{" "}
               <img
-                src="assets/images/arrow.svg"
+                src="/assets/images/arrow.svg"
                 className="menu__arrow"
                 aria-label="imagen flecha"
               />
@@ -115,7 +115,7 @@ const NavBar = () => {
         </div>
         <div className="menu__hamburguer">
           <img
-            src="assets/images/menu.svg"
+            src="/assets/images/menu.svg"
             className="menu__img"
             aria-label="imagen de menu"
           />
