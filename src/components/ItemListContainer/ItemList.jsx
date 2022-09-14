@@ -1,11 +1,11 @@
 import React from "react";
 import Item from "./Item";
 
-const ItemList = ({ items }) => {
+const ItemList = ({ productList }) => {
   return (
     <>
-      {items.map((item) => (
-        <Item key={item.id} {...item} />
+      {productList.map((product) => (
+        <Item key={product.id} product={product} />
       ))}
     </>
   );

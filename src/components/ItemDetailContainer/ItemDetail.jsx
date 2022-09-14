@@ -1,14 +1,21 @@
-import ItemCount from "./ItemCount";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
+import ItemCount from "./ItemCount";
 import Swal from "sweetalert2";
 import "./ItemDetailContainer.scss";
 
-const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
+const ItemDetail = ({ product }) => {
   const [goToCard, setGoToCard] = useState(false);
 
-  const onAdd = (count) => {
+  const { addToCart } = useCartContext();
+
+  const onAdd = (quantity) => {
+    addToCart(product, quantity);
+    let stock = product.stock - quantity;
+    product.stock = stock;
     setGoToCard(true);
+    console.log(product);
 
     const Toast = Swal.mixin({
       toast: true,
@@ -24,20 +31,24 @@ const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
     });
     Toast.fire({
       icon: "success",
-      title: `Has agregado un total de ${count} productos correctamente`,
+      title: `Has agregado un total de ${quantity} productos correctamente`,
     });
   };
 
   return (
     <div id="item-detail" className="item-detail">
       <div className="item-detail__image">
-        <img className="item-detail__image" src={img} alt={title} />
+        <img
+          className="item-detail__image"
+          src={product.img}
+          alt={product.title}
+        />
       </div>
       <div className="item-detail__info">
-        <h1 className="item-detail__title">{title}</h1>
-        <p className="item-detail__description">{resumen}</p>
-        <p className="item-detail__price">${price}</p>
-        <p className="item-detail__priceDiscount">${priceDiscount}</p>
+        <h1 className="item-detail__title">{product.title}</h1>
+        <p className="item-detail__description">{product.resumen}</p>
+        <p className="item-detail__price">${product.price}</p>
+        <p className="item-detail__priceDiscount">${product.priceDiscount}</p>
 
         {goToCard ? (
           <Link to="/cart">
@@ -46,7 +57,7 @@ const ItemDetail = ({ title, resumen, img, price, stock, priceDiscount }) => {
         ) : (
           <ItemCount
             className="item-detail__button"
-            stock={stock}
+            stock={product.stock}
             initial={1}
             onAdd={onAdd}
           />

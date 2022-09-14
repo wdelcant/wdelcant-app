@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
-import Loader from "../Loader/Loader";
-import Products from "../../data/data";
+import UseLoader from "../../hooks/useLoader";
+import products from "../../data/data";
 import "./ItemListContainer.scss";
 
 const ItemListContainer = () => {
-  const [products, setProducts] = useState([]);
+  const [productList, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId, offerId } = useParams();
 
   useEffect(() => {
     const getProducts = new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Products);
+        resolve(products);
       }, 2000);
     });
 
@@ -41,7 +41,7 @@ const ItemListContainer = () => {
       </h3>
 
       <div className="item-list-container">
-        {isLoading ? <Loader /> : <ItemList items={products} />}
+        {isLoading ? <UseLoader /> : <ItemList productList={productList} />}
       </div>
     </div>
   );
