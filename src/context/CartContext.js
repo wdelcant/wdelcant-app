@@ -22,8 +22,8 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = (product) => {
-    const newCart = cart.filter((cart) => cart.id !== product.id);
+  const removeFromCart = (id) => {
+    const newCart = cart.filter((product) => product.id !== id);
     setCart(newCart);
   };
 
@@ -31,8 +31,8 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  const isInCart = (product) => {
-    return cart.some((cart) => cart.id === product.id);
+  const isInCart = (id) => {
+    return cart.some((product) => product.id === id);
   };
 
   const totalQuantity = () => {
@@ -41,7 +41,15 @@ export const CartProvider = ({ children }) => {
 
   const totalPrice = () => {
     return cart.reduce(
-      (acc, product) => acc + product.price * product.quantity,
+      (acc, product) => acc + parseFloat(product.price) * product.quantity,
+      0
+    );
+  };
+
+  const totalFinal = () => {
+    return cart.reduce(
+      (acc, product) =>
+        acc + parseFloat(product.priceDiscount) * product.quantity,
       0
     );
   };
@@ -56,6 +64,7 @@ export const CartProvider = ({ children }) => {
         clearCart,
         totalQuantity,
         totalPrice,
+        totalFinal,
       }}
     >
       {children}

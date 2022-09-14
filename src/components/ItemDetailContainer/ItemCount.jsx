@@ -1,19 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useCounter } from "../../hooks/useCounter";
 
 const ItemCount = ({ initial, stock, onAdd }) => {
-  const [count, setCount] = useState(parseInt(initial));
-
-  const Add = () => {
-    setCount(count + 1);
-  };
-
-  const Sub = () => {
-    setCount(count - 1);
-  };
-
-  useEffect(() => {
-    setCount(parseInt(initial));
-  }, [initial]);
+  const { counter, Add, Sub } = useCounter({ initialValue: initial });
 
   return (
     <div className="item__count">
@@ -24,22 +12,26 @@ const ItemCount = ({ initial, stock, onAdd }) => {
           <button
             className="item__button no-active"
             onClick={Sub}
-            disabled={count <= initial}
+            disabled={counter <= initial}
           >
             -
           </button>
-          <span className="item__total">{count}</span>
+          <span className="item__total">{counter}</span>
           <button
             className="item__button"
             onClick={Add}
-            disabled={count >= stock}
+            disabled={counter >= stock}
           >
             +
           </button>
         </div>
-        <button className="item__button--add" onClick={() => onAdd(count)}>
-          Añadir al carro
-        </button>
+        {stock >= 1 ? (
+          <button className="item__button--add" onClick={() => onAdd(counter)}>
+            Añadir al carro
+          </button>
+        ) : (
+          <p>Producto sin Stock</p>
+        )}
       </div>
     </div>
   );

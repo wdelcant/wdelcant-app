@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
-import UseLoader from "../../hooks/useLoader";
-import products from "../../data/data";
-import "./ItemDetailContainer.scss";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import ItemDetail from './ItemDetail';
+import UseLoader from '../../hooks/useLoader';
+import products from '../../data/data';
+import './ItemDetailContainer.scss';
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
   }, [itemId]);
 
   return (
-    <div className="item-detail-container">
+    <div className='item-detail-container'>
       {isLoading ? <UseLoader /> : <ItemDetail product={product} />}
     </div>
   );

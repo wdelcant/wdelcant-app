@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin breakpoints($point) {
   @if $point == md {
     @media (min-width: 48rem) {
@@ -6,3 +8,68 @@
   }
 }
 
+@mixin container($padding: 40px 0) {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: $padding;
+}
+
+@mixin media {
+  @media (min-width: 820px) {
+    @content;
+  }
+}
+
+@mixin mediatablet {
+  @media (min-width: 501px), (max-width: 819px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+
+@function pixeles-rem($px) {
+  $resultado: math.div($px, 16) * 1rem;
+
+  @return $resultado;
+}
+
+@mixin cart-btn {
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 auto;
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+    letter-spacing: -0.015em;
+    font-size: 0.75em;
+    padding: 0.8em;
+    color: #fff;
+    background: $secondary;
+    font-weight: bold;
+    border-radius: 50px;
+  }
+  &:after {
+    content: "\276f";
+    padding: 0.5em;
+    position: relative;
+    right: 0;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    background: $primary;
+
+    &:after {
+      right: -10px;
+    }
+  }
+}

@@ -14,8 +14,15 @@ const ItemDetail = ({ product }) => {
     addToCart(product, quantity);
     let stock = product.stock - quantity;
     product.stock = stock;
+    if (stock === 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No hay stock suficiente",
+      });
+    }
     setGoToCard(true);
-    console.log(product);
+    
 
     const Toast = Swal.mixin({
       toast: true,
@@ -31,7 +38,7 @@ const ItemDetail = ({ product }) => {
     });
     Toast.fire({
       icon: "success",
-      title: `Has agregado un total de ${quantity} productos correctamente`,
+      title: `Has agregado un total de ${quantity} ${product.title} productos correctamente`,
     });
   };
 
