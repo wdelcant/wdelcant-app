@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
+import useCurrency from "../../hooks/useCurrency";
 import ItemCount from "./ItemCount";
 import Swal from "sweetalert2";
 import "./ItemDetailContainer.scss";
@@ -9,6 +10,7 @@ const ItemDetail = ({ product }) => {
   const [goToCard, setGoToCard] = useState(false);
 
   const { addToCart } = useCartContext();
+  const { formatter } = useCurrency();
 
   const onAdd = (quantity) => {
     addToCart(product, quantity);
@@ -54,8 +56,8 @@ const ItemDetail = ({ product }) => {
       <div className="item-detail__info">
         <h1 className="item-detail__title">{product.title}</h1>
         <p className="item-detail__description">{product.resumen}</p>
-        <p className="item-detail__price">${product.price}</p>
-        <p className="item-detail__priceDiscount">${product.priceDiscount}</p>
+        <p className="item-detail__price">{formatter.format(product.price)}</p>
+        <p className="item-detail__priceDiscount">{formatter.format(product.priceDiscount)}</p>
 
         {goToCard ? (
           <Link to="/cart">

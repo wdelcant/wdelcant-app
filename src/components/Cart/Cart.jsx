@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
+import useCurrency from "../../hooks/useCurrency";
 import "./Cart.scss";
 
 const Cart = () => {
@@ -13,9 +14,12 @@ const Cart = () => {
     totalFinal,
   } = useCartContext();
 
+  const { formatter } = useCurrency();
+
   return cart.length <= 0 ? (
     <div className="cart-container">
-      <h3 className="cart__title">Carrito vació :( </h3>
+      <img src="/assets/images/alert-circle.svg" alt="cart" />
+      <h3 className="cart__title">No hay productos agregados al carro :( </h3>
       <Link to="/" className="">
         Comprar productos
       </Link>
@@ -35,11 +39,13 @@ const Cart = () => {
             return (
               <ul className="cart__item">
                 <li>
-                  <img
-                    src={product.img}
-                    alt={product.title}
-                    className="cart__item--image"
-                  />
+                  <Link to={`/item/${product.id}`}>
+                    <img
+                      src={product.img}
+                      alt={product.title}
+                      className="cart__item--image"
+                    />
+                  </Link>
                 </li>
                 <li>
                   <h3 className="cart__item--info--title">{product.title}</h3>
@@ -48,10 +54,12 @@ const Cart = () => {
                   <h3 className="cart__item--quantity">
                     Cantidad: {product.quantity}
                   </h3>
-                  Stock: {product.stock}
+                  En stock: {product.stock}
                 </li>
                 <li>
-                  <h3 className="cart__item--info--price">${product.price}</h3>
+                  <h3 className="cart__item--info--price">
+                    {formatter.format(product.price)}
+                  </h3>
                 </li>
 
                 <li>
@@ -77,7 +85,7 @@ const Cart = () => {
           </li>
           <li className="cart__resume--total">
             <span>
-              Total: <span>${totalPrice()}</span>
+              Total: <span>{totalPrice()}</span>
             </span>
           </li>
           <li className="cart__resume--total">
@@ -85,7 +93,7 @@ const Cart = () => {
           </li>
           <li className="cart__resume--total final">
             <span className="label">Total a Pagar: </span>
-            <span className="value">${totalFinal()}</span>
+            <span className="value">{totalFinal()}</span>
           </li>
           <li className="cart__resume--total">
             <Link to={""} className="cart-btn" onClick={() => clearCart()}>

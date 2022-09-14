@@ -1,5 +1,6 @@
 import React, { useContext, createContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
+import useCurrency from "../hooks/useCurrency";
 
 const CartContext = createContext([]);
 
@@ -8,6 +9,7 @@ export const useCartContext = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useLocalStorage("cart", []);
 
+  const { formatter } = useCurrency();
   const addToCart = (item, quantity) => {
     if (isInCart(item.id)) {
       setCart(
@@ -40,17 +42,17 @@ export const CartProvider = ({ children }) => {
   };
 
   const totalPrice = () => {
-    return cart.reduce(
-      (acc, product) => acc + parseFloat(product.price) * product.quantity,
-      0
+    return formatter.format(
+      cart.reduce((acc, product) => acc + product.price * product.quantity, 0)
     );
   };
 
   const totalFinal = () => {
-    return cart.reduce(
-      (acc, product) =>
-        acc + parseFloat(product.priceDiscount) * product.quantity,
-      0
+    return formatter.format(
+      cart.reduce(
+        (acc, product) => acc + product.priceDiscount * product.quantity,
+        0
+      )
     );
   };
 

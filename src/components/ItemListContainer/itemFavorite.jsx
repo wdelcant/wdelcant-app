@@ -1,6 +1,7 @@
 import React from "react";
+import { BsHeartFill } from "react-icons/bs";
 
-const itemFavorite = (product) => {
+const ItemFavorite = (product) => {
   // button favorite to localStorage
   const handleFavorite = (e) => {
     e.preventDefault();
@@ -19,19 +20,10 @@ const itemFavorite = (product) => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
   return (
-    <div>
-      <button
-        className="item__favorite"
-        id={product.id}
-        title={product.title}
-        price={product.price}
-        img={product.img}
-        onClick={handleFavorite}
-      >
-        <i className="fas fa-heart"></i>
-      </button>
-    </div>
+    <>
+      <BsHeartFill onClick={handleFavorite} />
+    </>
   );
 };
 
-export default itemFavorite;
+export default ItemFavorite;
