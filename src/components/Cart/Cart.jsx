@@ -12,6 +12,7 @@ const Cart = () => {
     removeFromCart,
     clearCart,
     totalFinal,
+    totalDiscount,
   } = useCartContext();
 
   const { formatter } = useCurrency();
@@ -89,7 +90,8 @@ const Cart = () => {
             </span>
           </li>
           <li className="cart__resume--total">
-            <span>Descuentos:{}</span>
+            <span>Descuentos:</span>
+            <span>{totalDiscount()}</span>
           </li>
           <li className="cart__resume--total final">
             <span className="label">Total a Pagar: </span>

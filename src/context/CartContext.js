@@ -56,6 +56,16 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const totalDiscount = () => {
+    return formatter.format(
+      cart.reduce(
+        (acc, product) =>
+          acc + (product.price - product.priceDiscount) * product.quantity,
+        0
+      )
+    );
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -67,6 +77,7 @@ export const CartProvider = ({ children }) => {
         totalQuantity,
         totalPrice,
         totalFinal,
+        totalDiscount,
       }}
     >
       {children}
