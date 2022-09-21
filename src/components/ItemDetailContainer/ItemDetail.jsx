@@ -24,7 +24,6 @@ const ItemDetail = ({ product }) => {
       });
     }
     setGoToCard(true);
-    
 
     const Toast = Swal.mixin({
       toast: true,
@@ -57,7 +56,9 @@ const ItemDetail = ({ product }) => {
         <h1 className="item-detail__title">{product.title}</h1>
         <p className="item-detail__description">{product.resumen}</p>
         <p className="item-detail__price">{formatter.format(product.price)}</p>
-        <p className="item-detail__priceDiscount">{formatter.format(product.priceDiscount)}</p>
+        <p className="item-detail__priceDiscount">
+          {formatter.format(product.priceDiscount)}
+        </p>
 
         {goToCard ? (
           <Link to="/cart">

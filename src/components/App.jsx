@@ -12,6 +12,7 @@ import Error from "./Error/Error";
 import Cart from "./Cart/Cart";
 import Footer from "./Footer/Footer";
 import { CartProvider } from "../context/CartContext";
+import Checkout from "./Checkout/Checkout";
 function App() {
   return (
     <>
@@ -28,6 +29,7 @@ function App() {
             />
             <Route path="/item/:itemId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Error />} />
           </Routes>

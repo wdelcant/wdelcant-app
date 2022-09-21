@@ -38,7 +38,7 @@ const Cart = () => {
         <div className="cart__items">
           {cart.map((product) => {
             return (
-              <ul className="cart__item">
+              <ul className="cart__item" key={product.id}>
                 <li>
                   <Link to={`/item/${product.id}`}>
                     <img
@@ -103,7 +103,7 @@ const Cart = () => {
             </Link>
           </li>
           <li className="cart__resume--total">
-            <Link to="/Checkout" className="cart-btn">
+            <Link to="/checkout" className="cart-btn">
               {" "}
               FINALIZAR
             </Link>

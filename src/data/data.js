@@ -9,11 +9,6 @@ const products = [
     description: "Procesador i5, 8GB de RAM, 256GB SSD",
     resumen:
       "Laptop HP 15s-eq0001la, Intel Core i5-1035G1, 8GB RAM, 256GB SSD, Windows 10 Home",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 5,
   },
   {
@@ -25,11 +20,6 @@ const products = [
     priceDiscount: "39990",
     description: "1TB de almacenamiento",
     resumen: "Almacenamiento SSD M2 1TB",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 20,
   },
   {
@@ -42,16 +32,8 @@ const products = [
     description: "Ryzen 5 5600G",
     resumen:
       "Procesador AMD Ryzen 5 5600G, 6-Core, 3,6Ghz (Max Boost 4,4Ghz), Socket AM4, Radeon Vega Graphics",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 15,
-    images: [
-      "/assets/images/products/procesadores/amd/ryzen5/5600g-2.png",
-      "/assets/images/products/procesadores/amd/ryzen5/5600g-3.png",
-    ],
+
   },
   {
     id: 4,
@@ -62,11 +44,6 @@ const products = [
     priceDiscount: "29990",
     description: "Almacenamiento SSD 500GB",
     resumen: "Almacenamiento SSD 500GB",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 10,
   },
   {
@@ -78,11 +55,6 @@ const products = [
     priceDiscount: "79990",
     description: "650W",
     resumen: "Fuente de Poder 650W",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 5,
   },
   {
@@ -94,11 +66,6 @@ const products = [
     priceDiscount: "39990",
     description: "8GB DDR4",
     resumen: "Memoria Ram 8GB DDR4",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 20,
   },
   {
@@ -109,8 +76,7 @@ const products = [
     price: "9990",
     priceDiscount: "7990",
     description: "32GB",
-    discount: 0,
-    destacado: true,
+    resumen: "Pendrive 32GB",
     stock: 55,
   },
   {
@@ -122,11 +88,6 @@ const products = [
     priceDiscount: "14990",
     description: "1TB",
     resumen: "Disco Duro 1TB",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 100,
   },
   {
@@ -138,11 +99,6 @@ const products = [
     priceDiscount: "3990",
     description: "1.5m",
     resumen: "Cable Sata 1.5m",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 50,
   },
   {
@@ -154,11 +110,6 @@ const products = [
     priceDiscount: "3990",
     description: "120mm",
     resumen: "Cooler Fan 120mm",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 50,
   },
   {
@@ -170,11 +121,6 @@ const products = [
     priceDiscount: "3990",
     description: "3200 DPI",
     resumen: "Mouse Gamer 3200 DPI",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 50,
   },
   {
@@ -186,11 +132,6 @@ const products = [
     priceDiscount: "14990",
     description: "RGB",
     resumen: "Teclado Gamer RGB",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 50,
   },
   {
@@ -202,11 +143,6 @@ const products = [
     priceDiscount: "24990",
     description: "RGB",
     resumen: "Pad Razer RGB",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 30,
   },
   {
@@ -218,11 +154,6 @@ const products = [
     priceDiscount: "79990",
     description: "Socket AM4",
     resumen: "Placa Madre Socket AM4",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 30,
   },
   {
@@ -234,11 +165,6 @@ const products = [
     priceDiscount: "499990",
     description: "8GB GDDR6",
     resumen: "Tarjeta Grafica 8GB GDDR6",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 10,
   },
   {
@@ -250,11 +176,6 @@ const products = [
     priceDiscount: "25990",
     description: "Disipador de aire",
     resumen: "Disipador de aire",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 20,
   },
   {
@@ -266,12 +187,7 @@ const products = [
     priceDiscount: "55990",
     description: "",
     resumen: "Disipador de agua",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
-    stock: 10,
+    stock: 20,
   },
   {
     id: 18,
@@ -282,11 +198,6 @@ const products = [
     priceDiscount: "39990",
     description: "Gabinete Gamer",
     resumen: "Gabinete Gamer",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 16,
   },
   {
@@ -298,11 +209,6 @@ const products = [
     priceDiscount: "14990",
     description: "RGB",
     resumen: "Audifonos Gamer RGB",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 30,
   },
   {
@@ -314,13 +220,29 @@ const products = [
     priceDiscount: "3990",
     description: " 1.5m",
     resumen: "Cable HDMI 1.5m",
-    reviews: [1, 2, 3, 4, 5],
-    rating: 4.5,
-    offer: false,
-    discount: 0,
-    destacado: true,
     stock: 10,
   },
 ];
+
+
+/* Promesa para obtener productos (todos o los de su categoría) */
+export const getProducts = (categoryId) => {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve(categoryId ? products.filter(prod => prod.category === categoryId) : products)
+		}, 1000)
+	})
+}
+
+/* Promesa para obtener el producto por el Id */
+export const getProductById = (id) => {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve(products.find(prod => prod.id === parseInt(id)))
+		}, 1000)
+	})
+}
+
+
 
 export default products;

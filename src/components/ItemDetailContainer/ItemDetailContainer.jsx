@@ -1,37 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import ItemDetail from './ItemDetail';
-import UseLoader from '../../hooks/useLoader';
-import products from '../../data/data';
-import './ItemDetailContainer.scss';
+import React, { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { useParams } from "react-router-dom";
+import ItemDetail from "./ItemDetail";
+import UseLoader from "../../hooks/useLoader";
+import db from "../../services/firebase";
+// import products from '../../data/data';
+import "./ItemDetailContainer.scss";
 
 const ItemDetailContainer = () => {
+  const { itemId } = useParams();
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const { itemId } = useParams();
+
+  const getProduct = async (id) => {
+    try {
+      const document = doc(db, "products", id);
+      const response = await getDoc(document);
+      const result = { id: response.id, ...response.data() };
+      setProduct(result);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    const getProduct = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(products);
-      }, 2000);
-    });
-
-    getProduct
-      .then((response) => {
-        const item = response.find((item) => item.id === Number(itemId));
-        setProduct(item);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    getProduct(itemId);
   }, [itemId]);
 
   return (
-    <div className='item-detail-container'>
+    <div className="item-detail-container">
       {isLoading ? <UseLoader /> : <ItemDetail product={product} />}
     </div>
   );
