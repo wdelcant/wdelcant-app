@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import UseLoader from "../../hooks/useLoader";
 // import products from "../../data/data";
-import db from "../../services/firebase";
+import db from "../../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import "./ItemListContainer.scss";
 
