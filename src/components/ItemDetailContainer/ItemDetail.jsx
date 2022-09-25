@@ -4,6 +4,7 @@ import { useCartContext } from "../../context/CartContext";
 import useCurrency from "../../hooks/useCurrency";
 import ItemCount from "./ItemCount";
 import Swal from "sweetalert2";
+import { updateStock } from "../../utils/firebaseFunctions";
 import "./ItemDetailContainer.scss";
 
 const ItemDetail = ({ product }) => {
@@ -14,6 +15,8 @@ const ItemDetail = ({ product }) => {
 
   const onAdd = (quantity) => {
     addToCart(product, quantity);
+    updateStock(product.id, product.stock - quantity);
+
     let stock = product.stock - quantity;
     product.stock = stock;
     if (stock === 0) {

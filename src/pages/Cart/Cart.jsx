@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 import useCurrency from "../../hooks/useCurrency";
+import { updateStock } from "../../utils/firebaseFunctions";
 import "./Cart.scss";
 
 const Cart = () => {
@@ -16,6 +17,13 @@ const Cart = () => {
   } = useCartContext();
 
   const { formatter } = useCurrency();
+
+  const handleClearCart = () => {
+    cart.forEach((product) => {
+      updateStock(product.id, product.stock);
+    });
+    clearCart();
+  };
 
   return cart.length <= 0 ? (
     <div className="cart-container">
@@ -98,7 +106,11 @@ const Cart = () => {
             <span className="value">{totalFinal()}</span>
           </li>
           <li className="cart__resume--total">
-            <Link to={""} className="cart-btn" onClick={() => clearCart()}>
+            <Link
+              to={""}
+              className="cart-btn"
+              onClick={() => handleClearCart()}
+            >
               VACIAR
             </Link>
           </li>
