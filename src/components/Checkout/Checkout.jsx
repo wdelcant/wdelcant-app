@@ -114,6 +114,11 @@ const Checkout = () => {
               <input className="btn" type="submit" value="Finalizar" />
             </div>
           </Link>
+          <Link to="/order">
+            <div>
+              <input className="btn" type="submit" value="Ver Detalle" />
+            </div>
+          </Link>
         </div>
       )}
     </div>
