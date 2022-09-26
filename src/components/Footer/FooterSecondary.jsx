@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.scss";
+import { Link } from "react-router-dom";
 import { BsHeadset, BsTruck, BsPatchCheck } from "react-icons/bs";
 
 const FooterSecondary = () => {
@@ -7,8 +8,10 @@ const FooterSecondary = () => {
     <section className="section-footer">
       <div className="footer__secondary">
         <div className="footer__secondary--contact">
-          <BsHeadset className="footer__secondary--icon" />
-          <p>Soporte Técnico</p>
+          <Link to="/order">
+            <BsHeadset className="footer__secondary--icon" />
+          </Link>
+          <p>Seguimiento de compra</p>
         </div>
 
         <div className="footer__secondary--warranty">

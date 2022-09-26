@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import useCurrency from "../../hooks/useCurrency";
 import { getProductById, updateStock } from "../../utils/firebaseFunctions";
 
 const CartDetail = ({ product }) => {
   const { addToCart, removeFromCart } = useCartContext();
+
+  const { formatter } = useCurrency();
 
   const [stockProduct, setStockProduct] = useState(product.stock);
 
@@ -55,21 +58,32 @@ const CartDetail = ({ product }) => {
         <h3 className="cart__item--info--title">{product.title}</h3>
       </li>
       <li>
-        <button
-          className="cart__item--info--btn"
-          onClick={resItem}
-          disabled={product.quantity <= 1}
-        >
-          -
-        </button>
-        <button onClick={addItem} disabled={product.quantity >= product.stock}>
-          +
-        </button>
-        <h3 className="cart__item--quantity">Cantidad: {product.quantity}</h3>
-        En stock: {product.stock}
+        <p>Cantidad:</p>
+        <div className="item__count">
+          <button
+            className="cart__item--info--btn"
+            onClick={resItem}
+            disabled={product.quantity <= 1}
+          >
+            -
+          </button>
+          <span className="cart__item--info--total">
+            <h3>{product.quantity}</h3>
+          </span>
+          <button
+            className="cart__item--info--btn"
+            onClick={addItem}
+            disabled={product.quantity >= product.stock}
+          >
+            +
+          </button>
+        </div>
+        <p> En stock: {product.stock}</p>
       </li>
       <li>
-        <h3 className="cart__item--info--price">{product.price}</h3>
+        <h3 className="cart__item--info--price">
+          {formatter.format(product.priceDiscount)}
+        </h3>
       </li>
 
       <li>

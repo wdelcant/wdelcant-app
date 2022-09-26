@@ -3,6 +3,7 @@ import { useCartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import db from "../../utils/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
+import "./Checkout.scss";
 
 const Checkout = () => {
   const { cart, totalFinal, clearCart } = useCartContext();
@@ -20,7 +21,6 @@ const Checkout = () => {
     try {
       const col = collection(db, "orders");
       const order = await addDoc(col, data);
-      console.log("OrdenNro:", order);
       setOrderId(order.id);
       clearCart();
     } catch (error) {
@@ -38,20 +38,25 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const items = cart.map((e) => {
-      return { id: e.id, title: e.title, price: e.price, quantity: e.quantity };
+      return {
+        id: e.id,
+        title: e.title,
+        price: e.priceDiscount,
+        quantity: e.quantity,
+      };
     });
     const date = new Date();
     const total = totalFinal();
     const data = { buyer, items, date, total };
-    console.log("data", data);
     generateOrder(data);
   };
 
   return (
-    <div>
-      <h1>Checkout</h1>
+    <div className="checkout">
       {!orderId ? (
         <form onSubmit={handleSubmit}>
+          <h1>Tus datos</h1>
+          <p>Datos para envío de notificaciones de la compra</p>
           <div>
             <label htmlFor="name">Nombre</label>
             <input
@@ -93,16 +98,22 @@ const Checkout = () => {
             />
           </div>
           <div>
-            <input type="submit" value="Finalizar Compra" />
+            <input className="btn" type="submit" value="Finalizar Compra" />
           </div>
         </form>
       ) : (
-        <div>
-          <h2>Gracias por tu compra!</h2>
-          <p>Tu numero de orden es: {orderId}</p>
+        <div className="end">
+          <p>Gracias por tu compra!{name}</p>
+          <p>
+            Tu numero de orden es: <strong> {orderId}</strong>
+          </p>
           <p>Te llegará un mail con los detalles de tu compra</p>
           <p>Te esperamos de vuelta!</p>
-          <Link to="/"><button>Ver productos</button></Link>
+          <Link to="/">
+            <div>
+              <input className="btn" type="submit" value="Finalizar" />
+            </div>
+          </Link>
         </div>
       )}
     </div>

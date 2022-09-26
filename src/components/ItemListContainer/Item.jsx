@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ItemFavorite from "./ItemFavorite";
 import useCurrency from "../../hooks/useCurrency";
+import { BsHeartFill } from "react-icons/bs";
 
 const Item = ({ product }) => {
+  
   const handleClick = (event) => {
     event.currentTarget.classList.toggle("active");
   };
@@ -26,7 +27,7 @@ const Item = ({ product }) => {
         {product.description}
       </p>
       <span className=" item-list-container__item__icon" onClick={handleClick}>
-        <ItemFavorite />
+        <BsHeartFill />
       </span>
       <Link to={`/item/${product.id}`}>
         <button className="item-list-container__item__button">
