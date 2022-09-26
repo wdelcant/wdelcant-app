@@ -25,11 +25,11 @@ const Order = () => {
         <input
           type="searchOrder"
           name="searchOrder"
-          placeholder="Enter your order ID"
+          placeholder="Ingrese su ID de pedido"
           ref={inputRef}
           onChange={updateOrderSearch}
         />
-        <input type="submit" name="submit" value="Search" />
+        <input type="submit" name="submit" value="Buscar" />
       </form>
     </div>
   );

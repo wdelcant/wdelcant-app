@@ -83,7 +83,7 @@ const OrderDetails = () => {
         </>
       ) : (
         <>
-          <p>The order {routing.orderId} was not found</p>
+          <p>No se encontró el pedido {routing.orderId}</p>
         </>
       )}
     </>
