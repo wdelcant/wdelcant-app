@@ -1,0 +1,196 @@
+@import "../../styles/variables";
+
+.order__container {
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+
+.orderDetails__container {
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(5, 2fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "image title price quantity remove";
+    grid-gap: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: auto;
+    overflow: auto;
+    list-style: none;
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+    &--image {
+      grid-area: image;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto;
+      padding: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &--info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 70%;
+      height: 100%;
+      padding: 20px;
+      &--btn {
+        background-color: #085391;
+        margin: 10px 0px;
+        font-size: 16px;
+        padding: 10px;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          background-color: #0d6db5;
+        }
+      }
+      &--btn[disabled] {
+        background-color: grey;
+        border: 1px solid #d1d1d1;
+        cursor: not-allowed;
+      }
+      &--title {
+        grid-area: title;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+      &--price {
+        grid-area: price;
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+      &--remove {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        border: none;
+        background: #ada5a5;
+        padding: 0.5em;
+        font-size: 1em;
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 100%;
+        line-height: 0.85;
+        transition: all, 0.25s, linear;
+        &:hover {
+          background: #f30;
+        }
+
+        &--quantity {
+          grid-area: quantity;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          &--value {
+            font-size: 1.5rem;
+            font-weight: 500;
+          }
+          &--buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            &--button {
+              cursor: pointer;
+              text-decoration: none;
+              text-decoration: none;
+              color: #ffffff;
+              font-weight: bold;
+              background: #e0e0e0;
+              padding: 0.5em;
+              font-size: 0.75em;
+              display: inline-block;
+              border-radius: 100%;
+              line-height: 0.85;
+              &:hover {
+                background: #f30;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.orderID__Container {
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+  p {
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+  }
+
+  input {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #55595c;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #eee;
+    border-left: 0;
+    border-radius: 3px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+  }
+  input:focus {
+    outline: 0;
+    border-bottom-color: $primary;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    margin-top: 1.618rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    vertical-align: middle;
+    white-space: nowrap;
+    background-color: $primary;
+    border: 1px solid transparent;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+  }
+  .btn:focus,
+  .btn:hover {
+    background-color: $secondary;
+  }
+  .btn:focus {
+    outline: 0;
+  }
+}

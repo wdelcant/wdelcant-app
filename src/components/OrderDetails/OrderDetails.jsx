@@ -45,42 +45,49 @@ const OrderDetails = () => {
       {isLoading ? (
         <Loader />
       ) : orderFound ? (
-        <>
-          <div className="">
-            {cartHistory.map((product) => (
-              <div className="orderDetails__container">
-                <div className="orderDetails__container__item" key={product.id}>
-                  <div className="orderDetails__container__item__info">
-                    <h3>{product.title}</h3>
-                    <p>{product.description}</p>
-                    <p>
-                      Cantidad: {product.quantity} - Precio:{" "}
-                      {formatter.format(product.price)} - SubTotal:{" "}
-                      {formatter.format(product.price * product.quantity)}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-            <div className="totalPricing purchaseInformation">
-              <p>Nombre:</p>
-              <p className="finalPrice">{name}</p>
-              <p>Teléfono:</p>
-              <p className="finalPrice">{phone}</p>
-              <p>Email:</p>
-              <p className="finalPrice">{email}</p>
-              <p>Dirección:</p>
-              <p className="finalPrice">{address}</p>
-              <p>Total:</p>
-              <p className="finalPrice">{priceTotal}</p>
-              <div className="smallGoldButtonContainer">
-                <Link className="smallGoldButton" to="/">
-                  Volver al inicio
-                </Link>
-              </div>
+        <div className="order__container">
+          {cartHistory.map((product) => (
+            <div className="orderDetails__container">
+              <ul className="orderDetails__container__item" key={product.id}>
+                <li>
+                  <h3>{product.title}</h3>
+                </li>
+                <li>
+                  <p>{product.description}</p>
+                </li>
+                <li>
+                  <p>Cantidad: {product.quantity}</p>
+                </li>
+                <li>
+                  <p>Precio: {formatter.format(product.price)}</p>
+                </li>
+                <li>
+                  <p>
+                    Subtotal:{" "}
+                    {formatter.format(product.price * product.quantity)}
+                  </p>
+                </li>
+              </ul>
+            </div>
+          ))}
+          <div className="purchaseInformation__container">
+            <p>Nombre:</p>
+            <p className="finalPrice">{name}</p>
+            <p>Teléfono:</p>
+            <p className="finalPrice">{phone}</p>
+            <p>Email:</p>
+            <p className="finalPrice">{email}</p>
+            <p>Dirección:</p>
+            <p className="finalPrice">{address}</p>
+            <p>Total:</p>
+            <p className="finalPrice">{priceTotal}</p>
+            <div className="smallGoldButtonContainer">
+              <Link className="smallGoldButton" to="/">
+                Volver al inicio
+              </Link>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <>
           <p>No se encontró el pedido {routing.orderId}</p>

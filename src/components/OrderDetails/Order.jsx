@@ -18,8 +18,8 @@ const Order = () => {
     }
   };
   return (
-    <div className="ft-main-item">
-      <h2 className="ft-title">Encuentra tu pedido</h2>
+    <div className="orderID__Container">
+      <h2 className="orderID__Container--title">Encuentra tu pedido</h2>
       <p>Ingrese su ID de pedido para buscar su historial de compras</p>
       <form onSubmit={attemptSearch}>
         <input
@@ -29,7 +29,7 @@ const Order = () => {
           ref={inputRef}
           onChange={updateOrderSearch}
         />
-        <input type="submit" name="submit" value="Buscar" />
+        <input className="btn" type="submit" name="submit" value="Buscar" />
       </form>
     </div>
   );
