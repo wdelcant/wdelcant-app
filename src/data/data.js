@@ -103,7 +103,7 @@ const products = [
   },
   {
     id: 10,
-    category: "aceesorios",
+    category: "accesorios",
     img: "/assets/images/products/fan.png",
     title: "Cooler Fan",
     price: "4990",
@@ -131,7 +131,7 @@ const products = [
     price: "19990",
     priceDiscount: "14990",
     description: "RGB",
-    resumen: "Teclado Gamer RGB",
+    resumen: "Teclado Gamer Mecánico RGB",
     stock: 50,
   },
   {
@@ -185,7 +185,7 @@ const products = [
     title: "Disipador de agua",
     price: "60990",
     priceDiscount: "55990",
-    description: "",
+    description: "Disipador de agua",
     resumen: "Disipador de agua",
     stock: 20,
   },
@@ -208,7 +208,7 @@ const products = [
     price: "19990",
     priceDiscount: "14990",
     description: "RGB",
-    resumen: "Audifonos Gamer RGB",
+    resumen: "Audífonos Gamer RGB",
     stock: 30,
   },
   {
@@ -223,26 +223,5 @@ const products = [
     stock: 10,
   },
 ];
-
-
-/* Promesa para obtener productos (todos o los de su categoría) */
-export const getProducts = (categoryId) => {
-	return new Promise(resolve => {
-		setTimeout(() => {
-			resolve(categoryId ? products.filter(prod => prod.category === categoryId) : products)
-		}, 1000)
-	})
-}
-
-/* Promesa para obtener el producto por el Id */
-export const getProductById = (id) => {
-	return new Promise(resolve => {
-		setTimeout(() => {
-			resolve(products.find(prod => prod.id === parseInt(id)))
-		}, 1000)
-	})
-}
-
-
 
 export default products;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 import db from "../../utils/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 
@@ -101,6 +102,7 @@ const Checkout = () => {
           <p>Tu numero de orden es: {orderId}</p>
           <p>Te llegará un mail con los detalles de tu compra</p>
           <p>Te esperamos de vuelta!</p>
+          <Link to="/"><button>Ver productos</button></Link>
         </div>
       )}
     </div>
