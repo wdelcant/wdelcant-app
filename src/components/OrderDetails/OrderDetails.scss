@@ -21,7 +21,9 @@
     }
   }
   &--purchase {
+    margin: 0 auto;
     &--text {
+      float: right;
       font-size: 1.5rem;
       font-weight: 600;
       color: $dark;
@@ -29,6 +31,33 @@
     &--total {
       color: $primary;
     }
+    &--user {
+      max-width: 300px;
+      border: 1px solid $dark;
+    }
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    margin-top: 1.618rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    vertical-align: middle;
+    white-space: nowrap;
+    background-color: $primary;
+    border: 1px solid transparent;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
+  }
+  .btn:focus,
+  .btn:hover {
+    background-color: $secondary;
+  }
+  .btn:focus {
+    outline: 0;
   }
 }
 

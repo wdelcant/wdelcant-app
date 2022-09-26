@@ -85,17 +85,24 @@ const OrderDetails = () => {
                 {priceTotal}
               </span>
             </p>
-            <p>Nombre:</p>
-            <p className="finalPrice">{name}</p>
-            <p>Teléfono:</p>
-            <p className="finalPrice">{phone}</p>
-            <p>Email:</p>
-            <p className="finalPrice">{email}</p>
-            <p>Dirección:</p>
-            <p className="finalPrice">{address}</p>
+            <div className="order__container--purchase--user">
+              <p>Nombre:</p>
+              <p className="finalPrice">{name}</p>
+              <p>Teléfono:</p>
+              <p className="finalPrice">{phone}</p>
+              <p>Email:</p>
+              <p className="finalPrice">{email}</p>
+              <p>Dirección:</p>
+              <p className="finalPrice">{address}</p>
+            </div>
             <div className="smallGoldButtonContainer">
               <Link className="smallGoldButton" to="/">
-                Volver al inicio
+                <input
+                  className="btn"
+                  type="submit"
+                  name="submit"
+                  value="Volver al inicio"
+                />
               </Link>
             </div>
           </div>
