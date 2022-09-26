@@ -23,6 +23,7 @@ export const getItemInfoById = async (id) => {
   return { id: docSnap.id, ...docSnap.data() };
 };
 
+/* Actualiza el stock de un producto en la base de datos */
 export const updateStock = async (id, stock) => {
   const product = doc(db, "products", id);
 
@@ -31,6 +32,7 @@ export const updateStock = async (id, stock) => {
   });
 };
 
+/* Toma un ID de pedido, encuentra el pedido en la base de datos y devuelve el pedido si existe. */
 export const searchOrder = async (id) => {
   const orderDoc = doc(db, "orders", id);
   const orderSnapshot = await getDoc(orderDoc);
