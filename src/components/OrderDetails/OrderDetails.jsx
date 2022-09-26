@@ -46,6 +46,14 @@ const OrderDetails = () => {
         <Loader />
       ) : orderFound ? (
         <div className="order__container">
+          <ul>
+            <li>
+              <h2>Detalle de la orden</h2>
+            </li>
+            <li>
+              <h3>ID: {routing.orderId}</h3>
+            </li>
+          </ul>
           {cartHistory.map((product) => (
             <div className="orderDetails__container">
               <ul className="orderDetails__container__item" key={product.id}>
@@ -79,7 +87,7 @@ const OrderDetails = () => {
             <p className="finalPrice">{email}</p>
             <p>Dirección:</p>
             <p className="finalPrice">{address}</p>
-            <p>Total:</p>
+            <p>Total a Pagar:</p>
             <p className="finalPrice">{priceTotal}</p>
             <div className="smallGoldButtonContainer">
               <Link className="smallGoldButton" to="/">

@@ -8,7 +8,18 @@
   max-width: 1200px;
   background-color: #fff;
   border-radius: 3px;
+  list-style: none;
+  text-decoration: none;
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 
 .orderDetails__container {
