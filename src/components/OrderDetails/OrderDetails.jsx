@@ -78,7 +78,13 @@ const OrderDetails = () => {
               </ul>
             </div>
           ))}
-          <div className="purchaseInformation__container">
+          <div className="order__container--purchase">
+            <p className="order__container--purchase--text">
+              Total a Pagar:{" "}
+              <span className="order__container--purchase--total">
+                {priceTotal}
+              </span>
+            </p>
             <p>Nombre:</p>
             <p className="finalPrice">{name}</p>
             <p>Teléfono:</p>
@@ -87,8 +93,6 @@ const OrderDetails = () => {
             <p className="finalPrice">{email}</p>
             <p>Dirección:</p>
             <p className="finalPrice">{address}</p>
-            <p>Total a Pagar:</p>
-            <p className="finalPrice">{priceTotal}</p>
             <div className="smallGoldButtonContainer">
               <Link className="smallGoldButton" to="/">
                 Volver al inicio

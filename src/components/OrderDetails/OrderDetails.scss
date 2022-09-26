@@ -20,6 +20,16 @@
       border-bottom: none;
     }
   }
+  &--purchase {
+    &--text {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $dark;
+    }
+    &--total {
+      color: $primary;
+    }
+  }
 }
 
 .orderDetails__container {
@@ -140,6 +150,7 @@
   }
 }
 
+// input donde se busca el ID
 .orderID__Container {
   padding: 2rem;
   margin-top: 2rem;
