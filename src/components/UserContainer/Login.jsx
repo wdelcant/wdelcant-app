@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export function Login() {
   const [user, setUser] = useState({
@@ -16,8 +17,12 @@ export function Login() {
     e.preventDefault();
     setError("");
     try {
-      await signIn(user.email, user.password);
-      navigate("/");
+      if (recaptchaRef.current.getValue()) {
+        await signIn(user.email, user.password);
+        navigate("/");
+      } else {
+        setError("Favor aceptar el captcha");
+      }
     } catch (error) {
       if (error.code === "auth/user-not-found") {
         setError("User not found");
@@ -50,6 +55,14 @@ export function Login() {
     }
   };
 
+  const recaptchaRef = useRef(null);
+
+  const onChange = () => {
+    if (recaptchaRef.current.getValue()) {
+      setError("");
+    }
+  };
+
   return (
     <div>
       <h1>Login</h1>
@@ -63,7 +76,6 @@ export function Login() {
           placeholder="email@email.com"
           onChange={handleChange}
         />
-
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -72,7 +84,12 @@ export function Login() {
           placeholder="********"
           onChange={handleChange}
         />
-        <button type="submit">Login</button>
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey="6LcBaTYiAAAAAOjcbXMlGQ6x-NvT9n-vTgMw2GaL"
+          onChange={onChange}
+        />
+        ,<button type="submit">Login</button>
         <Link to="/resetpassword" className="btn">
           Forgot Password?
         </Link>
