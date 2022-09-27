@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export function Register() {
   const { signUp } = useAuth();
@@ -21,8 +22,12 @@ export function Register() {
       setError("Passwords do not match");
     } else {
       try {
-        await signUp(user.email, user.password);
-        navigate("/");
+        if (recaptchaRef.current.getValue()) {
+          await signUp(user.email, user.password);
+          navigate("/");
+        } else {
+          setError("Favor aceptar el captcha");
+        }
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {
           setError("Email already in use");
@@ -34,6 +39,13 @@ export function Register() {
           setError("Invalid email");
         }
       }
+    }
+  };
+  const recaptchaRef = useRef(null);
+
+  const onChange = () => {
+    if (recaptchaRef.current.getValue()) {
+      setError("");
     }
   };
 
@@ -67,6 +79,12 @@ export function Register() {
           id="password2"
           placeholder="********"
           onChange={(e) => setUser({ ...user, password2: e.target.value })}
+        />
+
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey="6LcBaTYiAAAAAOjcbXMlGQ6x-NvT9n-vTgMw2GaL"
+          onChange={onChange}
         />
 
         <button type="submit">Register</button>
