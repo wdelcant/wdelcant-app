@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "./UserContainer/Login";
+import { Register } from "./UserContainer/Register";
 
 import Announcement from "./Announcement/Announcement";
 import NavBar from "./NavBar/NavBar";
@@ -15,30 +17,60 @@ import Order from "./OrderDetails/Order";
 import Footer from "./Footer/Footer";
 import { CartProvider } from "../context/CartContext";
 import Checkout from "./Checkout/Checkout";
+import { ProtectedRoute } from "./UserContainer/ProtectedRoute";
+import { AuthProvider } from "../context/AuthContext";
 function App() {
   return (
     <>
       <BrowserRouter>
-        <CartProvider>
-          <Announcement />
-          <NavBar />
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/category/:categoryId"
-              element={<ItemListContainer />}
-            />
-            <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/searchorder/:orderId" element={<OrderDetails />} />
-            <Route path="/order" element={<Order />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-          <Footer />
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <Announcement />
+            <NavBar />
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route
+                path="/category/:categoryId"
+                element={<ItemListContainer />}
+              />
+              <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+              <Route path="/cart" element={<Cart />} />
+
+              <Route
+                path="/checkout"
+                element={
+                  <ProtectedRoute>
+                    {" "}
+                    <Checkout />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/searchorder/:orderId"
+                element={
+                  <ProtectedRoute>
+                    <OrderDetails />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/order"
+                element={
+                  <ProtectedRoute>
+                    <Order />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Error />} />
+            </Routes>
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </BrowserRouter>
     </>
   );

@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import CartWidget from "./CartWidget";
 import Form from "./Form";
 import "./NavBar.scss";
+import ButtonsAcc from "./ButtonsAcc";
 
 const NavBar = () => {
   return (
@@ -101,18 +102,7 @@ const NavBar = () => {
 
         <Form />
 
-        <div className="menu__users menu__links">
-          <li>
-            <button className="menu__users--login" href="#">
-              Iniciar
-            </button>
-          </li>
-          <li>
-            <button className="menu__users--register" href="#">
-              Registrar
-            </button>
-          </li>
-        </div>
+        <ButtonsAcc />
         <div className="menu__hamburguer">
           <img
             src="/assets/images/menu.svg"
