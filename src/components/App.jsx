@@ -19,6 +19,7 @@ import { CartProvider } from "../context/CartContext";
 import Checkout from "./Checkout/Checkout";
 import { ProtectedRoute } from "./UserContainer/ProtectedRoute";
 import { AuthProvider } from "../context/AuthContext";
+import { ResetPassword } from "./UserContainer/ResetPassword";
 function App() {
   return (
     <>
@@ -32,6 +33,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/resetpassword" element={<ResetPassword />} />
               <Route
                 path="/category/:categoryId"
                 element={<ItemListContainer />}

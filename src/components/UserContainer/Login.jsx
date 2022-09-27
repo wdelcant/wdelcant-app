@@ -8,7 +8,7 @@ export function Login() {
     password: "",
   });
 
-  const { signIn, loginWithGoogle, resetPassword } = useAuth();
+  const { signIn, loginWithGoogle } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -50,16 +50,6 @@ export function Login() {
     }
   };
 
-  const handleResetPassword = async () => {
-    if (!user.email) return setError("Please enter your email");
-    try {
-      await resetPassword(user.email);
-      setError("Password reset link sent to your email");
-    } catch (error) {
-      setError(error.code);
-    }
-  };
-
   return (
     <div>
       <h1>Login</h1>
@@ -83,9 +73,9 @@ export function Login() {
           onChange={handleChange}
         />
         <button type="submit">Login</button>
-        <a href="#!" className="btn" onClick={handleResetPassword}>
+        <Link to="/resetpassword" className="btn">
           Forgot Password?
-        </a>
+        </Link>
       </form>
       <button onClick={handleGoogleLogin}>Login with Google</button>
       <p className="">
