@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+
 export function ResetPassword() {
   const [user, setUser] = useState({
     email: "",
@@ -17,7 +18,6 @@ export function ResetPassword() {
     setError("");
     try {
       await signIn(user.email, user.password);
-      navigate("/");
     } catch (error) {
       if (error.code === "auth/user-not-found") {
         setError("User not found");
@@ -46,6 +46,9 @@ export function ResetPassword() {
     try {
       await resetPassword(user.email);
       setError("Password reset link sent to your email");
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
     } catch (error) {
       setError(error.code);
     }

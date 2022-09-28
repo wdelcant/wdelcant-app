@@ -9,6 +9,7 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
+import Swal from "sweetalert2";
 
 export const authContext = createContext();
 
@@ -30,7 +31,12 @@ export function AuthProvider({ children }) {
   const signIn = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 
-  const logOut = () => signOut(auth);
+  const logOut = () => {
+    if (window.confirm("Are you sure you want to log out?")) {
+      signOut(auth);
+      alert("You have been logged out");
+    }
+  };
 
   const loginWithGoogle = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -41,13 +47,37 @@ export function AuthProvider({ children }) {
     return sendPasswordResetEmail(auth, email);
   };
 
+  const isUserLoggedIn = () => {
+    return auth.currentUser;
+  };
+
+  useEffect(() => {
+    if (isUserLoggedIn()) {
+      setUser(auth.currentUser);
+    }
+    setLoader(false);
+  }, []);
+
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        console.log("user is logged in");
-      } else {
-        console.log("user is logged out");
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("click", () => {
+              Swal.close();
+            });
+          },
+        });
+        Toast.fire({
+          icon: "success",
+          title: `Hola ${currentUser.displayName || currentUser.email}`,
+        });
       }
       setLoader(false);
     });
@@ -63,6 +93,9 @@ export function AuthProvider({ children }) {
         Loader,
         loginWithGoogle,
         resetPassword,
+        isUserLoggedIn,
+        currentUser: user,
+        currentUserEmail: user?.email,
       }}
     >
       {children}

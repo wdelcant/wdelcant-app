@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
+import "./Login.scss";
 
 export function Login() {
   const [user, setUser] = useState({
@@ -25,16 +26,16 @@ export function Login() {
       }
     } catch (error) {
       if (error.code === "auth/user-not-found") {
-        setError("User not found");
+        setError("Usuario no existe");
       }
       if (error.code === "auth/wrong-password") {
-        setError("Wrong password");
+        setError("Contraseña incorrecta");
       }
       if (error.code === "auth/invalid-email") {
-        setError("Invalid email");
+        setError("Email inválido");
       }
       if (error.code === "auth/too-many-requests") {
-        setError("Too many requests");
+        setError("Demasiados intentos, intente más tarde");
       }
     }
   };
@@ -51,7 +52,9 @@ export function Login() {
       await loginWithGoogle();
       navigate("/");
     } catch (error) {
-      setError(error.code);
+      if (error.code === "auth/popup-closed-by-user") {
+        setError("Cerraste la ventana de inicio de sesión");
+      }
     }
   };
 
@@ -63,45 +66,65 @@ export function Login() {
     }
   };
 
-
   return (
-    <div>
-      <h1>Login</h1>
-      {error && <small>{error}</small>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="email@email.com"
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="********"
-          onChange={handleChange}
-        />
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          sitekey="6LcBaTYiAAAAAOjcbXMlGQ6x-NvT9n-vTgMw2GaL"
-          onChange={onChange}
-        />
-        ,<button type="submit">Login</button>
-        <Link to="/resetpassword" className="btn">
-          Forgot Password?
-        </Link>
-      </form>
-      <button onClick={handleGoogleLogin}>Login with Google</button>
-      <p className="">
-        Don't have an account?
-        <Link to="/register" className="">
-          Register
-        </Link>
-      </p>
+    <div className="login__container">
+      <div className="login__content">
+        <h1 className="login__content--title">Login</h1>
+        <form className="login__content--form" onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
+          <input
+            className="login__content--form--input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="correo@mail.com"
+            onChange={handleChange}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            className="login__content--form--input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="********"
+            onChange={handleChange}
+          />
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey="6LcBaTYiAAAAAOjcbXMlGQ6x-NvT9n-vTgMw2GaL"
+            onChange={onChange}
+          />
+          <div className="login__content--error">
+            {error && <small>{error}</small>}
+          </div>
+          <button className="login__content--form--btn" type="submit">
+            Login
+          </button>
+          <span>
+            <Link to="/resetpassword" className="">
+              Olvidaste tu contraseña?
+            </Link>
+          </span>
+        </form>
+        <div className="login__content--btngoogle" onClick={handleGoogleLogin}>
+          <div className="login__content--btngoogle--wrapper">
+            <img
+              alt="google"
+              className="login__content--btngoogle--wrapper-icon"
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            />
+          </div>
+          <p className="login__content--btngoogle--wrapper-text">
+            <b>Sign in with google</b>
+          </p>
+        </div>
+        <p className="">
+          No tienes cuenta?
+          <Link to="/register" className="">
+            Regístrate
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }

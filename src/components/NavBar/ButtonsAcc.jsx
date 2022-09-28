@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 
 const ButtonsAcc = () => {
   const { logout } = useAuth();
+  const [captcha, setCaptcha] = useState(null);
   const [validatorUser, setValidatorUser] = useState(false);
   
 
