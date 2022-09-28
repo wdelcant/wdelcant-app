@@ -1,24 +1,43 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import Swal from "sweetalert2";
 
 const ButtonsAcc = () => {
-  const { logout } = useAuth();
-  const [validatorUser, setValidatorUser] = useState(false);
-  
+  const { logOut, user } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
-  
     try {
-      await logout();
+      await logOut();
+      alertLogOut();
+      navigate("/");
     } catch (error) {
       console.error(error.message);
     }
   };
+
+  const alertLogOut = () => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("click", () => {
+          Swal.close();
+        });
+      },
+    });
+    Toast.fire({
+      icon: "success",
+      title: `Vuelve pronto ${user.email}`,
+    });
+  };
+
   return (
     <div className="menu__users menu__links">
-      
-      {!validatorUser && (
+      {!user && (
         <>
           <li>
             <Link to="/login">
@@ -32,7 +51,7 @@ const ButtonsAcc = () => {
           </li>
         </>
       )}
-      {validatorUser && (
+      {user && (
         <>
           <li>
             <Link to="/profile">
@@ -41,7 +60,7 @@ const ButtonsAcc = () => {
           </li>
           <li>
             <button className="menu__users--logout" onClick={handleLogout}>
-              Cerrar
+              Cerrar sesión
             </button>
           </li>
         </>
