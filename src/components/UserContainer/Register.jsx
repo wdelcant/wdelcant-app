@@ -118,9 +118,9 @@ export function Register() {
             Registrar
           </button>
         </form>
-        <p className="">
+        <p className="register__content--text">
           Ya tienes una cuenta?
-          <Link to="/login" className="">
+          <Link to="/login" className="register__content--text--link">
             Iniciar sesión
           </Link>
         </p>

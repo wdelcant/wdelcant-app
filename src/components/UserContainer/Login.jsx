@@ -101,7 +101,7 @@ export function Login() {
             Iniciar
           </button>
           <span>
-            <Link to="/resetpassword" className="">
+            <Link to="/resetpassword" className="login__content--text--link">
               Olvidaste tu contraseña?
             </Link>
           </span>
@@ -118,9 +118,9 @@ export function Login() {
             <b>Sign in with google</b>
           </p>
         </div>
-        <p className="">
+        <p className="login__content--text">
           No tienes cuenta?
-          <Link to="/register" className="">
+          <Link to="/register" className="login__content--text--link">
             Regístrate
           </Link>
         </p>

@@ -13,6 +13,18 @@
   font-weight: $font-weight;
   text-align: center;
   border-radius: $borderRadius;
+  &--text {
+    color: $dark;
+    &--link {
+      margin-left: $spacing-sm;
+      color: $secondary;
+      text-decoration: none;
+      &:hover {
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+  }
   &--error {
     width: 100%;
     font-size: $font-size-xxl;
