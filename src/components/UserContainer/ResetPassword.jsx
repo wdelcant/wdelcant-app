@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import "./ResetPassword.scss";
 
@@ -96,6 +96,12 @@ export function ResetPassword() {
             Reset Password
           </button>
         </form>
+        <p className="reset__content--text">
+          Ya la recuperaste?
+          <Link to="/login" className="reset__content--text--link">
+            Regresar
+          </Link>
+        </p>
       </div>
     </div>
   );
