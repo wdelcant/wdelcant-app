@@ -53,7 +53,7 @@
       font-weight: $font-weight;
       padding: 0 10px;
       &:focus {
-        outline: none;
+        outline: 1px solid $secondary;
       }
     }
     &--btn {

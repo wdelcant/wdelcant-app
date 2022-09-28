@@ -11,7 +11,7 @@ export function Login() {
     password: "",
   });
 
-  const { signIn, loginWithGoogle, signUp } = useAuth();
+  const { signIn, loginWithGoogle } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
