@@ -85,11 +85,12 @@
       width: 40px;
       height: 25px;
       margin: 2px;
+      border-radius: 2px;
       background-color: $white;
       &-icon {
         position: absolute;
-        margin-top: 5px;
-        margin-left: -8px;
+        margin-top: 4px;
+        margin-left: -10px;
         width: 18px;
         height: 18px;
       }

@@ -94,8 +94,6 @@ export function AuthProvider({ children }) {
         loginWithGoogle,
         resetPassword,
         isUserLoggedIn,
-        currentUser: user,
-        currentUserEmail: user?.email,
       }}
     >
       {children}

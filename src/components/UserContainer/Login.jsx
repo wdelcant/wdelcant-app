@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
+import Swal from "sweetalert2";
 import "./Login.scss";
 
 export function Login() {
@@ -10,7 +11,7 @@ export function Login() {
     password: "",
   });
 
-  const { signIn, loginWithGoogle } = useAuth();
+  const { signIn, loginWithGoogle, signUp } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -47,9 +48,29 @@ export function Login() {
     });
   };
 
+  const alertRegister = () => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("click", () => {
+          Swal.close();
+        });
+      },
+    });
+    Toast.fire({
+      icon: "success",
+      title: `Usuario ${user.email} registrado con éxito`,
+    });
+  };
+
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
+      alertRegister();
       navigate("/");
     } catch (error) {
       if (error.code === "auth/popup-closed-by-user") {

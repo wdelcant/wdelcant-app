@@ -32,7 +32,7 @@ export function Register() {
     });
     Toast.fire({
       icon: "success",
-      title: `Bienvenido/a ${user.email}`,
+      title: `Usuario ${user.email} registrado con éxito`,
     });
   };
 
@@ -45,7 +45,6 @@ export function Register() {
       try {
         if (recaptchaRef.current.getValue()) {
           await signUp(user.email, user.password);
-
           alertRegister();
           navigate("/");
         } else {
