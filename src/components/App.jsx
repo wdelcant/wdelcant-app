@@ -17,7 +17,7 @@ import Order from "./OrderDetails/Order";
 import Footer from "./Footer/Footer";
 import { CartProvider } from "../context/CartContext";
 import Checkout from "./Checkout/Checkout";
-import { ProtectedRoute } from "./UserContainer/ProtectedRoute";
+import { ProtectedRoute } from "../routes/ProtectedRoute";
 import { AuthProvider } from "../context/AuthContext";
 import { ResetPassword } from "./UserContainer/ResetPassword";
 function App() {
