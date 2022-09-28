@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export const authContext = createContext();
 
@@ -24,6 +25,7 @@ export const useAuth = () => {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [Loader, setLoader] = useState(true);
+  const navigate = useNavigate();
 
   const signUp = (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
@@ -32,10 +34,20 @@ export function AuthProvider({ children }) {
     signInWithEmailAndPassword(auth, email, password);
 
   const logOut = () => {
-    if (window.confirm("Are you sure you want to log out?")) {
-      signOut(auth);
-      alert("You have been logged out");
-    }
+    Swal.fire({
+      title: "Estas seguro?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, cerrar sesión!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        signOut(auth);
+        navigate("/");
+        Swal.fire("Adiós", "Vuelve cuando quieras!.", "success");
+      }
+    });
   };
 
   const loginWithGoogle = () => {

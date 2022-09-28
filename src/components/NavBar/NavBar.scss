@@ -80,46 +80,7 @@
     display: block;
     width: 36px;
   }
-  &__users {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 0 0 0 15px;
-    cursor: pointer;
 
-    &--register {
-      color: $dark;
-      background-color: $tertiary;
-      border: 1.5px solid $white;
-      border-radius: 2em;
-      margin-left: 1rem;
-      padding: 0.6rem 0.8rem;
-      font-size: 1rem;
-      cursor: pointer;
-      &:hover {
-        color: #f2f5f7;
-        background-color: transparent;
-        border: 1.5px solid #f2f5f7;
-        transition: all ease-in-out 350ms;
-      }
-    }
-    &--login {
-      background-color: transparent;
-      border: 1.5px solid $light;
-      border-radius: 2em;
-      padding: 0.6rem 0.8rem;
-      font-size: 1rem;
-      color: $white;
-      cursor: pointer;
-      &:hover {
-        color: $light;
-        background-color: $tertiary;
-        border: 1.5px solid $light;
-        transition: all ease-in-out 350ms;
-      }
-    }
-  }
 }
 
 @media (max-width: 659) {

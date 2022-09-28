@@ -2,6 +2,7 @@ import React from "react";
 import FooterSecondary from "./FooterSecondary";
 import { BsFacebook, BsWhatsapp, BsTelegram, BsEnvelope } from "react-icons/bs";
 import "./Footer.scss";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -53,8 +54,15 @@ const Footer = () => {
           </span>
         </div>
         <p className="footer__copy">
-          © 2022 Copyright. <a href="index.html"> wStore.cl</a> v.2.0 |
-          <a href="https://wilsondelcanto.dev"> wilsondelcanto.dev</a>
+          © 2022 Copyright. <Link to="/"> wStore.cl</Link> v.2.0 |
+          <a
+            href="https://wilsondelcanto.dev"
+            aria-label="Pagina web del creador"
+            target="_blank"
+            rel="noreferrer"
+          >
+            wilsondelcanto.dev
+          </a>
         </p>
       </div>
     </footer>
