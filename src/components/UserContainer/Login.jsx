@@ -69,9 +69,9 @@ export function Login() {
   return (
     <div className="login__container">
       <div className="login__content">
-        <h1 className="login__content--title">Login</h1>
+        <h1 className="login__content--title">Iniciar sesión</h1>
         <form className="login__content--form" onSubmit={handleSubmit}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Correo</label>
           <input
             className="login__content--form--input"
             type="email"
@@ -80,7 +80,7 @@ export function Login() {
             placeholder="correo@mail.com"
             onChange={handleChange}
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Contraseña</label>
           <input
             className="login__content--form--input"
             type="password"
@@ -98,7 +98,7 @@ export function Login() {
             {error && <small>{error}</small>}
           </div>
           <button className="login__content--form--btn" type="submit">
-            Login
+            Iniciar
           </button>
           <span>
             <Link to="/resetpassword" className="">

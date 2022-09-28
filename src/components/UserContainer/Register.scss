@@ -1,0 +1,63 @@
+@import "../../styles/variables";
+
+.register__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  background-color: white;
+  max-width: 500px;
+  padding: $spacing-lg;
+  color: $secondary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight;
+  text-align: center;
+  border-radius: $borderRadius;
+  &--error {
+    width: 100%;
+    font-size: $font-size-xxl;
+    color: $error;
+  }
+  &--title {
+    color: $primary;
+    font-size: $font-size-xxxl;
+    font-weight: $font-weight-bold;
+    margin: $spacing-md;
+  }
+
+  &--form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: $spacing-md;
+    &--input {
+      margin: $spacing-md;
+      background-color: $bg;
+      width: 300px;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      font-size: $font-size-lg;
+      font-weight: $font-weight;
+      padding: 0 10px;
+      &:focus {
+        outline: none;
+      }
+    }
+    &--btn {
+      margin: $spacing-md;
+      width: 300px;
+      height: 50px;
+      background-color: $secondary;
+      color: $light;
+      border: none;
+      border-radius: 5px;
+      font-size: $font-size-lg;
+      font-weight: $font-weight;
+      cursor: pointer;
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+}

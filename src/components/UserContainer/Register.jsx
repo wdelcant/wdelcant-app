@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import ReCAPTCHA from "react-google-recaptcha";
 import Swal from "sweetalert2";
-import UseLoader from "../../hooks/useLoader";
+import "./Register.scss";
 
 export function Register() {
   const { signUp } = useAuth();
@@ -73,22 +73,24 @@ export function Register() {
   };
 
   return (
-    <div>
-      <div>
-        <h1>Register</h1>
+    <div className="register__container">
+      <div className="register__content">
+        <h1 className="register__content--title">Registro</h1>
         {error && <small>{error}</small>}
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Email</label>
+        <form className="register__content--form" onSubmit={handleSubmit}>
+          <label htmlFor="email">Correo</label>
           <input
+            className="register__content--form--input"
             type="email"
             name="email"
             id="email"
-            placeholder="email@email.com"
+            placeholder="correo@mail.com"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
 
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Contraseña</label>
           <input
+            className="register__content--form--input"
             type="password"
             name="password"
             id="password"
@@ -96,8 +98,9 @@ export function Register() {
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
 
-          <label htmlFor="password2">Confirm Password</label>
+          <label htmlFor="password2">Confirmar Contraseña</label>
           <input
+            className="register__content--form--input"
             type="password"
             name="password2"
             id="password2"
@@ -111,12 +114,14 @@ export function Register() {
             onChange={onChange}
           />
 
-          <button type="submit">Register</button>
+          <button className="register__content--form--btn" type="submit">
+            Registrar
+          </button>
         </form>
         <p className="">
-          Already have an Account?
+          Ya tienes una cuenta?
           <Link to="/login" className="">
-            Login
+            Iniciar sesión
           </Link>
         </p>
       </div>
