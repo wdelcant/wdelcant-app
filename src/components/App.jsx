@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "./UserContainer/Login";
 import { Register } from "./UserContainer/Register";
+import { CartProvider } from "../context/CartContext";
 
 import Announcement from "./Announcement/Announcement";
 import NavBar from "./NavBar/NavBar";
@@ -15,11 +16,12 @@ import Cart from "../pages/Cart/Cart";
 import OrderDetails from "./OrderDetails/OrderDetails";
 import Order from "./OrderDetails/Order";
 import Footer from "./Footer/Footer";
-import { CartProvider } from "../context/CartContext";
 import Checkout from "./Checkout/Checkout";
+
 import { ProtectedRoute } from "../routes/ProtectedRoute";
 import { AuthProvider } from "../context/AuthContext";
 import { ResetPassword } from "./UserContainer/ResetPassword";
+import Profile from "./UserContainer/Profile";
 function App() {
   return (
     <>
@@ -34,6 +36,14 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/resetpassword" element={<ResetPassword />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/category/:categoryId"
                 element={<ItemListContainer />}
