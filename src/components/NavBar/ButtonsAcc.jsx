@@ -33,7 +33,7 @@ const ButtonsAcc = () => {
         <>
           <li>
             <Link to="/profile">
-              <button className="menu__users--profile">Perfil</button>
+              <img className="menu__users--profile" src={user.photoURL || "/assets/images/profile.png"} alt="" />
             </Link>
           </li>
           <li>
