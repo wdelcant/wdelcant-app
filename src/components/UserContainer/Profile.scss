@@ -1,1 +1,33 @@
 @import "../../styles/variables";
+
+.profile__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  background-color: white;
+  max-width: 500px;
+  padding: $spacing-lg;
+  color: $secondary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight;
+  text-align: center;
+  border-radius: $borderRadius;
+  &--title {
+    color: $primary;
+    font-size: $font-size-xxxl;
+    font-weight: $font-weight-bold;
+    margin: $spacing-md;
+  }
+  figure {
+  }
+  &--img {
+    width: 200px;
+    margin: 10px auto;
+    border-radius: 50%;
+    border: solid 2px $secondary;
+  }
+  &--text {
+    color: $dark;
+  }
+}

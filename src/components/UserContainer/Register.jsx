@@ -26,9 +26,15 @@ export function Register() {
 
   const addUserDb = async (data) => {
     try {
-      const col = collection(db, "users");
-      const users = await addDoc(col, data);
-      setUser(users.uid);
+      await addDoc(collection(db, `users`), data);
+      setUser({
+        fullName: "",
+        email: "",
+        repeatEmail: "",
+        phone: "",
+        password: "",
+        password2: "",
+      });
     } catch (error) {
       console.log(error);
     }
