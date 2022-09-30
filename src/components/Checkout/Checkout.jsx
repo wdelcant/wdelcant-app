@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useCartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
-import db from '../../utils/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import db from '../../utils/firebaseConfig';
+import Swal from 'sweetalert2';
 import './Checkout.scss';
-import { Swal } from 'sweetalert2';
 
 const Checkout = () => {
   const { cart, totalFinal, clearCart } = useCartContext();
@@ -46,18 +47,42 @@ const Checkout = () => {
   const handleSubmit = e => {
     // Cuando se envía el formulario, evita que se actualice la pagina, asigna la matriz del carrito a una nueva matriz de objetos, cree una nueva fecha, calcule el total y luego genere el pedido.
     e.preventDefault();
-    const items = cart.map(e => {
-      return {
-        id: e.id,
-        title: e.title,
-        price: e.priceDiscount,
-        quantity: e.quantity,
-      };
+
+    if (
+      buyer.name === '' ||
+      buyer.phone === '' ||
+      buyer.email === '' ||
+      buyer.dni === '' ||
+      buyer.address === ''
+    ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: ` Debe completar todos los campos!`,
+      });
+    } else {
+      const items = cart.map(e => {
+        return {
+          id: e.id,
+          title: e.title,
+          price: e.priceDiscount,
+          quantity: e.quantity,
+        };
+      });
+      const date = new Date();
+      const total = totalFinal();
+      const data = { buyer, items, date, total };
+      generateOrder(data);
+    }
+  };
+
+  const handleCopy = () => {
+    // Cuando se copia el ID del pedido, muestra un mensaje de éxito.
+    Swal.fire({
+      icon: 'success',
+      title: 'Copiado!',
+      text: `El ID del pedido es: ${orderId}`,
     });
-    const date = new Date();
-    const total = totalFinal();
-    const data = { buyer, items, date, total };
-    generateOrder(data);
   };
 
   return (
@@ -112,12 +137,22 @@ const Checkout = () => {
         </form>
       ) : (
         <div className="end">
-          <p>Gracias por tu compra!{name}</p>
+          <p>Gracias por tu compra! {name}</p>
           <p>
             Tu numero de orden es: <strong> {orderId}</strong>
           </p>
+          <CopyToClipboard text={`${orderId}`}>
+            <p className="copy" onClick={handleCopy}>
+              {' '}
+              Haz click aquí para guardar
+            </p>
+          </CopyToClipboard>
           <p>Te llegará un mail con los detalles de tu compra</p>
+          <figure>
+            <img src="/assets/images/happycart.svg" alt="" />
+          </figure>
           <p>Te esperamos de vuelta!</p>
+
           <Link to="/">
             <div>
               <input className="btn" type="submit" value="Finalizar" />

@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .checkout {
   form {
@@ -11,6 +11,14 @@
     border-radius: 3px;
     box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1),
       0 5px 15px rgba(0, 0, 0, 0.07);
+  }
+
+  img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 200px;
   }
 
   h1,
@@ -27,6 +35,13 @@
   }
   .form-group + .form-group {
     margin-top: 1rem;
+  }
+
+  .copy {
+    cursor: pointer;
+    :hover {
+      color: red;
+    }
   }
 
   label {
