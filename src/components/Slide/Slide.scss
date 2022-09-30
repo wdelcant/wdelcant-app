@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import '../../styles/variables';
 
 .container-slider {
   width: 90%;
@@ -13,4 +13,16 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 979px) {
+  .container-slider {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-slider {
+    width: 70%;
+  }
 }
