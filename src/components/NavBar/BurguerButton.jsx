@@ -1,17 +1,16 @@
 import React from 'react';
 import './BurguerButton.scss';
 
-const BurguerButton = () => {
+const BurguerButton = props => {
   return (
-    <div className="menu__hamburguer">
+    <div
+      className={`menu__hamburguer ${props.show ? 'open' : ''}`}
+      show={props.show}
+      onClick={props.handleShow}
+    >
       <span></span>
       <span></span>
       <span></span>
-      {/* <img
-        src="/assets/images/menu.svg"
-        className="menu__img"
-        aria-label="imagen de menu"
-      /> */}
     </div>
   );
 };

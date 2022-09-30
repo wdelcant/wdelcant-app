@@ -112,17 +112,10 @@ const NavBar = () => {
         <Form />
 
         <ButtonsAcc />
-        <div className="menu__hamburguer" show={show} onClick={handleShow}>
-          <BurguerButton />
+        <div>
+          <BurguerButton handleShow={handleShow} show={show} />
         </div>
-        {/* 
-        <div className="menu__hamburguer" show={show} onClick={handleShow}>
-          <img
-            src="/assets/images/menu.svg"
-            className="menu__img"
-            aria-label="imagen de menu"
-          />
-        </div> */}
+
         <div>
           <Link to="/cart">
             {' '}

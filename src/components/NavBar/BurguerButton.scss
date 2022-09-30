@@ -48,8 +48,10 @@
 }
 .menu__hamburguer.open span:nth-child(2) {
   opacity: 0;
+  width: 100%;
 }
 .menu__hamburguer.open span:nth-child(3) {
   transform: rotate(-45deg);
   top: 13px;
+  width: 100%;
 }
