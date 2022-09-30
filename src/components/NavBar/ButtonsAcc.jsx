@@ -21,7 +21,7 @@ const ButtonsAcc = handleShow => {
               </div>
 
               <div className="menu__users--mobile">
-                <BiUser className="menu__users--icon" />
+                <BiUser className="menu__users--mobile--icon" />
               </div>
             </button>
           </Link>
