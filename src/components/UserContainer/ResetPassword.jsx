@@ -99,7 +99,7 @@ export function ResetPassword() {
             className="reset__content--form--btn"
             onClick={handleResetPassword}
           >
-            Reset Password
+            Restablecer
           </button>
         </form>
         <p className="reset__content--text">

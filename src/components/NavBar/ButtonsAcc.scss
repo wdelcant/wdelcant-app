@@ -2,51 +2,60 @@
 
 .menu {
   &__users {
-    display: flex;
+    display: block;
     align-items: center;
+    text-align: center;
     justify-content: center;
     height: 100%;
-    padding: 0 0 0 15px;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
 
-    &--register {
-      color: $light;
-      background-color: $tertiary;
-      border: 1.5px solid $white;
-      border-radius: $borderRadius;
-      margin-left: 1rem;
-      padding: 0.6rem 0.8rem;
-      font-size: 1rem;
-      cursor: pointer;
-      &:hover {
-        color: #f2f5f7;
+    &--desktop {
+      display: flex;
+      justify-content: center;
+      margin: 0 10px;
+
+      &--icon {
         background-color: transparent;
-        border: 1.5px solid #f2f5f7;
-        transition: all ease-in-out 350ms;
+        width: 35px;
+        height: 35px;
+        color: $primary;
+        cursor: pointer;
+        position: relative;
+        margin-right: 5px;
+      }
+      &--text {
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        color: $primary;
+        cursor: pointer;
+        position: relative;
       }
     }
-    &--login {
-      background-color: transparent;
-      border: 1.5px solid $light;
-      border-radius: $borderRadius;
-      padding: 0.6rem 0.8rem;
-      font-size: 1rem;
-      color: $white;
-      cursor: pointer;
-      &:hover {
-        color: $light;
-        background-color: $tertiary;
-        border: 1.5px solid $light;
-        transition: all ease-in-out 350ms;
+    &--mobile {
+      &--icon {
+        background-color: transparent;
+        width: 35px;
+        height: 35px;
+        color: $primary;
+        cursor: pointer;
+        position: relative;
+        margin-right: 5px;
+      }
+      &--text {
+        display: none;
       }
     }
+
     &--profile {
       width: 45px;
       color: $light;
       background-color: $secondary;
       border: 1.5px solid $white;
       border-radius: 50%;
-
       padding: 1.5px;
       font-size: 1rem;
       cursor: pointer;
@@ -56,10 +65,10 @@
         border: 1.5px solid #f2f5f7;
         transition: all ease-in-out 350ms;
       }
-    }
-    &--arrow {
-      display: flex;
-      margin-right: 1rem;
+      &--arrow {
+        display: flex;
+        margin-right: 1rem;
+      }
     }
 
     &--logout {

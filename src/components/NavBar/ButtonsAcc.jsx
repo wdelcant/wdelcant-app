@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { BiUser } from 'react-icons/bi';
 import './ButtonsAcc.scss';
 
 const ButtonsAcc = handleShow => {
@@ -10,16 +11,19 @@ const ButtonsAcc = handleShow => {
     <>
       {!user && (
         <>
-          <li>
-            <Link to="/login" onClick={handleShow}>
-              <button className="menu__users--login">Iniciar</button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/register" onClick={handleShow}>
-              <button className="menu__users--register">Registrar</button>
-            </Link>
-          </li>
+          <Link to="/login" onClick={handleShow}>
+            <button className="menu__users">
+              <div className="menu__users--desktop">
+                <BiUser className="menu__users--desktop--icon" />
+                <div>
+                  <p className="menu__users--desktop--text">Iniciar Sesión</p>
+                </div>
+              </div>
+              <div className="menu__users--mobile">
+                <BiUser className="menu__users--mobile--icon" />
+              </div>
+            </button>
+          </Link>
         </>
       )}
       {user && (
