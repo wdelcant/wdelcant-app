@@ -1,5 +1,5 @@
-import ItemListContainer from "../../components/ItemListContainer/ItemListContainer";
-import Slide from "../../components/Slide/Slide";
+import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
+import Slide from '../../components/Slide/Slide';
 
 const Home = () => {
   return (

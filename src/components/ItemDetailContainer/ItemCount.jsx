@@ -1,4 +1,4 @@
-import { useCounter } from "../../hooks/useCounter";
+import { useCounter } from '../../hooks/useCounter';
 
 const ItemCount = ({ initial, stock, onAdd }) => {
   const { counter, Add, Sub } = useCounter({ initialValue: initial });

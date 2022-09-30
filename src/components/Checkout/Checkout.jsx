@@ -1,25 +1,25 @@
-import { useState } from "react";
-import { useCartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
-import db from "../../utils/firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
-import "./Checkout.scss";
+import { useState } from 'react';
+import { useCartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import db from '../../utils/firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore';
+import './Checkout.scss';
 
 const Checkout = () => {
   const { cart, totalFinal, clearCart } = useCartContext();
   const [orderId, setOrderId] = useState();
   const [buyer, setBuyer] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    dni: "",
-    address: "",
+    name: '',
+    phone: '',
+    email: '',
+    dni: '',
+    address: '',
   });
   const { name, phone, email, dni, address } = buyer;
 
-  const generateOrder = async (data) => {
+  const generateOrder = async data => {
     try {
-      const col = collection(db, "orders");
+      const col = collection(db, 'orders');
       const order = await addDoc(col, data);
       setOrderId(order.id);
       clearCart();
@@ -28,16 +28,16 @@ const Checkout = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setBuyer({
       ...buyer,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    const items = cart.map((e) => {
+    const items = cart.map(e => {
       return {
         id: e.id,
         title: e.title,

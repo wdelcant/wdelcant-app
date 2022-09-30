@@ -1,12 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import useCurrency from "../../hooks/useCurrency";
-import { BsHeartFill } from "react-icons/bs";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import useCurrency from '../../hooks/useCurrency';
+import { BsHeartFill } from 'react-icons/bs';
 
 const Item = ({ product }) => {
-  
-  const handleClick = (event) => {
-    event.currentTarget.classList.toggle("active");
+  const handleClick = event => {
+    event.currentTarget.classList.toggle('active');
   };
 
   const { formatter } = useCurrency();

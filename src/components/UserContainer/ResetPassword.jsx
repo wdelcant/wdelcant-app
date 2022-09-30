@@ -1,40 +1,40 @@
-import { useRef, useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
-import ReCAPTCHA from "react-google-recaptcha";
-import "./ResetPassword.scss";
+import { useRef, useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
+import ReCAPTCHA from 'react-google-recaptcha';
+import './ResetPassword.scss';
 
 export function ResetPassword() {
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const { signIn, resetPassword } = useAuth();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    setError("");
+    setError('');
     try {
       if (recaptchaRef.current.getValue()) {
         await signIn(user.email, user.password);
       } else {
-        setError("Favor aceptar el captcha");
+        setError('Favor aceptar el captcha');
       }
     } catch (error) {
-      if (error.code === "auth/user-not-found") {
-        setError("Usuario no existe");
+      if (error.code === 'auth/user-not-found') {
+        setError('Usuario no existe');
       }
-      if (error.code === "auth/wrong-password") {
-        setError("Contraseña incorrecta");
+      if (error.code === 'auth/wrong-password') {
+        setError('Contraseña incorrecta');
       }
-      if (error.code === "auth/invalid-email") {
-        setError("Email inválido");
+      if (error.code === 'auth/invalid-email') {
+        setError('Email inválido');
       }
-      if (error.code === "auth/too-many-requests") {
-        setError("Demasiados intentos, intente más tarde");
+      if (error.code === 'auth/too-many-requests') {
+        setError('Demasiados intentos, intente más tarde');
       }
     }
   };
@@ -47,12 +47,12 @@ export function ResetPassword() {
   };
 
   const handleResetPassword = async () => {
-    if (!user.email) return setError("Favor ingrese un correo");
+    if (!user.email) return setError('Favor ingrese un correo');
     try {
       await resetPassword(user.email);
-      setError("Se enviado a su correo electrónico");
+      setError('Se enviado a su correo electrónico');
       setTimeout(() => {
-        navigate("/login");
+        navigate('/login');
       }, 3000);
     } catch (error) {
       setError(error.code);
@@ -63,7 +63,7 @@ export function ResetPassword() {
 
   const onChange = () => {
     if (recaptchaRef.current.getValue()) {
-      setError("");
+      setError('');
     }
   };
 

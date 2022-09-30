@@ -1,9 +1,9 @@
-import db from "./firebaseConfig";
-import { doc, updateDoc, getDoc } from "firebase/firestore";
+import db from './firebaseConfig';
+import { doc, updateDoc, getDoc } from 'firebase/firestore';
 
 /* Obtiene un documento de la base de datos y, si existe, devuelve los datos del documento; de lo contrario, devuelve un objeto vacío.*/
-export const getProductById = async (id) => {
-  const docRef = doc(db, "products", id);
+export const getProductById = async id => {
+  const docRef = doc(db, 'products', id);
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
@@ -13,19 +13,19 @@ export const getProductById = async (id) => {
 };
 
 /* Obtiene un documento de la base de datos y, si no existe, devuelve una cadena */
-export const getItemInfoById = async (id) => {
-  const docRef = doc(db, "products", id);
+export const getItemInfoById = async id => {
+  const docRef = doc(db, 'products', id);
   const docSnap = await getDoc(docRef);
 
-  if (typeof docSnap.data() === "undefined") {
-    return "Producto no encontrado";
+  if (typeof docSnap.data() === 'undefined') {
+    return 'Producto no encontrado';
   }
   return { id: docSnap.id, ...docSnap.data() };
 };
 
 /* Actualiza el stock de un producto en la base de datos */
 export const updateStock = async (id, stock) => {
-  const product = doc(db, "products", id);
+  const product = doc(db, 'products', id);
 
   await updateDoc(product, {
     stock: stock,
@@ -33,12 +33,12 @@ export const updateStock = async (id, stock) => {
 };
 
 /* Toma un ID de pedido, encuentra el pedido en la base de datos y devuelve el pedido si existe. */
-export const searchOrder = async (id) => {
-  const orderDoc = doc(db, "orders", id);
+export const searchOrder = async id => {
+  const orderDoc = doc(db, 'orders', id);
   const orderSnapshot = await getDoc(orderDoc);
 
-  if (typeof orderSnapshot.data() === "undefined") {
-    return "No order found";
+  if (typeof orderSnapshot.data() === 'undefined') {
+    return 'No order found';
   }
   return { id: orderSnapshot.id, ...orderSnapshot.data() };
 };

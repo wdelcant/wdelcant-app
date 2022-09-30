@@ -1,19 +1,19 @@
-import React, { useContext, createContext } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
-import useCurrency from "../hooks/useCurrency";
+import React, { useContext, createContext } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
+import useCurrency from '../hooks/useCurrency';
 
 const CartContext = createContext([]);
 
 export const useCartContext = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useLocalStorage("cart", []);
+  const [cart, setCart] = useLocalStorage('cart', []);
 
   const { formatter } = useCurrency();
   const addToCart = (item, quantity) => {
     if (isInCart(item.id)) {
       setCart(
-        cart.map((product) => {
+        cart.map(product => {
           return product.id === item.id
             ? { ...product, quantity: product.quantity + quantity }
             : product;
@@ -24,8 +24,8 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = (id) => {
-    const newCart = cart.filter((product) => product.id !== id);
+  const removeFromCart = id => {
+    const newCart = cart.filter(product => product.id !== id);
     setCart(newCart);
   };
 
@@ -33,8 +33,8 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  const isInCart = (id) => {
-    return cart.some((product) => product.id === id);
+  const isInCart = id => {
+    return cart.some(product => product.id === id);
   };
 
   const totalQuantity = () => {

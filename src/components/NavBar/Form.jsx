@@ -1,6 +1,6 @@
-import React from "react";
-import "./Form.scss";
-import { FaSearch } from "react-icons/fa";
+import React from 'react';
+import './Form.scss';
+import { FaSearch } from 'react-icons/fa';
 
 const Form = () => {
   return (

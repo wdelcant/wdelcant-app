@@ -1,7 +1,7 @@
-import React from "react";
-import "./Footer.scss";
-import { Link } from "react-router-dom";
-import { BsHeadset, BsTruck, BsPatchCheck } from "react-icons/bs";
+import React from 'react';
+import './Footer.scss';
+import { Link } from 'react-router-dom';
+import { BsHeadset, BsTruck, BsPatchCheck } from 'react-icons/bs';
 
 const FooterSecondary = () => {
   return (

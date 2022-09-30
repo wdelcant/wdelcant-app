@@ -1,6 +1,6 @@
-import React from "react";
-import Carousel from "better-react-carousel";
-import "./Slide.scss";
+import React from 'react';
+import Carousel from 'better-react-carousel';
+import './Slide.scss';
 
 const Gallery = () => {
   return (

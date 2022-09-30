@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 @mixin breakpoints($point) {
   @if $point == md {
@@ -58,7 +58,7 @@
     border-radius: 50px;
   }
   &:after {
-    content: "\276f";
+    content: '\276f';
     padding: 0.5em;
     position: relative;
     right: 0;

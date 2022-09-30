@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import "./Logo.scss";
+import { Link } from 'react-router-dom';
+import './Logo.scss';
 
 const Logo = () => {
   return (

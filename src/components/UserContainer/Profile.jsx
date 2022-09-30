@@ -1,5 +1,5 @@
-import { useAuth } from "../../context/AuthContext";
-import "./Profile.scss";
+import { useAuth } from '../../context/AuthContext';
+import './Profile.scss';
 
 const Profile = () => {
   const { user } = useAuth();
@@ -11,7 +11,7 @@ const Profile = () => {
         <figure>
           <img
             className="profile__content--img"
-            src={user.photoURL || "/assets/images/profile.png"}
+            src={user.photoURL || '/assets/images/profile.png'}
             alt=""
           />
         </figure>

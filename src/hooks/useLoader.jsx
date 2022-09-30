@@ -1,5 +1,5 @@
-import { DotWave } from "@uiball/loaders";
-import "./useLoader.scss";
+import { DotWave } from '@uiball/loaders';
+import './useLoader.scss';
 
 const useLoader = () => {
   return (

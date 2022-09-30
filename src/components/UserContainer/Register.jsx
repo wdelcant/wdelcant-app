@@ -1,12 +1,12 @@
-import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import ReCAPTCHA from "react-google-recaptcha";
-import Swal from "sweetalert2";
-import "./Register.scss";
-import db from "../../utils/firebaseConfig";
-import { collection } from "firebase/firestore";
-import { addDoc } from "firebase/firestore";
+import { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import ReCAPTCHA from 'react-google-recaptcha';
+import Swal from 'sweetalert2';
+import './Register.scss';
+import db from '../../utils/firebaseConfig';
+import { collection } from 'firebase/firestore';
+import { addDoc } from 'firebase/firestore';
 
 export function Register() {
   const [error, setError] = useState();
@@ -15,25 +15,25 @@ export function Register() {
   const { signUp } = useAuth();
 
   const [user, setUser] = useState({
-    fullName: "",
-    email: "",
-    repeatEmail: "",
-    phone: "",
-    password: "",
-    password2: "",
+    fullName: '',
+    email: '',
+    repeatEmail: '',
+    phone: '',
+    password: '',
+    password2: '',
   });
   const { fullName, email, repeatEmail, phone, password, password2 } = user;
 
-  const addUserDb = async (data) => {
+  const addUserDb = async data => {
     try {
       await addDoc(collection(db, `users`), data);
       setUser({
-        fullName: "",
-        email: "",
-        repeatEmail: "",
-        phone: "",
-        password: "",
-        password2: "",
+        fullName: '',
+        email: '',
+        repeatEmail: '',
+        phone: '',
+        password: '',
+        password2: '',
       });
     } catch (error) {
       console.log(error);
@@ -43,49 +43,49 @@ export function Register() {
   const alertRegister = () => {
     const Toast = Swal.mixin({
       toast: true,
-      position: "top-end",
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener("click", () => {
+      didOpen: toast => {
+        toast.addEventListener('click', () => {
           Swal.close();
         });
       },
     });
     Toast.fire({
-      icon: "success",
+      icon: 'success',
       title: `Usuario ${user.email} registrado con éxito`,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    setError("");
+    setError('');
     if (user.password !== user.password2) {
-      setError("Las contraseñas no coinciden");
+      setError('Las contraseñas no coinciden');
     }
     if (user.email !== user.repeatEmail) {
-      setError("Los emails no coinciden");
+      setError('Los emails no coinciden');
     } else {
       try {
         if (recaptchaRef.current.getValue()) {
           await signUp(user.email, user.password);
           addUserDb(user);
           alertRegister();
-          navigate("/");
+          navigate('/');
         } else {
-          setError("Favor aceptar el captcha");
+          setError('Favor aceptar el captcha');
         }
       } catch (error) {
-        if (error.code === "auth/email-already-in-use") {
-          setError("El email ya está registrado");
+        if (error.code === 'auth/email-already-in-use') {
+          setError('El email ya está registrado');
         }
-        if (error.code === "auth/weak-password") {
-          setError("La contraseña debe tener al menos 6 caracteres");
+        if (error.code === 'auth/weak-password') {
+          setError('La contraseña debe tener al menos 6 caracteres');
         }
-        if (error.code === "auth/invalid-email") {
-          setError("El email no es válido");
+        if (error.code === 'auth/invalid-email') {
+          setError('El email no es válido');
         }
       }
     }
@@ -94,7 +94,7 @@ export function Register() {
 
   const onChange = () => {
     if (recaptchaRef.current.getValue()) {
-      setError("");
+      setError('');
     }
   };
 
@@ -112,7 +112,7 @@ export function Register() {
             id="fullName"
             value={fullName}
             placeholder="Nombre Apellido"
-            onChange={(e) => setUser({ ...user, fullName: e.target.value })}
+            onChange={e => setUser({ ...user, fullName: e.target.value })}
           />
 
           <label htmlFor="email">Correo</label>
@@ -123,7 +123,7 @@ export function Register() {
             id="email"
             value={email}
             placeholder="correo@mail.com"
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            onChange={e => setUser({ ...user, email: e.target.value })}
           />
 
           <label htmlFor="repeatEmail">Confirmar Correo</label>
@@ -134,7 +134,7 @@ export function Register() {
             id="repeatEmail"
             value={repeatEmail}
             placeholder="correo@mail.com"
-            onChange={(e) => setUser({ ...user, repeatEmail: e.target.value })}
+            onChange={e => setUser({ ...user, repeatEmail: e.target.value })}
           />
 
           <label htmlFor="phone">Teléfono</label>
@@ -145,7 +145,7 @@ export function Register() {
             id="phone"
             value={phone}
             placeholder="56912345678"
-            onChange={(e) => setUser({ ...user, phone: e.target.value })}
+            onChange={e => setUser({ ...user, phone: e.target.value })}
           />
 
           <label htmlFor="password">Contraseña</label>
@@ -156,7 +156,7 @@ export function Register() {
             id="password"
             value={password}
             placeholder="********"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            onChange={e => setUser({ ...user, password: e.target.value })}
           />
 
           <label htmlFor="password2">Confirmar Contraseña</label>
@@ -167,7 +167,7 @@ export function Register() {
             id="password2"
             value={password2}
             placeholder="********"
-            onChange={(e) => setUser({ ...user, password2: e.target.value })}
+            onChange={e => setUser({ ...user, password2: e.target.value })}
           />
 
           <ReCAPTCHA

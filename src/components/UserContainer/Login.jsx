@@ -1,42 +1,42 @@
-import { useState, useRef } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
-import ReCAPTCHA from "react-google-recaptcha";
-import Swal from "sweetalert2";
-import "./Login.scss";
+import { useState, useRef } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { Link, useNavigate } from 'react-router-dom';
+import ReCAPTCHA from 'react-google-recaptcha';
+import Swal from 'sweetalert2';
+import './Login.scss';
 
 export function Login() {
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const { signIn, loginWithGoogle } = useAuth();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    setError("");
+    setError('');
     try {
       if (recaptchaRef.current.getValue()) {
         await signIn(user.email, user.password);
-        navigate("/");
+        navigate('/');
       } else {
-        setError("Favor aceptar el captcha");
+        setError('Favor aceptar el captcha');
       }
     } catch (error) {
-      if (error.code === "auth/user-not-found") {
-        setError("Usuario no existe");
+      if (error.code === 'auth/user-not-found') {
+        setError('Usuario no existe');
       }
-      if (error.code === "auth/wrong-password") {
-        setError("Contraseña incorrecta");
+      if (error.code === 'auth/wrong-password') {
+        setError('Contraseña incorrecta');
       }
-      if (error.code === "auth/invalid-email") {
-        setError("Email inválido");
+      if (error.code === 'auth/invalid-email') {
+        setError('Email inválido');
       }
-      if (error.code === "auth/too-many-requests") {
-        setError("Demasiados intentos, intente más tarde");
+      if (error.code === 'auth/too-many-requests') {
+        setError('Demasiados intentos, intente más tarde');
       }
     }
   };
@@ -51,18 +51,18 @@ export function Login() {
   const alertRegister = () => {
     const Toast = Swal.mixin({
       toast: true,
-      position: "top-end",
+      position: 'top-end',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener("click", () => {
+      didOpen: toast => {
+        toast.addEventListener('click', () => {
           Swal.close();
         });
       },
     });
     Toast.fire({
-      icon: "success",
+      icon: 'success',
       title: `Usuario ${user.email} registrado con éxito`,
     });
   };
@@ -71,10 +71,10 @@ export function Login() {
     try {
       await loginWithGoogle();
       alertRegister();
-      navigate("/");
+      navigate('/');
     } catch (error) {
-      if (error.code === "auth/popup-closed-by-user") {
-        setError("Cerraste la ventana de inicio de sesión");
+      if (error.code === 'auth/popup-closed-by-user') {
+        setError('Cerraste la ventana de inicio de sesión');
       }
     }
   };
@@ -83,7 +83,7 @@ export function Login() {
 
   const onChange = () => {
     if (recaptchaRef.current.getValue()) {
-      setError("");
+      setError('');
     }
   };
 

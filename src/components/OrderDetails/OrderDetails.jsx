@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { searchOrder } from "../../utils/firebaseFunctions";
-import useCurrency from "../../hooks/useCurrency";
-import Loader from "../../hooks/useLoader";
-import "./OrderDetails.scss";
+import React, { useState } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { searchOrder } from '../../utils/firebaseFunctions';
+import useCurrency from '../../hooks/useCurrency';
+import Loader from '../../hooks/useLoader';
+import './OrderDetails.scss';
 
 const OrderDetails = () => {
   const [orderFound, setOrderFound] = useState(false);
@@ -20,12 +20,12 @@ const OrderDetails = () => {
 
   const getPurchaseHistory = async () => {
     const purchaseInfo = await searchOrder(routing.orderId);
-    if (purchaseInfo !== "No order found") {
+    if (purchaseInfo !== 'No order found') {
       setOrderFound(true);
       setCartHistory(purchaseInfo.items);
       let counter = 0;
       purchaseInfo.items.forEach(
-        (product) => (counter += product.price * product.quantity)
+        product => (counter += product.price * product.quantity)
       );
       setName(purchaseInfo.buyer.name);
       setAddress(purchaseInfo.buyer.address);
@@ -41,7 +41,7 @@ const OrderDetails = () => {
 
   return (
     <>
-      {" "}
+      {' '}
       {isLoading ? (
         <Loader />
       ) : orderFound ? (
@@ -54,7 +54,7 @@ const OrderDetails = () => {
               <h3>ID: {routing.orderId}</h3>
             </li>
           </ul>
-          {cartHistory.map((product) => (
+          {cartHistory.map(product => (
             <div className="orderDetails__container">
               <ul className="orderDetails__container__item" key={product.id}>
                 <li>
@@ -71,7 +71,7 @@ const OrderDetails = () => {
                 </li>
                 <li>
                   <p>
-                    Subtotal:{" "}
+                    Subtotal:{' '}
                     {formatter.format(product.price * product.quantity)}
                   </p>
                 </li>
@@ -80,7 +80,7 @@ const OrderDetails = () => {
           ))}
           <div className="order__container--purchase">
             <p className="order__container--purchase--text">
-              Total a Pagar:{" "}
+              Total a Pagar:{' '}
               <span className="order__container--purchase--total">
                 {priceTotal}
               </span>

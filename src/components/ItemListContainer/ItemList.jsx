@@ -1,10 +1,10 @@
-import React from "react";
-import Item from "./Item";
+import React from 'react';
+import Item from './Item';
 
 const ItemList = ({ productList }) => {
   return (
     <>
-      {productList.map((product) => (
+      {productList.map(product => (
         <Item key={product.id} product={product} />
       ))}
     </>

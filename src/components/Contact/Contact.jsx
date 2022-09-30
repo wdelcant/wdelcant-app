@@ -1,5 +1,5 @@
-import React from "react";
-import "./Contact.scss";
+import React from 'react';
+import './Contact.scss';
 
 const Contact = () => {
   return (
@@ -11,7 +11,7 @@ const Contact = () => {
             <input type="text" placeholder="Nombre" />
             <input type="text" placeholder="Correo" />
             <input type="text" placeholder="Asunto" />
-            <textarea placeholder="Mensaje" defaultValue={""} />
+            <textarea placeholder="Mensaje" defaultValue={''} />
             <button type="submit" className="btn">
               ENVIAR
             </button>

@@ -1,7 +1,7 @@
-import React from "react";
-import { useCartContext } from "../../context/CartContext";
-import "./CartWidget.scss";
-import { BiCart } from "react-icons/bi";
+import React from 'react';
+import { useCartContext } from '../../context/CartContext';
+import './CartWidget.scss';
+import { BiCart } from 'react-icons/bi';
 
 const CartWidget = () => {
   const { totalQuantity } = useCartContext();

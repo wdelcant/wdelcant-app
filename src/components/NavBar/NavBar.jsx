@@ -123,7 +123,7 @@ const NavBar = () => {
           <BurguerButton handleShow={handleShow} show={show} />
         </div>
 
-        <div>
+        <div className="">
           <Link to="/cart">
             {' '}
             <CartWidget />

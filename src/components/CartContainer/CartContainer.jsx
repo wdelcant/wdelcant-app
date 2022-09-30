@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useCartContext } from "../../context/CartContext";
-import { updateStock } from "../../utils/firebaseFunctions";
-import CartDetail from "./CartDetail";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
+import { updateStock } from '../../utils/firebaseFunctions';
+import CartDetail from './CartDetail';
 
 const CartContainer = () => {
   const {
@@ -15,7 +15,7 @@ const CartContainer = () => {
   } = useCartContext();
 
   const handleClearCart = () => {
-    cart.forEach((product) => {
+    cart.forEach(product => {
       updateStock(product.id, product.stock);
     });
     clearCart();
@@ -33,7 +33,7 @@ const CartContainer = () => {
             </Link>
           </div>
           <div className="cart__items">
-            {cart.map((product) => (
+            {cart.map(product => (
               <CartDetail key={product.id} product={product} />
             ))}
           </div>
@@ -57,7 +57,7 @@ const CartContainer = () => {
             </li>
             <li className="cart__resume--total">
               <Link
-                to={""}
+                to={''}
                 className="cart-btn"
                 onClick={() => handleClearCart()}
               >
@@ -66,7 +66,7 @@ const CartContainer = () => {
             </li>
             <li className="cart__resume--total">
               <Link to="/checkout" className="cart-btn">
-                {" "}
+                {' '}
                 FINALIZAR
               </Link>
             </li>

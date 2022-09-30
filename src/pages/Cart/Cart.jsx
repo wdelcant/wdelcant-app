@@ -1,8 +1,8 @@
-import React from "react";
-import CartContainer from "../../components/CartContainer/CartContainer";
-import EmpyCart from "../../components/CartContainer/EmpyCart";
-import { useCartContext } from "../../context/CartContext";
-import "./Cart.scss";
+import React from 'react';
+import CartContainer from '../../components/CartContainer/CartContainer';
+import EmpyCart from '../../components/CartContainer/EmpyCart';
+import { useCartContext } from '../../context/CartContext';
+import './Cart.scss';
 
 const Cart = () => {
   const { cart } = useCartContext();

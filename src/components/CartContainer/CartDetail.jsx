@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useCartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
-import useCurrency from "../../hooks/useCurrency";
-import { getProductById, updateStock } from "../../utils/firebaseFunctions";
+import React, { useState, useEffect } from 'react';
+import { useCartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import useCurrency from '../../hooks/useCurrency';
+import { getProductById, updateStock } from '../../utils/firebaseFunctions';
 
 const CartDetail = ({ product }) => {
   const { addToCart, removeFromCart } = useCartContext();
@@ -13,9 +13,7 @@ const CartDetail = ({ product }) => {
 
   useEffect(() => {
     // Cuando el componente se monta, obtengo el producto de la base de datos (el stock) y lo guardo en el state stockProduct
-    getProductById(product.id).then((product) =>
-      setStockProduct(product.stock)
-    );
+    getProductById(product.id).then(product => setStockProduct(product.stock));
   }, [product.id]);
 
   const addItem = () => {

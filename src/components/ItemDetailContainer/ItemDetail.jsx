@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useCartContext } from "../../context/CartContext";
-import useCurrency from "../../hooks/useCurrency";
-import ItemCount from "./ItemCount";
-import Swal from "sweetalert2";
-import { updateStock } from "../../utils/firebaseFunctions";
-import "./ItemDetailContainer.scss";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
+import useCurrency from '../../hooks/useCurrency';
+import ItemCount from './ItemCount';
+import Swal from 'sweetalert2';
+import { updateStock } from '../../utils/firebaseFunctions';
+import './ItemDetailContainer.scss';
 
 const ItemDetail = ({ product }) => {
   const [goToCard, setGoToCard] = useState(false);
@@ -13,7 +13,7 @@ const ItemDetail = ({ product }) => {
   const { addToCart } = useCartContext();
   const { formatter } = useCurrency();
 
-  const onAdd = (quantity) => {
+  const onAdd = quantity => {
     addToCart(product, quantity);
     updateStock(product.id, product.stock - quantity);
 
@@ -21,27 +21,27 @@ const ItemDetail = ({ product }) => {
     product.stock = stock;
     if (stock === 0) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "No hay stock suficiente",
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No hay stock suficiente',
       });
     }
     setGoToCard(true);
 
     const Toast = Swal.mixin({
       toast: true,
-      position: "top-end",
+      position: 'top-end',
       showConfirmButton: false,
       timer: 2000,
       timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener("click", () => {
+      didOpen: toast => {
+        toast.addEventListener('click', () => {
           Swal.close();
         });
       },
     });
     Toast.fire({
-      icon: "success",
+      icon: 'success',
       title: `Has agregado un total de ${quantity} ${product.title} productos correctamente`,
     });
   };
@@ -76,8 +76,8 @@ const ItemDetail = ({ product }) => {
           />
         )}
 
-        <Link to={"/"}>
-          <button className="item-detail__button">Seguir comprando</button>{" "}
+        <Link to={'/'}>
+          <button className="item-detail__button">Seguir comprando</button>{' '}
         </Link>
       </div>
     </div>

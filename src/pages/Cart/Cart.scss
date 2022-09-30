@@ -1,5 +1,5 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .cart-container {
   display: flex;
@@ -48,7 +48,7 @@
         text-align: right;
       }
       &:after {
-        content: "\276f";
+        content: '\276f';
         padding: 0.5em;
         position: relative;
         right: 0;
@@ -68,7 +68,7 @@
     display: grid;
     grid-template-columns: repeat(5, 2fr);
     grid-template-rows: 1fr;
-    grid-template-areas: "image title price quantity remove";
+    grid-template-areas: 'image title price quantity remove';
     grid-gap: 0;
     text-align: center;
     justify-content: center;
