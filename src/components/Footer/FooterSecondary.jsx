@@ -16,12 +16,16 @@ const FooterSecondary = () => {
         </div>
 
         <div className="footer__secondary--warranty">
-          <BsPatchCheck className="footer__secondary--icon" />
-          <p>Garantía</p>
+          <Link to="/warranty">
+            <BsPatchCheck className="footer__secondary--icon" />
+            <p>Garantía</p>
+          </Link>
         </div>
 
         <div className="footer__secondary--shipments">
-          <BsTruck className="footer__secondary--icon" />
+          <Link to="/shipments">
+            <BsTruck className="footer__secondary--icon" />
+          </Link>
           <img
             className="footer__secondary--img"
             src="/assets/images/logo.svg"

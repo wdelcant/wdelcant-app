@@ -21,6 +21,10 @@ import { ProtectedRoute } from '../routes/ProtectedRoute';
 import { AuthProvider } from '../context/AuthContext';
 import { ResetPassword } from './UserContainer/ResetPassword';
 import Profile from './UserContainer/Profile';
+import Warranty from './../pages/Warranty/Warranty';
+import AboutUs from './../pages/AboutUs/AboutUs';
+import Services from './../pages/Services/Services';
+import Shipments from './../pages/Shipments/Shipments';
 function App() {
   return (
     <>
@@ -49,6 +53,10 @@ function App() {
               <Route path="/item/:itemId" element={<ItemDetailContainer />} />
               <Route path="/cart" element={<Cart />} />
 
+              <Route path="/services" element={<Services />} />
+              <Route path="/aboutus" element={<AboutUs />} />
+              <Route path="/contact" element={<Contact />} />
+
               <Route
                 path="/checkout"
                 element={
@@ -76,7 +84,8 @@ function App() {
                 }
               />
 
-              <Route path="/contact" element={<Contact />} />
+              <Route path="/warranty" element={<Warranty />} />
+              <Route path="/shipments" element={<Shipments />} />
               <Route path="*" element={<Error />} />
             </Routes>
             <Footer />

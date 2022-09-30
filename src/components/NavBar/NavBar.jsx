@@ -15,13 +15,35 @@ const NavBar = () => {
     setShow(!show);
   };
 
+  const listElements = document.querySelectorAll('.menu__item--show');
+
+  const handleClick = () => {
+    listElements.forEach(e => {
+      let subMenu = e.children[1];
+      let height = 0;
+      e.classList.toggle('menu__item--active');
+
+      if (subMenu.clientHeight === 0) {
+        height = subMenu.scrollHeight;
+      }
+
+      subMenu.style.height = `${height}px`;
+
+      /* Si el elemento tiene una altura, se establece en cero. */
+    });
+  };
+
   return (
     <nav className="menu">
       <section className="menu__container">
         <Logo />
         <ul className={`menu__links ${show && 'menu__links--show'}`}>
+          <div className="menu__item--logo">
+            <Logo />
+            <p className="menu__item--text">Store</p>
+          </div>
           <li className="menu__item menu__item--show">
-            <Link to="" className="menu__link">
+            <Link to="" className="menu__link" onClick={handleClick}>
               Categorías{' '}
               <img
                 src="/assets/images/arrow.svg"
@@ -98,14 +120,14 @@ const NavBar = () => {
           </li>
 
           <li className="menu__item">
-            <Link to="" className="menu__link" onClick={handleShow}>
-              Ofertas
+            <Link to={'/services'} className="menu__link" onClick={handleShow}>
+              Servicios
             </Link>
           </li>
 
           <li className="menu__item">
-            <Link to="" className="menu__link" onClick={handleShow}>
-              Servicios
+            <Link to={'/aboutus'} className="menu__link" onClick={handleShow}>
+              Nosotros
             </Link>
           </li>
 
