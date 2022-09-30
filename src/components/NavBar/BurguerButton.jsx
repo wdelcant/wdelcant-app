@@ -5,7 +5,7 @@ const BurguerButton = props => {
   return (
     <div
       className={`menu__hamburguer ${props.show && 'open'}`}
-      show={props.show}
+      show={props.show.toString()}
       onClick={props.handleShow}
     >
       <span></span>

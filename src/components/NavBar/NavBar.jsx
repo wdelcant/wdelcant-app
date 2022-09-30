@@ -124,7 +124,7 @@ const NavBar = () => {
           <ButtonsAcc handleShow={handleShow} />
         </div>
         <div>
-          <BurguerButton handleShow={handleShow} />
+          <BurguerButton handleShow={handleShow} show={show} />
         </div>
 
         <div className="">
