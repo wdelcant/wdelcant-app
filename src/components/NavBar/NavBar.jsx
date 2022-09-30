@@ -38,7 +38,7 @@ const NavBar = () => {
       <section className="menu__container">
         <Logo />
         <ul className={`menu__links ${show && 'menu__links--show'}`}>
-          <div className="menu__item--logo">
+          <div className="menu__item--logo" onClick={handleShow}>
             <Logo />
             <p className="menu__item--text">Store</p>
           </div>
