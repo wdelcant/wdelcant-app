@@ -19,7 +19,7 @@ const NavBar = () => {
     <nav className="menu">
       <section className="menu__container">
         <Logo />
-        <ul className={`menu__links ${show ? 'menu__links--show' : ''}`}>
+        <ul className={`menu__links ${show && 'menu__links--show'}`}>
           <li className="menu__item menu__item--show">
             <Link to="" className="menu__link">
               Categorías{' '}
@@ -114,9 +114,9 @@ const NavBar = () => {
               Contacto
             </Link>
           </li>
-          <li className="menu__item menu__users menu__users--mobile">
+          <div className="menu__item menu__users menu__users--mobile">
             <ButtonsAcc />
-          </li>
+          </div>
         </ul>
 
         <Form />
@@ -124,7 +124,7 @@ const NavBar = () => {
           <ButtonsAcc handleShow={handleShow} />
         </div>
         <div>
-          <BurguerButton handleShow={handleShow} show={show} />
+          <BurguerButton handleShow={handleShow} />
         </div>
 
         <div className="">

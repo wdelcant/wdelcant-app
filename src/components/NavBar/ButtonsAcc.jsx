@@ -8,6 +8,7 @@ const ButtonsAcc = handleShow => {
   const handleLogout = async () => {
     try {
       await logOut();
+      handleShow();
     } catch (error) {
       console.error(error.message);
     }
