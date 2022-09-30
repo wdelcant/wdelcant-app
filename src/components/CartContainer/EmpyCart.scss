@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.cart__container {
+  &--empy {
+    &--title {
+      margin-bottom: 20px;
+    }
+
+    &--text {
+      margin-bottom: 20px;
+    }
+    &--button {
+      background-color: $secondary;
+      text-decoration: none;
+      color: $white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+}
