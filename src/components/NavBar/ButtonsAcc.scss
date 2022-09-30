@@ -34,6 +34,26 @@
         cursor: pointer;
         position: relative;
       }
+      &--profile {
+        width: 45px;
+        color: $light;
+        background-color: $secondary;
+        border: 1.5px solid $white;
+        border-radius: 50%;
+        padding: 1.5px;
+        font-size: 1rem;
+        cursor: pointer;
+        &:hover {
+          color: #f2f5f7;
+          background-color: transparent;
+          border: 1.5px solid #f2f5f7;
+          transition: all ease-in-out 350ms;
+        }
+        &--arrow {
+          display: flex;
+          margin-right: 1rem;
+        }
+      }
     }
     &--mobile {
       &--icon {
@@ -47,27 +67,6 @@
       }
       &--text {
         display: none;
-      }
-    }
-
-    &--profile {
-      width: 45px;
-      color: $light;
-      background-color: $secondary;
-      border: 1.5px solid $white;
-      border-radius: 50%;
-      padding: 1.5px;
-      font-size: 1rem;
-      cursor: pointer;
-      &:hover {
-        color: #f2f5f7;
-        background-color: transparent;
-        border: 1.5px solid #f2f5f7;
-        transition: all ease-in-out 350ms;
-      }
-      &--arrow {
-        display: flex;
-        margin-right: 1rem;
       }
     }
 
