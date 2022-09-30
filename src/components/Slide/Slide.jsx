@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel from 'better-react-carousel';
 import './Slide.scss';
 
+// Componente que muestra un carrusel de imágenes
 const Gallery = () => {
   return (
     <div className="container-slider">

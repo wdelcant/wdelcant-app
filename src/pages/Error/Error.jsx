@@ -1,6 +1,7 @@
 import React from 'react';
 import './Error.scss';
 
+// Devuelve un div con una clase de error y un mensaje de error.
 const Error = () => {
   return (
     // error 404

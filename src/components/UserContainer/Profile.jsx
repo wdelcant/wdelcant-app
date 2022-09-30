@@ -2,8 +2,9 @@ import { useAuth } from '../../context/AuthContext';
 import './Profile.scss';
 
 const Profile = () => {
-  const { user } = useAuth();
+  const { user } = useAuth(); // Se obtiene el usuario de la autenticación
 
+  // Muestra el nombre del usuario en el perfil
   return (
     <div className="profile__container">
       <div className="profile__content">

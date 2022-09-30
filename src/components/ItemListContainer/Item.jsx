@@ -4,12 +4,14 @@ import useCurrency from '../../hooks/useCurrency';
 import { BsHeartFill } from 'react-icons/bs';
 
 const Item = ({ product }) => {
+  // Cuando el usuario haga clic en el elemento, cambie la clase 'activa' en el elemento.
   const handleClick = event => {
     event.currentTarget.classList.toggle('active');
   };
 
   const { formatter } = useCurrency();
 
+  // Devuelve un elemento de lista con un producto.
   return (
     <div className="item-list-container__item" id="item">
       <div className="item-list-container__item__image">

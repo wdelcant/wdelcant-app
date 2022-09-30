@@ -9,12 +9,13 @@ import { collection } from 'firebase/firestore';
 import { addDoc } from 'firebase/firestore';
 
 export function Register() {
-  const [error, setError] = useState();
-  const navigate = useNavigate();
+  const [error, setError] = useState(); // Estado para el error
+  const navigate = useNavigate(); // Hook para navegar entre rutas
 
-  const { signUp } = useAuth();
+  const { signUp } = useAuth(); // Se obtiene la función de inicio de sesión de la autenticación
 
   const [user, setUser] = useState({
+    // Se crea un estado para el email y otro para la contraseña
     fullName: '',
     email: '',
     repeatEmail: '',
@@ -22,11 +23,12 @@ export function Register() {
     password: '',
     password2: '',
   });
-  const { fullName, email, repeatEmail, phone, password, password2 } = user;
+  const { fullName, email, repeatEmail, phone, password, password2 } = user; // Se desestructura el objeto user
 
   const addUserDb = async data => {
+    // Función para agregar un usuario a la base de datos
     try {
-      await addDoc(collection(db, `users`), data);
+      await addDoc(collection(db, `users`), data); // Se agrega el usuario a la colección users
       setUser({
         fullName: '',
         email: '',
@@ -36,10 +38,11 @@ export function Register() {
         password2: '',
       });
     } catch (error) {
-      console.log(error);
+      setError(error.message);
     }
   };
 
+  // Alerta de registro exitoso
   const alertRegister = () => {
     const Toast = Swal.mixin({
       toast: true,
@@ -60,8 +63,9 @@ export function Register() {
   };
 
   const handleSubmit = async e => {
+    // Se evita el comportamiento por defecto del formulario
     e.preventDefault();
-    setError('');
+    setError(''); // Se limpia el estado de error
     if (user.password !== user.password2) {
       setError('Las contraseñas no coinciden');
     }
@@ -70,10 +74,11 @@ export function Register() {
     } else {
       try {
         if (recaptchaRef.current.getValue()) {
-          await signUp(user.email, user.password);
-          addUserDb(user);
-          alertRegister();
-          navigate('/');
+          // Si el captcha está validado
+          await signUp(user.email, user.password); // Se registra el usuario
+          addUserDb(user); // Se agrega el usuario a la base de datos
+          alertRegister(); // Se muestra una alerta de registro exitoso
+          navigate('/'); // Se redirige al usuario a la página principal
         } else {
           setError('Favor aceptar el captcha');
         }
@@ -90,11 +95,12 @@ export function Register() {
       }
     }
   };
-  const recaptchaRef = useRef(null);
+  const recaptchaRef = useRef(null); // Se crea una referencia para el captcha
 
   const onChange = () => {
     if (recaptchaRef.current.getValue()) {
-      setError('');
+      // Si el captcha está validado
+      setError(''); // Se elimina el error
     }
   };
 

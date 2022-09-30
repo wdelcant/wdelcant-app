@@ -13,10 +13,12 @@ const ItemDetail = ({ product }) => {
   const { addToCart } = useCartContext();
   const { formatter } = useCurrency();
 
+  //"onAdd" es una función que agrega un producto al carrito y actualiza el stock, y si el stock es 0, muestra una alerta.
   const onAdd = quantity => {
     addToCart(product, quantity);
     updateStock(product.id, product.stock - quantity);
 
+    // Comprobando si el stock es 0 y si lo es, está mostrando una alerta.
     let stock = product.stock - quantity;
     product.stock = stock;
     if (stock === 0) {
@@ -28,6 +30,7 @@ const ItemDetail = ({ product }) => {
     }
     setGoToCard(true);
 
+    // Muestra una alerta de producto agregado al carrito.
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',

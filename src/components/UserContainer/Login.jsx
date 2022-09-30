@@ -6,26 +6,30 @@ import Swal from 'sweetalert2';
 import './Login.scss';
 
 export function Login() {
+  // Se crea un estado para el email y otro para la contraseña
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
 
-  const { signIn, loginWithGoogle } = useAuth();
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
+  // Se crea una referencia para el captcha
+  const { signIn, loginWithGoogle } = useAuth(); // Se obtiene la función de inicio de sesión de la autenticación
+  const [error, setError] = useState(''); // Estado para el error
+  const navigate = useNavigate(); // Hook para navegar entre rutas
 
   const handleSubmit = async e => {
+    // Se evita el comportamiento por defecto del formulario
     e.preventDefault();
-    setError('');
+    setError(''); // Se limpia el estado de error
     try {
       if (recaptchaRef.current.getValue()) {
-        await signIn(user.email, user.password);
-        navigate('/');
+        await signIn(user.email, user.password); // Se llama a la función de inicio de sesión
+        navigate('/'); // Se navega a la ruta principal
       } else {
         setError('Favor aceptar el captcha');
       }
     } catch (error) {
+      // verifica si el código de error. Si es así, establecerá el estado de error en el mensaje de error que se está transmitiendo.
       if (error.code === 'auth/user-not-found') {
         setError('Usuario no existe');
       }
@@ -41,6 +45,7 @@ export function Login() {
     }
   };
 
+  // La función handleChange toma un objeto de evento como argumento y luego usa el objeto de evento para actualizar el objeto de usuario.
   const handleChange = ({ target: { value, name } }) => {
     setUser({
       ...user,
@@ -48,6 +53,7 @@ export function Login() {
     });
   };
 
+  // Cuando el usuario haga clic en el botón, aparecerá mensaje 'Usuario ${user.email} registrado con éxito' y desaparecerá después de 3 segundos.
   const alertRegister = () => {
     const Toast = Swal.mixin({
       toast: true,
@@ -67,11 +73,14 @@ export function Login() {
     });
   };
 
+  // Cuando el usuario hace clic en el botón de Google, se redirige a la página de inicio de sesión de Google y, si el usuario cierra la ventana, se le avisa que la ventana se cerró.
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
       alertRegister();
       navigate('/');
+      // en mobile se cierra la ventana de google
+      window.close();
     } catch (error) {
       if (error.code === 'auth/popup-closed-by-user') {
         setError('Cerraste la ventana de inicio de sesión');
@@ -79,10 +88,11 @@ export function Login() {
     }
   };
 
-  const recaptchaRef = useRef(null);
+  const recaptchaRef = useRef(null); // Se crea una referencia para el captcha
 
   const onChange = () => {
     if (recaptchaRef.current.getValue()) {
+      // Si el captcha se resuelve, se limpia el estado de error
       setError('');
     }
   };

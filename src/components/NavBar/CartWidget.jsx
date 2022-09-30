@@ -6,6 +6,7 @@ import { BiCart } from 'react-icons/bi';
 const CartWidget = () => {
   const { totalQuantity } = useCartContext();
 
+  // Devuelve un div con icono de carrito y el total de productos en el carrito
   return (
     <div className="cartwidget">
       <BiCart className="cartwidget__icon" />

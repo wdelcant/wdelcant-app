@@ -8,6 +8,7 @@ import './Checkout.scss';
 const Checkout = () => {
   const { cart, totalFinal, clearCart } = useCartContext();
   const [orderId, setOrderId] = useState();
+  // Fija el estado del comprador.
   const [buyer, setBuyer] = useState({
     name: '',
     phone: '',
@@ -18,6 +19,7 @@ const Checkout = () => {
   const { name, phone, email, dni, address } = buyer;
 
   const generateOrder = async data => {
+    //La función generateOrder es una función asíncrona que toma datos como parámetro y luego intenta crear un nuevo pedido en la base de datos, y si tiene éxito, establece el estado orderId en el del pedido recién creado, y luego limpia el carrito.
     try {
       const col = collection(db, 'orders');
       const order = await addDoc(col, data);
@@ -29,6 +31,7 @@ const Checkout = () => {
   };
 
   const handleChange = e => {
+    // Cuando el usuario escribe en el campo de entrada, el valor del campo de entrada se establece en el objeto del comprador.
     setBuyer({
       ...buyer,
       [e.target.name]: e.target.value,
@@ -36,6 +39,7 @@ const Checkout = () => {
   };
 
   const handleSubmit = e => {
+    // Cuando se envía el formulario, evita que se actualice la pagina, asigna la matriz del carrito a una nueva matriz de objetos, cree una nueva fecha, calcule el total y luego genere el pedido.
     e.preventDefault();
     const items = cart.map(e => {
       return {

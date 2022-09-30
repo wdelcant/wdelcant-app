@@ -3,6 +3,7 @@ import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { BsHeadset, BsTruck, BsPatchCheck } from 'react-icons/bs';
 
+// Devuelve un footer con enlaces seguimiento, soporte y política de privacidad.
 const FooterSecondary = () => {
   return (
     <section className="section-footer">

@@ -5,6 +5,7 @@ import { updateStock } from '../../utils/firebaseFunctions';
 import CartDetail from './CartDetail';
 
 const CartContainer = () => {
+  // Desestructuración de la función useCartContext().
   const {
     cart,
     totalPrice,
@@ -14,6 +15,7 @@ const CartContainer = () => {
     totalDiscount,
   } = useCartContext();
 
+  // Para cada producto en el carrito, actualice el stock de ese producto, luego borre el carrito.
   const handleClearCart = () => {
     cart.forEach(product => {
       updateStock(product.id, product.stock);
@@ -33,9 +35,12 @@ const CartContainer = () => {
             </Link>
           </div>
           <div className="cart__items">
-            {cart.map(product => (
-              <CartDetail key={product.id} product={product} />
-            ))}
+            {
+              //Mapear la matriz del carrito y devolver un componente CartDetail para cada producto en el carrito.
+              cart.map(product => (
+                <CartDetail key={product.id} product={product} />
+              ))
+            }
           </div>
           <div className="cart__resume">
             <li className="cart__resume--total">

@@ -6,6 +6,7 @@ import Loader from '../../hooks/useLoader';
 import './OrderDetails.scss';
 
 const OrderDetails = () => {
+  // permite usar el estado en componentes funcionales.
   const [orderFound, setOrderFound] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // loading
   const [cartHistory, setCartHistory] = useState();
@@ -18,6 +19,7 @@ const OrderDetails = () => {
 
   const { formatter } = useCurrency();
 
+// Es una función que obtiene el historial de compras de un usuario.
   const getPurchaseHistory = async () => {
     const purchaseInfo = await searchOrder(routing.orderId);
     if (purchaseInfo !== 'No order found') {
@@ -35,6 +37,7 @@ const OrderDetails = () => {
     }
     setIsLoading(false);
   };
+
   useState(() => {
     getPurchaseHistory();
   }, []);

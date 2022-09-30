@@ -14,19 +14,21 @@ const ItemListContainer = () => {
 
   const getProducts = async category => {
     try {
-      setIsLoading(true);
+      setIsLoading(true); // llama a loading
+      // Un operador ternario. Si la categoría es verdadera, consultará la base de datos para la colección de productos, y si la categoría es falsa, obtendrá la colección de productos de la base de datos.
       const document = category
         ? query(collection(db, 'products'), where('category', '==', category))
         : collection(db, 'products');
-      const col = await getDocs(document);
-      const result = col.docs.map(doc => (doc = { id: doc.id, ...doc.data() }));
+      const col = await getDocs(document); // getDocs() es una función que devuelve una promesa
+      const result = col.docs.map(doc => (doc = { id: doc.id, ...doc.data() })); // map() es una función que devuelve un nuevo array
       setProducts(result);
-      setIsLoading(false);
+      setIsLoading(false); // desactiva a loading
     } catch (error) {
       console.log(error);
     }
   };
 
+  // useEffect es un hook que se ejecuta después de que el componente se haya montado en el DOM, y luego ejecuta la función getProduct.
   useEffect(() => {
     getProducts(categoryId);
   }, [categoryId]);
@@ -39,7 +41,13 @@ const ItemListContainer = () => {
       </h3>
 
       <div className="item-list-container">
-        {isLoading ? <UseLoader /> : <ItemList productList={productList} />}
+        {
+          isLoading ? (
+            <UseLoader />
+          ) : (
+            <ItemList productList={productList} />
+          ) /* si isLoading es true, muestra UseLoader, si no, muestra ItemList */
+        }
       </div>
     </div>
   );

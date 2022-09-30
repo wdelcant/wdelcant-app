@@ -6,15 +6,17 @@ import './ResetPassword.scss';
 
 export function ResetPassword() {
   const [user, setUser] = useState({
+    // Se crea un estado para el email y otro para la contraseña
     email: '',
     password: '',
   });
 
-  const { signIn, resetPassword } = useAuth();
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const { signIn, resetPassword } = useAuth(); // Se obtiene la función de inicio de sesión de la autenticación
+  const [error, setError] = useState(''); // Estado para el error
+  const navigate = useNavigate(); // Hook para navegar entre rutas
 
   const handleSubmit = async e => {
+    // Función para manejar el submit del formulario
     e.preventDefault();
     setError('');
     try {
@@ -40,18 +42,21 @@ export function ResetPassword() {
   };
 
   const handleChange = ({ target: { value, name } }) => {
+    // La función handleChange toma un objeto de evento como argumento y luego usa el objeto de evento para actualizar el objeto de usuario.
     setUser({
+      // Se actualiza el estado de usuario
       ...user,
       [name]: value,
     });
   };
 
   const handleResetPassword = async () => {
-    if (!user.email) return setError('Favor ingrese un correo');
+    if (!user.email) return setError('Favor ingrese un correo'); // Si no hay email, se muestra un error
     try {
-      await resetPassword(user.email);
-      setError('Se enviado a su correo electrónico');
+      await resetPassword(user.email); // Se llama a la función de reseteo de contraseña
+      setError('Se enviado a su correo electrónico'); // Se muestra un mensaje de éxito
       setTimeout(() => {
+        // Se redirige al usuario a la página de login
         navigate('/login');
       }, 3000);
     } catch (error) {
@@ -59,10 +64,11 @@ export function ResetPassword() {
     }
   };
 
-  const recaptchaRef = useRef(null);
+  const recaptchaRef = useRef(null); // Se crea una referencia para el captcha
 
   const onChange = () => {
     if (recaptchaRef.current.getValue()) {
+      // Si el captcha se resuelve, se muestra el botón de submit
       setError('');
     }
   };

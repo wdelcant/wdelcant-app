@@ -12,6 +12,7 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
+  // GetProduct es una función asíncrona que toma una identificación como argumento y luego intenta obtener un documento de la colección de productos, luego establece el estado del producto en el resultado de la respuesta, luego establece el estado isLoading en falso.
   const getProduct = async id => {
     try {
       const document = doc(db, 'products', id);
@@ -24,6 +25,7 @@ const ItemDetailContainer = () => {
     }
   };
 
+// useEffect es un hook que se ejecuta después de que el componente se haya montado en el DOM, y luego ejecuta la función getProduct.
   useEffect(() => {
     getProduct(itemId);
   }, [itemId]);

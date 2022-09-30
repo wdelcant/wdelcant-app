@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Devuelve un div con una imagen, un título y un enlace a la página de inicio.
 const EmpyCart = () => {
   return (
     <div className="cart-container">

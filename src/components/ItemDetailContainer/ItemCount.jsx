@@ -1,8 +1,10 @@
 import { useCounter } from '../../hooks/useCounter';
 
 const ItemCount = ({ initial, stock, onAdd }) => {
+  // Destrucción del objeto devuelto por el gancho useCounter.
   const { counter, Add, Sub } = useCounter({ initialValue: initial });
 
+  // Función que se ejecuta cuando se hace clic en el botón de agregar.
   return (
     <div className="item__count">
       <div className="item__product">

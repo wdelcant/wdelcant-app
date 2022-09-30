@@ -14,10 +14,11 @@ import { useNavigate } from 'react-router-dom';
 
 export const authContext = createContext();
 
+// UseAuth es un enlace personalizado que devuelve el objeto de contexto del componente AuthProvider.
 export const useAuth = () => {
   const context = useContext(authContext);
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error('useAuth debe usarse dentro de un  AuthProvider');
   }
   return context;
 };
@@ -27,13 +28,21 @@ export function AuthProvider({ children }) {
   const [Loader, setLoader] = useState(true);
   const navigate = useNavigate();
 
+  // Crea un nuevo usuario con el correo electrónico y la contraseña proporcionados.
   const signUp = (email, password) =>
     createUserWithEmailAndPassword(auth, email, password);
 
+  /*
+  Toma un correo electrónico y una contraseña, y devuelve una promesa que resuelve el resultado de
+  llamar a signInWithEmailAndPassword con el correo electrónico y la contraseña proporcionados.
+  Si la autenticación es exitosa, la promesa se resuelve con un objeto de usuario.
+ */
   const signIn = (email, password) =>
     signInWithEmailAndPassword(auth, email, password);
 
   const logOut = () => {
+    /* crear una ventana emergente que le pregunta al usuario si desea cerrar la sesión. Si hacen clic en Sí, se cierra la sesión y se los
+  lleva a la página de inicio. Si hacen clic en no, no hace nada. */
     Swal.fire({
       title: 'Estas seguro?',
       icon: 'warning',
@@ -50,19 +59,23 @@ export function AuthProvider({ children }) {
     });
   };
 
+  // iniciar sesión con Google.
   const loginWithGoogle = () => {
     const googleProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleProvider);
   };
 
+  // restablecer la contraseña
   const resetPassword = email => {
     return sendPasswordResetEmail(auth, email);
   };
 
+  // Si el usuario ha iniciado sesión, devuelve la información del usuario; de lo contrario, devuelve nulo.
   const isUserLoggedIn = () => {
     return auth.currentUser;
   };
 
+  // actualizar el perfil del usuario
   useEffect(() => {
     if (isUserLoggedIn()) {
       setUser(auth.currentUser);
@@ -70,6 +83,7 @@ export function AuthProvider({ children }) {
     setLoader(false);
   }, []);
 
+  // Comprobando si el usuario ha iniciado sesión y, de ser así, se establece el usuario como el usuario actual.
   useEffect(() => {
     onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);

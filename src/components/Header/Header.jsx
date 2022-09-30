@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.scss';
 
+// Devuelve un elemento de encabezado con un elemento de sección dentro, que contiene un título y un subtítulo.
 const Header = () => {
   return (
     <header className="hero">

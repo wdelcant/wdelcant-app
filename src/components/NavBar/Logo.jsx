@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Logo.scss';
 
+// Devuelve el logo de la página
 const Logo = () => {
   return (
     <div className="logo">

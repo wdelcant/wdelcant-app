@@ -1,6 +1,7 @@
 import React from 'react';
 import './Contact.scss';
 
+// Importamos el contexto de autenticación
 const Contact = () => {
   return (
     <>

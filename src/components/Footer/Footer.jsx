@@ -4,6 +4,7 @@ import { BsFacebook, BsWhatsapp, BsTelegram, BsEnvelope } from 'react-icons/bs';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 
+// Devuelve un footer con enlaces de contacto y redes sociales.
 const Footer = () => {
   return (
     <footer className="section">
