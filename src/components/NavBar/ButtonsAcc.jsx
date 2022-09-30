@@ -3,19 +3,9 @@ import { useAuth } from '../../context/AuthContext';
 import './ButtonsAcc.scss';
 
 const ButtonsAcc = handleShow => {
-  const { logOut, user } = useAuth();
+  const { user } = useAuth();
 
-// Cuando el usuario hace clic en el botón de cierre de sesión, se llama a la función de cierre de sesión y se muestra el modal.
-  const handleLogout = async () => {
-    try {
-      await logOut();
-      handleShow();
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
-
-// Si el usuario está autenticado, se muestra el botón de cierre de sesión, de lo contrario, se muestra el botón de inicio de sesión.
+  // Si el usuario está autenticado, se muestra el botón de cierre de sesión, de lo contrario, se muestra el botón de inicio de sesión.
   return (
     <>
       {!user && (
@@ -50,13 +40,6 @@ const ButtonsAcc = handleShow => {
               aria-label="imagen flecha"
             />
           </span>
-          <li>
-            <span>
-              <button className="menu__users--logout" onClick={handleLogout}>
-                Cerrar
-              </button>
-            </span>
-          </li>
         </>
       )}
     </>

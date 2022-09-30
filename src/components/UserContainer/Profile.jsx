@@ -2,7 +2,16 @@ import { useAuth } from '../../context/AuthContext';
 import './Profile.scss';
 
 const Profile = () => {
-  const { user } = useAuth(); // Se obtiene el usuario de la autenticación
+  const { user, logOut } = useAuth(); // Se obtiene el usuario de la autenticación
+
+  // Cuando el usuario hace clic en el botón de cierre de sesión, se llama a la función de cierre de sesión y se muestra el modal.
+  const handleLogout = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   // Muestra el nombre del usuario en el perfil
   return (
@@ -21,6 +30,11 @@ const Profile = () => {
         </h2>
         <p>{user.email} </p>
         <p>ID: {user.uid}</p>
+        <div>
+          <button className="profile__content--logout" onClick={handleLogout}>
+            Cerrar Sesión
+          </button>
+        </div>
       </div>
     </div>
   );
