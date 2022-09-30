@@ -4,6 +4,7 @@ import { searchOrder } from '../../utils/firebaseFunctions';
 import useCurrency from '../../hooks/useCurrency';
 import Loader from '../../hooks/useLoader';
 import './OrderDetails.scss';
+import Swal from 'sweetalert2';
 
 const OrderDetails = () => {
   // permite usar el estado en componentes funcionales.
@@ -19,7 +20,7 @@ const OrderDetails = () => {
 
   const { formatter } = useCurrency();
 
-// Es una función que obtiene el historial de compras de un usuario.
+  // Es una función que obtiene el historial de compras de un usuario.
   const getPurchaseHistory = async () => {
     const purchaseInfo = await searchOrder(routing.orderId);
     if (purchaseInfo !== 'No order found') {
@@ -112,7 +113,16 @@ const OrderDetails = () => {
         </div>
       ) : (
         <>
-          <p>No se encontró el pedido {routing.orderId}</p>
+          {
+            // Si no se encuentra la orden, se muestra un mensaje de error.
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: `No se encontró la orden ${routing.orderId}`,
+            }).then(() => {
+              window.location.href = '/';
+            })
+          }
         </>
       )}
     </>
