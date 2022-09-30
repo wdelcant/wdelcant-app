@@ -4,7 +4,6 @@ import { Login } from './UserContainer/Login';
 import { Register } from './UserContainer/Register';
 import { CartProvider } from '../context/CartContext';
 
-import Announcement from './Announcement/Announcement';
 import NavBar from './NavBar/NavBar';
 import Header from './Header/Header';
 import Home from '../pages/Home/Home';
@@ -28,7 +27,6 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <CartProvider>
-            <Announcement />
             <NavBar />
             <Header />
             <Routes>
