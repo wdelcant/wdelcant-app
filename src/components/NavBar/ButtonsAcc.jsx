@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import './ButtonsAcc.scss';
 
-const ButtonsAcc = () => {
+const ButtonsAcc = props => {
   const { logOut, user } = useAuth();
 
   const handleLogout = async () => {
@@ -14,16 +14,16 @@ const ButtonsAcc = () => {
   };
 
   return (
-    <div className="menu__users menu__links">
+    <>
       {!user && (
         <>
           <li>
-            <Link to="/login">
+            <Link to="/login" onClick={props.handleShow}>
               <button className="menu__users--login">Iniciar</button>
             </Link>
           </li>
           <li>
-            <Link to="/register">
+            <Link to="/register" onClick={props.handleShow}>
               <button className="menu__users--register">Registrar</button>
             </Link>
           </li>
@@ -56,7 +56,7 @@ const ButtonsAcc = () => {
           </li>
         </>
       )}
-    </div>
+    </>
   );
 };
 export default ButtonsAcc;

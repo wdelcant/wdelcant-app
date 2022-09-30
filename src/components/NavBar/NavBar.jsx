@@ -114,11 +114,15 @@ const NavBar = () => {
               Contacto
             </Link>
           </li>
+          <li className="menu__item menu__users menu__users--mobile">
+            <ButtonsAcc />
+          </li>
         </ul>
 
         <Form />
-
-        <ButtonsAcc />
+        <div className="menu__users menu__users--desktop ">
+          <ButtonsAcc handleShow={handleShow} />
+        </div>
         <div>
           <BurguerButton handleShow={handleShow} show={show} />
         </div>
