@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import db from '../../utils/firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import './Checkout.scss';
+import { Swal } from 'sweetalert2';
 
 const Checkout = () => {
   const { cart, totalFinal, clearCart } = useCartContext();
@@ -26,7 +27,11 @@ const Checkout = () => {
       setOrderId(order.id);
       clearCart();
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `${error} Algo salió mal!`,
+      });
     }
   };
 

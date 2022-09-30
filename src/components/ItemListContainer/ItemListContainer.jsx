@@ -6,6 +6,7 @@ import UseLoader from '../../hooks/useLoader';
 import db from '../../utils/firebaseConfig';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import './ItemListContainer.scss';
+import { Swal } from 'sweetalert2';
 
 const ItemListContainer = () => {
   const [productList, setProducts] = useState([]); //useState([]) es un array vació
@@ -24,7 +25,11 @@ const ItemListContainer = () => {
       setProducts(result);
       setIsLoading(false); // desactiva a loading
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `${error} Algo salió mal!`,
+      });
     }
   };
 

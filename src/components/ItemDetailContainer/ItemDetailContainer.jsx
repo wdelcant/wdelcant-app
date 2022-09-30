@@ -6,6 +6,7 @@ import UseLoader from '../../hooks/useLoader';
 import db from '../../utils/firebaseConfig';
 // import products from '../../data/data';
 import './ItemDetailContainer.scss';
+import { Swal } from 'sweetalert2';
 
 const ItemDetailContainer = () => {
   const { itemId } = useParams();
@@ -21,7 +22,11 @@ const ItemDetailContainer = () => {
       setProduct(result);
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `${error} Algo salió mal!`,
+      });
     }
   };
 
