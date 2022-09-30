@@ -35,6 +35,7 @@ const NavBar = () => {
                 <Link
                   to={'/category/procesadores'}
                   className="menu__link menu__link--inside"
+                  onClick={handleShow}
                 >
                   Procesadores
                 </Link>
@@ -43,6 +44,7 @@ const NavBar = () => {
                 <Link
                   to={'/category/placasmadres'}
                   className="menu__link menu__link--inside"
+                  onClick={handleShow}
                 >
                   Placas Madres
                 </Link>
@@ -51,6 +53,7 @@ const NavBar = () => {
                 <Link
                   to={'/category/memorias'}
                   className="menu__link menu__link--inside"
+                  onClick={handleShow}
                 >
                   Memorias
                 </Link>
@@ -59,6 +62,7 @@ const NavBar = () => {
                 <Link
                   to={'/category/graficas'}
                   className="menu__link menu__link--inside"
+                  onClick={handleShow}
                 >
                   Tarjetas Gráficas
                 </Link>
@@ -67,6 +71,7 @@ const NavBar = () => {
                 <Link
                   to={'/category/almacenamiento'}
                   className="menu__link menu__link--inside"
+                  onClick={handleShow}
                 >
                   Almacenamiento
                 </Link>
@@ -75,6 +80,7 @@ const NavBar = () => {
                 <Link
                   to={'/category/gabinetes'}
                   className="menu__link menu__link--inside"
+                  onClick={handleShow}
                 >
                   Gabinetes
                 </Link>
@@ -83,6 +89,7 @@ const NavBar = () => {
                 <Link
                   to={'/category/energia'}
                   className="menu__link menu__link--inside"
+                  onClick={handleShow}
                 >
                   Fuentes de poder
                 </Link>
@@ -91,19 +98,19 @@ const NavBar = () => {
           </li>
 
           <li className="menu__item">
-            <Link to="" className="menu__link">
+            <Link to="" className="menu__link" onClick={handleShow}>
               Ofertas
             </Link>
           </li>
 
           <li className="menu__item">
-            <Link to="" className="menu__link">
+            <Link to="" className="menu__link" onClick={handleShow}>
               Servicios
             </Link>
           </li>
 
           <li className="menu__item">
-            <Link to={'/contact'} className="menu__link">
+            <Link to={'/contact'} className="menu__link" onClick={handleShow}>
               Contacto
             </Link>
           </li>
