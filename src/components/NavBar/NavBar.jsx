@@ -1,19 +1,28 @@
-import { Link } from "react-router-dom";
-import Logo from "./Logo";
-import CartWidget from "./CartWidget";
-import Form from "./Form";
-import "./NavBar.scss";
-import ButtonsAcc from "./ButtonsAcc";
+import { Link } from 'react-router-dom';
+import Logo from './Logo';
+import CartWidget from './CartWidget';
+import Form from './Form';
+import './NavBar.scss';
+import ButtonsAcc from './ButtonsAcc';
+import { useState } from 'react';
+import BurguerButton from './BurguerButton';
 
 const NavBar = () => {
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    /* Cuando el usuario hace clic en el botón, el estado de presentación se establece en el opuesto de lo que es actualmente. */
+    setShow(!show);
+  };
+
   return (
     <nav className="menu">
       <section className="menu__container">
         <Logo />
-        <ul className="menu__links">
+        <ul className={`menu__links ${show ? 'menu__links--show' : ''}`}>
           <li className="menu__item menu__item--show">
             <Link to="" className="menu__link">
-              Categorías{" "}
+              Categorías{' '}
               <img
                 src="/assets/images/arrow.svg"
                 className="menu__arrow"
@@ -24,7 +33,7 @@ const NavBar = () => {
             <ul className="menu__nesting">
               <li className="menu__inside">
                 <Link
-                  to={"/category/procesadores"}
+                  to={'/category/procesadores'}
                   className="menu__link menu__link--inside"
                 >
                   Procesadores
@@ -32,7 +41,7 @@ const NavBar = () => {
               </li>
               <li className="menu__inside">
                 <Link
-                  to={"/category/placasmadres"}
+                  to={'/category/placasmadres'}
                   className="menu__link menu__link--inside"
                 >
                   Placas Madres
@@ -40,7 +49,7 @@ const NavBar = () => {
               </li>
               <li className="menu__inside">
                 <Link
-                  to={"/category/memorias"}
+                  to={'/category/memorias'}
                   className="menu__link menu__link--inside"
                 >
                   Memorias
@@ -48,7 +57,7 @@ const NavBar = () => {
               </li>
               <li className="menu__inside">
                 <Link
-                  to={"/category/graficas"}
+                  to={'/category/graficas'}
                   className="menu__link menu__link--inside"
                 >
                   Tarjetas Gráficas
@@ -56,7 +65,7 @@ const NavBar = () => {
               </li>
               <li className="menu__inside">
                 <Link
-                  to={"/category/almacenamiento"}
+                  to={'/category/almacenamiento'}
                   className="menu__link menu__link--inside"
                 >
                   Almacenamiento
@@ -64,7 +73,7 @@ const NavBar = () => {
               </li>
               <li className="menu__inside">
                 <Link
-                  to={"/category/gabinetes"}
+                  to={'/category/gabinetes'}
                   className="menu__link menu__link--inside"
                 >
                   Gabinetes
@@ -72,7 +81,7 @@ const NavBar = () => {
               </li>
               <li className="menu__inside">
                 <Link
-                  to={"/category/energia"}
+                  to={'/category/energia'}
                   className="menu__link menu__link--inside"
                 >
                   Fuentes de poder
@@ -94,7 +103,7 @@ const NavBar = () => {
           </li>
 
           <li className="menu__item">
-            <Link to={"/contact"} className="menu__link">
+            <Link to={'/contact'} className="menu__link">
               Contacto
             </Link>
           </li>
@@ -103,16 +112,20 @@ const NavBar = () => {
         <Form />
 
         <ButtonsAcc />
-        <div className="menu__hamburguer">
+        <div className="menu__hamburguer" show={show} onClick={handleShow}>
+          <BurguerButton />
+        </div>
+        {/* 
+        <div className="menu__hamburguer" show={show} onClick={handleShow}>
           <img
             src="/assets/images/menu.svg"
             className="menu__img"
             aria-label="imagen de menu"
           />
-        </div>
+        </div> */}
         <div>
           <Link to="/cart">
-            {" "}
+            {' '}
             <CartWidget />
           </Link>
         </div>

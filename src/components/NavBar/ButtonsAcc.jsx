@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
-import "./ButtonsAcc.scss";
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import './ButtonsAcc.scss';
 
 const ButtonsAcc = () => {
   const { logOut, user } = useAuth();
@@ -33,9 +33,20 @@ const ButtonsAcc = () => {
         <>
           <li>
             <Link to="/profile">
-              <img className="menu__users--profile" src={user.photoURL || "/assets/images/profile.png"} alt="" />
+              <img
+                className="menu__users--profile"
+                src={user.photoURL || '/assets/images/profile.png'}
+                alt=""
+              />
             </Link>
           </li>
+          <span>
+            <img
+              src="/assets/images/arrow.svg"
+              className="menu__users--arrow"
+              aria-label="imagen flecha"
+            />
+          </span>
           <li>
             <span>
               <button className="menu__users--logout" onClick={handleLogout}>
