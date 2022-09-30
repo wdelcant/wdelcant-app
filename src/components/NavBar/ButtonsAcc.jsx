@@ -19,8 +19,9 @@ const ButtonsAcc = handleShow => {
                   <p className="menu__users--desktop--text">Iniciar Sesión</p>
                 </div>
               </div>
+
               <div className="menu__users--mobile">
-                <BiUser className="menu__users--mobile--icon" />
+                <BiUser className="menu__users--icon" />
               </div>
             </button>
           </Link>
@@ -28,22 +29,25 @@ const ButtonsAcc = handleShow => {
       )}
       {user && (
         <>
-          <li>
-            <Link to="/profile">
-              <img
-                className="menu__users--profile"
-                src={user.photoURL || '/assets/images/profile.png'}
-                alt=""
-              />
-            </Link>
-          </li>
-          <span>
-            <img
-              src="/assets/images/arrow.svg"
-              className="menu__users--arrow"
-              aria-label="imagen flecha"
-            />
-          </span>
+          <Link to="/profile">
+            <button className="menu__users">
+              <div className="menu__users--profile">
+                <img
+                  className="menu__users--profile--img"
+                  src={user.photoURL || '/assets/images/profile.png'}
+                  alt=""
+                />
+
+                <span>
+                  <img
+                    src="/assets/images/arrow.svg"
+                    className="menu__users--arrow"
+                    aria-label="imagen flecha"
+                  />
+                </span>
+              </div>
+            </button>
+          </Link>
         </>
       )}
     </>
