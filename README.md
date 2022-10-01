@@ -7,7 +7,7 @@ con autentificación y un resumen de la compra.
 
 ### Gif de Navegación (Click en la imagen)
 
-[![Click Me](https://i.ibb.co/5kW0KJK/WStore.png)](https://youtu.be/yGG9DDP0N4E)
+[![Click Me](https://github.com/wdelcant/wdelcant-app/raw/main/public/assets/images/fullscreen.png)](https://youtu.be/yGG9DDP0N4E)
 
 # Proyecto realizado con React v18.2.0 y Firebase 9.10.0
 
