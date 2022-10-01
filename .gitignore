@@ -28,3 +28,4 @@ yarn-error.log*
 
 # ocultar assets/images/products
 /public/assets/images/products
+/ases/images/products
