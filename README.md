@@ -2,7 +2,7 @@
 
 ### Proyecto de tienda online de computation.
 
-El proyecto puede realizar una simulación de compra de componentes de computacion
+El proyecto puede realizar una simulación de compra de componentes de computación
 con autentificación y un resumen de la compra.
 
 ### Gif de Navegación (Click en la imagen)
