@@ -2,6 +2,9 @@
 
 ### Proyecto de tienda online de computation.
 
+El proyecto puede realizar una simulación de compra de componentes de computacion
+con autentificación y un resumen de la compra.
+
 ### Gif de Navegación (Click en la imagen)
 
 [![Click Me](https://i.ibb.co/5kW0KJK/WStore.png)](https://youtu.be/yGG9DDP0N4E)
